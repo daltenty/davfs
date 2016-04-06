@@ -1,15 +1,30 @@
 #define FUSE_USE_VERSION 30
 
-#include <iostream>
+#ifdef ___APPLE__
+#define _DARWIN_FEATURE_64_BIT_INODE
+#endif
+
+#if __STDC_VERSION__ >= 199901L
+#define _XOPEN_SOURCE 600
+#else
+#define _XOPEN_SOURCE 500
+#endif /* __STDC_VERSION__ */
+
+#define _BSD_SOURCE
+
+#include <stdlib.h>
+#include <stdio.h>
 #include <fuse.h>
 #include <unistd.h>
 #include <sys/mount.h>
+#include <string.h>
+#include <errno.h>
+#include <pthread.h>
 
 #include "diskstructures.h"
 
 #define LOGFILE "/tmp/davfs"
 
-using namespace std;
 
 char *devicepath;
 int blockdevice;
@@ -19,18 +34,18 @@ pthread_mutex_t logmutex = PTHREAD_MUTEX_INITIALIZER;
 FILE *logfile;
 
 
-void log(const char *string) {
+void davfslog(const char *string) {
     time_t now=time(0);
-    tm *time=localtime(&now);
+    struct tm *time=localtime(&now);
     pthread_mutex_lock(&logmutex);
     fprintf(logfile,"%s: %s\n",asctime(time),string);
     fflush(logfile);
     pthread_mutex_unlock(&logmutex);
 }
 
-void log(const char *string1,const char *string2) {
+void davfslogstr(const char *string1,const char *string2) {
     time_t now=time(0);
-    tm *time=localtime(&now);
+    struct tm *time=localtime(&now);
     pthread_mutex_lock(&logmutex);
     fprintf(logfile,"%s: %s%s\n",asctime(time),string1,string2);
     fflush(logfile);
@@ -38,7 +53,7 @@ void log(const char *string1,const char *string2) {
 }
 
 int traversepath(const char *path, dirent *dir) {
-    log("Traversing path ",path);
+    davfslogstr("Traversing path ", path);
     char *pathsegment;
     char *pathbuff=(char*)malloc(strlen(path)+1);
     dirpair pair;
@@ -69,7 +84,7 @@ int traversepath(const char *path, dirent *dir) {
 }
 
 static int davfs_getattr(const char *path, struct stat *stbuf) {
-    log("Checking attributes on ",path);
+    davfslogstr("Checking attributes on ", path);
 //    struct stat { /* when _DARWIN_FEATURE_64_BIT_INODE is defined */
 //        dev_t           st_dev;           /* ID of device containing file */
 //        mode_t          st_mode;          /* Mode of file (see below) */
@@ -107,12 +122,12 @@ static int davfs_getattr(const char *path, struct stat *stbuf) {
 }
 
 static int davfs_access(const char *path, int mask) {
-    log("Checking access on ",path);
+    davfslogstr("Checking access on ", path);
     return 0; // FIXME: path existance
 }
 
 static int davfs_readlink(const char *path, char *buf, size_t size) {
-    log("Reading link ",path);
+    davfslogstr("Reading link ", path);
     return -EINVAL; // we don't do symbolic links
 }
 
@@ -134,17 +149,18 @@ static int davfs_chmod(const char *path, mode_t mode){
 
 static int davfs_read(const char *path, char *buf, size_t size, off_t offset,
                     struct fuse_file_info *fi) {
-    log("Reading ",path);
+    davfslogstr("Reading ", path);
     return -EINVAL;
 }
 
 static int davfs_open(const char *path, struct fuse_file_info *fi) {
-    log("Opening ",path);
+    davfslogstr("Opening ", path);
     return -EACCES;
 }
 
 static int davfs_readdir(const char* path, void* buf, fuse_fill_dir_t filler, off_t offset, struct fuse_file_info* fi)
-{   log("Reading directory: ", path);
+{
+    davfslogstr("Reading directory: ", path);
     if (strcmp(path, "/") != 0)
         return -ENOENT;
 
@@ -156,7 +172,7 @@ static int davfs_readdir(const char* path, void* buf, fuse_fill_dir_t filler, of
 }
 
 static int davfs_statfs(const char *path, struct statvfs *stbuf) {
-    log("Statfs called");
+    davfslog("Statfs called");
     stbuf->f_bsize=BLOCKSIZE*8;
     stbuf->f_bavail=super.numblocks-2; //FIXME: evil
     stbuf->f_blocks=super.numblocks;
@@ -222,18 +238,19 @@ int main(int argc, char *argv[]) {
     blockdevice=open(devicepath,O_RDWR);
     read(blockdevice,&super, BLOCKSIZE);
     if (strcmp("DAVFS",super.magic)!=0) {
-        cerr << "Invalid filesystem header" << endl;
+        fprintf(stderr,"Invalid filesystem header\n");
+        exit(1);
     } else {
-        cout << "Good davfs signature" << endl;
-        cout << "Block count: " << super.numblocks << endl;
+        printf("Good davfs signature\n");
+        printf("Block count: %ld\n", super.numblocks);
     }
 
-    log("DAVFS Starting");
+    davfslog("DAVFS Starting");
 
 
     umask(0);
     fuse_main(args.argc, args.argv, &davfsops, NULL);
-    log("DAVFS Stopping");
+    davfslog("DAVFS Stopping");
     close(blockdevice);
     return 0;
 }

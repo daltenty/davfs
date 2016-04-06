@@ -2,8 +2,8 @@
 // Created by David Tenty on 2016-04-05.
 //
 
-#include <cstdlib>
-#include <cstring>
+#include <stdlib.h>
+#include <string.h>
 #include <assert.h>
 #include "diskstructures.h"
 

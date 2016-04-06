@@ -5,6 +5,8 @@
 #ifndef DAVFS_DISKSTRUCTURES_H
 #define DAVFS_DISKSTRUCTURES_H
 
+#include <stdint.h>
+
 #define BLOCKSIZE 512
 #define NAMELEN 251
 

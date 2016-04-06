@@ -2,19 +2,28 @@
 // Created by David Tenty
 //
 
+#ifdef ___APPLE__
 #define _DARWIN_FEATURE_64_BIT_INODE
+#endif
 
-#include <iostream>
+#if __STDC_VERSION__ >= 199901L
+#define _XOPEN_SOURCE 600
+#else
+#define _XOPEN_SOURCE 500
+#endif /* __STDC_VERSION__ */
+
+#include <stdio.h>
 #include <unistd.h>
 #include <fcntl.h>
 #include <sys/ioctl.h>
+#include <string.h>
 #include <sys/stat.h>
+#include <stdlib.h>
 #include "diskstructures.h"
 
-using namespace std;
 
 void usage(char *argv[]) {
-    cerr << "Usage: " << argv[0] << " [device or filename]" << endl;
+    fprintf(stderr, "Usage: %s [device or filename]\n", argv[0]);
 }
 
 int main(int argc,char *argv[]) {
@@ -32,9 +41,9 @@ int main(int argc,char *argv[]) {
     struct stat diskstat;
     stat(argv[1],&diskstat);
 
-    cout << argv[0] << ": creating filesystem on " << argv[1] << endl;
-    cout << "blocksize: " << BLOCKSIZE << " bytes"  << endl;
-    cout << "count: " << diskstat.st_blocks << " blocks" << endl;
+    printf("%s: creating filesystem on %s\n",argv[0], argv[1]);
+    printf("blocksize: %d bytes\n", BLOCKSIZE);
+    printf("count: %ld blocks\n", diskstat.st_blocks);
 
     // create superblock
     initsuperblock(super,diskstat.st_blocks);
@@ -56,7 +65,7 @@ int main(int argc,char *argv[]) {
     if ((diskstat.st_blocks*sizeof(blockptr) % BLOCKSIZE) != 0) // round to the nearest whole block
         fatsize++;
 
-    cout << "FAT requires: " << fatsize << " blocks" << endl;
+    printf("FAT requires: %ld blocks\n", fatsize);
     for (int i=0; i < fatsize; i++) {
         write(disk,zeroblock,BLOCKSIZE);
     }

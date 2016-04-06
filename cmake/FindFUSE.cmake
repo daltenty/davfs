@@ -58,7 +58,6 @@ set(PC_FUSE_INCLUDE_DIRS )
 set(PC_FUSE_LIBRARY_DIRS )
 if(PKG_CONFIG_FOUND)
     pkg_check_modules(PC_FUSE "fuse" QUIET)
-    message(${PC_FUSE_LIBRARY_DIRS})
     if(PC_FUSE_FOUND)
         # fusedebug(PC_FUSE_LIBRARIES)
         # fusedebug(PC_FUSE_LIBRARY_DIRS)
@@ -71,12 +70,14 @@ if(PKG_CONFIG_FOUND)
     endif(PC_FUSE_FOUND)
 endif(PKG_CONFIG_FOUND)
 
+
 find_path(
         FUSE_INCLUDE_DIRS
         NAMES fuse_common.h fuse_lowlevel.h fuse.h
         PATHS "${PC_FUSE_INCLUDE_DIRS}"
         DOC "Include directories for FUSE"
 )
+
 
 if(NOT FUSE_INCLUDE_DIRS)
     set(FUSE_FOUND FALSE)
