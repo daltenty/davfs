@@ -85,31 +85,12 @@ int traversepath(const char *path, dirent *dir) {
 
 static int davfs_getattr(const char *path, struct stat *stbuf) {
     davfslogstr("Checking attributes on ", path);
-//    struct stat { /* when _DARWIN_FEATURE_64_BIT_INODE is defined */
-//        dev_t           st_dev;           /* ID of device containing file */
-//        mode_t          st_mode;          /* Mode of file (see below) */
-//        nlink_t         st_nlink;         /* Number of hard links */
-//        ino_t           st_ino;           /* File serial number */
-//        uid_t           st_uid;           /* User ID of the file */
-//        gid_t           st_gid;           /* Group ID of the file */
-//        dev_t           st_rdev;          /* Device ID */
-//        struct timespec st_atimespec;     /* time of last access */
-//        struct timespec st_mtimespec;     /* time of last data modification */
-//        struct timespec st_ctimespec;     /* time of last status change */
-//        struct timespec st_birthtimespec; /* time of file creation(birth) */
-//        off_t           st_size;          /* file size, in bytes */
-//        blkcnt_t        st_blocks;        /* blocks allocated for file */
-//        blksize_t       st_blksize;       /* optimal blocksize for I/O */
-//        uint32_t        st_flags;         /* user defined flags for file */
-//        uint32_t        st_gen;           /* file generation number */
-//        int32_t         st_lspare;        /* RESERVED: DO NOT USE! */
-//        int64_t         st_qspare[2];     /* RESERVED: DO NOT USE! */
-//    };
     memset(stbuf,0,sizeof(struct stat));
     dirent entry;
     if (strcmp(path, "/") == 0) {
         stbuf->st_mode = S_IFDIR | 0755;
         stbuf->st_nlink = 1;
+        davfslog("Read root");
     } else {
         int exit=traversepath(path,&entry);
         if (exit < 0)
@@ -118,7 +99,7 @@ static int davfs_getattr(const char *path, struct stat *stbuf) {
         stbuf->st_mode = entry.type==DAV_DIR ? (S_IFDIR | 0755) : (S_IFREG | 0755);
         stbuf->st_nlink = 2;
     }
-    return -ENOENT;
+    return 0;
 }
 
 static int davfs_access(const char *path, int mask) {
@@ -252,5 +233,6 @@ int main(int argc, char *argv[]) {
     fuse_main(args.argc, args.argv, &davfsops, NULL);
     davfslog("DAVFS Stopping");
     close(blockdevice);
+    fclose(logfile);
     return 0;
 }
