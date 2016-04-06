@@ -1,0 +1,13 @@
+cmake_minimum_required(VERSION 3.4)
+project(davfs)
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
+find_package(FUSE REQUIRED)
+include_directories(${FUSE_INCLUDE_DIRS})
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${FUSE_DEFINITIONS} -std=c++11")
+
+set(SOURCE_FILES mountdavfs.cpp helper.cpp)
+link_directories(/usr/local/lib/)
+add_executable(davfs ${SOURCE_FILES})
+add_executable(mkdavfs mkdavfs.cpp helper.cpp)
+target_link_libraries(davfs ${FUSE_LIBRARIES})
+target_link_libraries(davfs osxfuse)
