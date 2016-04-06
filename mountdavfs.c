@@ -4,6 +4,7 @@
 #define _DARWIN_FEATURE_64_BIT_INODE
 #endif
 
+#ifdef __LINUX__
 #if __STDC_VERSION__ >= 199901L
 #define _XOPEN_SOURCE 600
 #else
@@ -11,6 +12,7 @@
 #endif /* __STDC_VERSION__ */
 
 #define _BSD_SOURCE
+#endif
 
 #include <stdlib.h>
 #include <stdio.h>
