@@ -241,6 +241,8 @@ static int davfs_create(const char *path, mode_t mode, struct fuse_file_info *fi
         newfile.ptr=fatnewchain();
         newfile.type=DAV_FILE;
         strcpy(newfile.name,base);
+
+        ret=addInDirectory(&directory,&newfile);
     }
 
     free(pathbuff);
