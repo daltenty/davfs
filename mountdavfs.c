@@ -4,7 +4,7 @@
 #define _DARWIN_FEATURE_64_BIT_INODE
 #endif
 
-#ifdef __LINUX__
+#ifdef __linux__
 #if __STDC_VERSION__ >= 199901L
 #define _XOPEN_SOURCE 600
 #else
@@ -289,8 +289,8 @@ int main(int argc, char *argv[]) {
     fatsize = fatSize(&super);
 
     //load the FAT into memory
-    malloc(BLOCKSIZE*fatsize);
-    read(blockdevice,&fat,BLOCKSIZE*fatsize);
+    fat=(blockptr*)malloc(BLOCKSIZE*fatsize);
+    read(blockdevice,fat,BLOCKSIZE*fatsize);
 
     // build root directory
     strcpy(rootdir.name,"/");
