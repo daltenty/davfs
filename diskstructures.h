@@ -8,7 +8,7 @@
 #include <stdint.h>
 
 #define BLOCKSIZE 512
-#define NAMELEN 251
+#define NAMELEN 247
 
 typedef uint32_t blockptr;
 
@@ -34,6 +34,7 @@ typedef struct  {
 typedef struct {
     char name[NAMELEN];
     uint8_t type;
+    uint32_t size;
     blockptr ptr;
 } dirent;
 

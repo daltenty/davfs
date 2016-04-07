@@ -12,6 +12,7 @@
 
 #define LOGFILE "/tmp/davfs"
 #define PERM_MODE 0777
+#define MAXHANDLES 1024
 
 extern char *devicepath;
 extern int blockdevice;
@@ -23,6 +24,7 @@ extern FILE *logfile;
 extern int64_t fatsize;
 extern dirent rootdir;
 extern blockptr *fat;
-
+extern blockptr filehandles[];
+extern uint32_t nexthandle;
 
 #endif //DAVFS_GLOBALS_H

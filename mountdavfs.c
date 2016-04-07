@@ -28,6 +28,7 @@
 #include "diskstructures.h"
 #include "logging.h"
 #include "fatoperations.h"
+#include "blockoperations.h"
 
 #define LOGFILE "/tmp/davfs"
 #define PERM_MODE 0777
@@ -35,12 +36,23 @@
 char *devicepath;
 int blockdevice;
 superblock super;
-pthread_mutex_t diskmutex = PTHREAD_MUTEX_INITIALIZER;
 pthread_mutex_t logmutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t handlesmutex = PTHREAD_MUTEX_INITIALIZER;
 FILE *logfile;
 int64_t fatsize;
 dirent rootdir;
+blockptr filehandles[MAXHANDLES];
+uint32_t nexthandle=0;
 
+uint32_t gethandle() {
+    uint32_t handle;
+    pthread_mutex_lock(&handlesmutex);
+    handle=nexthandle;
+    nexthandle++;
+    nexthandle=nexthandle%MAXHANDLES;
+    pthread_mutex_unlock(&handlesmutex);
+    return handle;
+}
 
 /*
  * Given a directory and name, search for the entry in the directory
@@ -59,10 +71,7 @@ int findInDirectory(const char *name, const dirent *dir, dirent *result) {
     blockptr searchblock=dir->ptr;
     do {
         //load the directory pair
-        pthread_mutex_lock(&diskmutex);
-        lseek(blockdevice, BLOCKSIZE * searchblock, SEEK_SET);
-        read(blockdevice, &pair, BLOCKSIZE);
-        pthread_mutex_unlock(&diskmutex);
+        readblock(&pair, searchblock);
 
         for (int i = 0; i < 2; i++) {
             if (pair.entries[i].type != DAV_INVALID && strcmp(pair.entries[i].name, name) == 0) {
@@ -135,7 +144,8 @@ static int davfs_getattr(const char *path, struct stat *stbuf) {
 
     // populate the stat structure
     stbuf->st_mode = entry.type==DAV_DIR ? (S_IFDIR | PERM_MODE) : (S_IFREG | PERM_MODE);
-    stbuf->st_nlink = 2;
+    stbuf->st_nlink = 1;
+    stbuf->st_size=entry.size;
 
     return 0;
 }
@@ -155,7 +165,7 @@ static int davfs_mkdir(const char *path, mode_t mode) {
         return ret;
 
     // get and zero new directory block
-    newdir.ptr= fatnewchain();
+    newdir.ptr=fatnewchain();
     pthread_mutex_lock(&diskmutex);
     lseek(blockdevice, BLOCKSIZE * newdir.ptr, SEEK_SET);
     write(blockdevice, &zeroblock, BLOCKSIZE);
@@ -174,18 +184,12 @@ static int davfs_mkdir(const char *path, mode_t mode) {
     do {
         davfslognum("Search block: ", searchblock);
         //load the directory pair
-        pthread_mutex_lock(&diskmutex);
-        lseek(blockdevice, BLOCKSIZE * searchblock, SEEK_SET);
-        read(blockdevice, &pair, BLOCKSIZE);
-        pthread_mutex_unlock(&diskmutex);
+        readblock(&pair,searchblock);
 
         for (int i = 0; i < 2; i++) {
             if (pair.entries[i].type == DAV_INVALID) {
                 memcpy(pair.entries + i, &newdir, sizeof(dirent));
-                pthread_mutex_lock(&diskmutex);
-                lseek(blockdevice, BLOCKSIZE * searchblock, SEEK_SET);
-                write(blockdevice, &pair, BLOCKSIZE);
-                pthread_mutex_unlock(&diskmutex);
+                writeblock(&pair, searchblock);
 
                 return 0;
             }
@@ -198,10 +202,7 @@ static int davfs_mkdir(const char *path, mode_t mode) {
     searchblock = fatextendblocks(previousblock);
     dirpair newpair;
     memcpy(newpair.entries, &newdir, sizeof(dirent));
-    pthread_mutex_lock(&diskmutex);
-    lseek(blockdevice, BLOCKSIZE * searchblock, SEEK_SET);
-    write(blockdevice, &newpair, BLOCKSIZE);
-    pthread_mutex_unlock(&diskmutex);
+    writeblock(&newpair,searchblock);
 
     return 0;
 }
@@ -237,12 +238,47 @@ static int davfs_chmod(const char *path, mode_t mode){
 static int davfs_read(const char *path, char *buf, size_t size, off_t offset,
                     struct fuse_file_info *fi) {
     davfslogstr("Reading ", path);
-    return -EINVAL;
+    blockptr blocktoread=filehandles[fi->fh];
+    char buffer[BLOCKSIZE];
+    int blockcount=0;
+    dirent entry;
+
+    traversepath(path,&rootdir,&entry);
+    size_t realsize=(entry.size-offset) >= size ? size : entry.size-offset;
+    size_t remaining=realsize;
+
+    do {
+        if (blockcount >= offset/BLOCKSIZE) {
+            int blockoff = blockcount == offset/BLOCKSIZE ? offset % BLOCKSIZE : 0;
+            readblock(&buffer,blocktoread);
+            if (remaining > BLOCKSIZE - blockoff) {
+                memcpy(buf + (realsize - remaining), buffer + blockoff, BLOCKSIZE - blockoff);
+                remaining -= BLOCKSIZE;
+            } else {
+                memcpy(buf + (realsize - remaining), buffer + blockoff, remaining);
+                return 0;
+            }
+        }
+        blocktoread= fatlookup(blocktoread);
+        blockcount++;
+    } while (blocktoread!=DAV_EOF);
+
+
+    return realsize;
 }
 
 static int davfs_open(const char *path, struct fuse_file_info *fi) {
     davfslogstr("Opening ", path);
-    return -EACCES;
+    dirent file;
+
+    int ret=traversepath(path,&rootdir,&file);
+    if (ret<0)
+        return ret;
+
+    fi->fh=gethandle();
+
+    filehandles[fi->fh]=file.ptr;
+    return 0;
 }
 
 static int davfs_readdir(const char* path, void* buf, fuse_fill_dir_t filler, off_t offset, struct fuse_file_info* fi)
@@ -264,10 +300,7 @@ static int davfs_readdir(const char* path, void* buf, fuse_fill_dir_t filler, of
 
     do {
         //load the directory pair
-        pthread_mutex_lock(&diskmutex);
-        lseek(blockdevice, BLOCKSIZE * searchblock, SEEK_SET);
-        read(blockdevice, &pair, BLOCKSIZE);
-        pthread_mutex_unlock(&diskmutex);
+        readblock(&pair,searchblock);
 
         for (int i = 0; i < 2; i++) {
             if (pair.entries[i].type != DAV_INVALID) {
@@ -283,6 +316,11 @@ static int davfs_readdir(const char* path, void* buf, fuse_fill_dir_t filler, of
     return 0;
 }
 
+static int davfs_release(const char *flags, struct fuse_file_info *fi) {
+    filehandles[fi->fh]=0;
+    return 0;
+}
+
 static int davfs_statfs(const char *path, struct statvfs *stbuf) {
     davfslog("Statfs called");
     stbuf->f_bsize=BLOCKSIZE*8;
@@ -295,11 +333,30 @@ static int davfs_statfs(const char *path, struct statvfs *stbuf) {
 
 }
 
+static int davfs_create(const char *path, mode_t mode, struct fuse_file_info *fi) {
+    char *pathbuff=strdup(path);
+
+    char *base=basename(pathbuff);
+    char *dir=dirname(pathbuff);
+
+    dirent directory;
+
+    int ret=traversepath(dir,&rootdir,&directory);
+
+    if (ret==0) {
+        // create file
+    }
+
+    free(pathbuff);
+    return ret;
+}
+
 static struct fuse_operations davfsops = {
         .getattr	= davfs_getattr,
         .access		= davfs_access,
         .readlink	= davfs_readlink,
         .readdir	= davfs_readdir,
+        .create     = davfs_create,
 //        .mknod		= davfs_mknod,
         .mkdir		= davfs_mkdir,
 //        .symlink	= davfs_symlink,
@@ -315,7 +372,7 @@ static struct fuse_operations davfsops = {
         .read		= davfs_read,
 //        .write		= xmp_write,
 //        .statfs		= davfs_statfs,
-//        .release	= xmp_release,
+        .release	= davfs_release,
 //        .fsync		= xmp_fsync,
 };
 
