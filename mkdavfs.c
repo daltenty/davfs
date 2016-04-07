@@ -66,6 +66,7 @@ int main(int argc, char *argv[]) {
     blockptr *fat=malloc(fatsize*BLOCKSIZE);
     for (int i=0; i < OFFSET_FAT+fatsize; i++) {
         fat[i]=DAV_SPECIAL;
+        printf("reserving block: %d\n",i);
     }
     fat[OFFSET_FAT+fatsize]=DAV_EOF; // allocate the root directory
     write(disk,fat,BLOCKSIZE*fatsize);
