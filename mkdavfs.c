@@ -63,9 +63,13 @@ int main(int argc, char *argv[]) {
     int64_t fatsize = fatSize(super);
 
     printf("FAT requires: %ld blocks\n", fatsize);
-    for (int i=0; i < fatsize; i++) {
-        write(disk,zeroblock,BLOCKSIZE);
+    blockptr *fat=malloc(fatsize*BLOCKSIZE);
+    for (int i=0; i < OFFSET_FAT+fatsize; i++) {
+        fat[i]=DAV_SPECIAL;
     }
+    fat[OFFSET_FAT+fatsize]=DAV_EOF; // allocate the root directory
+    write(disk,fat,BLOCKSIZE*fatsize);
+
 
     // allocate root directory
     write(disk,zeroblock,BLOCKSIZE);

@@ -12,7 +12,9 @@
 
 typedef uint32_t blockptr;
 
-#define DAV_EOF 0x00000000
+#define DAV_UNALLOCATED 0x00000000
+#define DAV_EOF 0x00000001
+#define DAV_SPECIAL 0xFFFFFFFF
 
 #define DAV_INVALID 0x00
 #define DAV_DIR 0x01
