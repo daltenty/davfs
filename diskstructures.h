@@ -23,8 +23,6 @@ typedef uint32_t blockptr;
 #define OFFSET_SUPERBLOCK 0
 #define OFFSET_FAT 1
 
-
-
 typedef struct  {
     char magic[8]; // "DAVFS"
     uint64_t numblocks;

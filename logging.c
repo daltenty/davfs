@@ -4,6 +4,9 @@
 
 #include "logging.h"
 
+pthread_mutex_t logmutex = PTHREAD_MUTEX_INITIALIZER;
+FILE *logfile;
+
 void davfslog(const char *string) {
     pthread_mutex_lock(&logmutex);
     fprintf(logfile,"%s\n",string);

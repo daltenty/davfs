@@ -23,12 +23,12 @@
 #include <errno.h>
 #include <pthread.h>
 #include <libgen.h>
-#include <assert.h>
 
 #include "diskstructures.h"
 #include "logging.h"
 #include "fatoperations.h"
 #include "blockoperations.h"
+#include "directoryoperations.h"
 
 #define LOGFILE "/tmp/davfs"
 #define PERM_MODE 0777
@@ -36,9 +36,9 @@
 char *devicepath;
 int blockdevice;
 superblock super;
-pthread_mutex_t logmutex = PTHREAD_MUTEX_INITIALIZER;
+
 pthread_mutex_t handlesmutex = PTHREAD_MUTEX_INITIALIZER;
-FILE *logfile;
+
 int64_t fatsize;
 dirent rootdir;
 blockptr filehandles[MAXHANDLES];
@@ -54,91 +54,13 @@ uint32_t gethandle() {
     return handle;
 }
 
-/*
- * Given a directory and name, search for the entry in the directory
- *
- * /param name the name to search for
- * /param dir the directory to search
- * /param result the dirent to fill with results
- * /return zero if successful, -errno elsewise
- */
-int findInDirectory(const char *name, const dirent *dir, dirent *result) {
-    assert(strcmp(name,"")!=0); // filenames cannot be blank
-    davfslogstr("Searching for entry ", name);
-    dirpair pair;
-
-
-    blockptr searchblock=dir->ptr;
-    do {
-        //load the directory pair
-        readblock(&pair, searchblock);
-
-        for (int i = 0; i < 2; i++) {
-            if (pair.entries[i].type != DAV_INVALID && strcmp(pair.entries[i].name, name) == 0) {
-                memcpy(result, pair.entries + i, sizeof(dirent));
-                return 0;
-            }
-        }
-
-        searchblock= fatlookup(searchblock);
-    } while (searchblock!=DAV_EOF);
-
-    return -ENOENT;
-}
-
-/*
- * Given a partial path search for the directory entry
- * relative to base
- *
- * /param path the partial path to search for
- * /param base the dir to search
- * /param dir the dirent to fill with results
- * /return zero if successful, -errno elsewise
- */
-int traversepath(const char *path, const dirent *base, dirent *dir) {
-    //davfslogstr("Traversing path ", path);
-    dirent basedir;
-
-    // check if we are searching for the root dir
-    if (strcmp(path,"/")==0) {
-        assert(base==&rootdir);
-        memcpy(dir, base, sizeof(dirent));
-        return 0;
-    }
-
-    // slice the path into head and tail
-    char *headbuff=strdup(path);
-
-    char *head=headbuff+1;
-    char *tail=NULL;
-
-    char *sep=index(head, '/');
-    if (sep!=NULL) {
-        *sep = '\0';
-         tail= index(path + 1, '/');
-    }
-
-    int ret = findInDirectory(head, base, &basedir);
-    free(headbuff);
-    if (ret < 0) {
-        return ret; // not found
-    }
-    else if (tail!=NULL) {
-        return traversepath(tail, &basedir, dir); // recurse on tail
-    }
-    else {
-        memcpy(dir,&basedir, sizeof(dirent)); // found
-        return 0;
-    }
-}
-
 static int davfs_getattr(const char *path, struct stat *stbuf) {
     davfslogstr("Checking attributes on ", path);
     memset(stbuf,0,sizeof(struct stat));
 
     // lookup the directory entry
     dirent entry;
-    int exit=traversepath(path,&rootdir,&entry);
+    int exit= traversepath(path, &rootdir, &entry);
     if (exit < 0)
         return exit;
 
@@ -160,51 +82,19 @@ static int davfs_mkdir(const char *path, mode_t mode) {
     char *dirn=dirname(buff);
 
     // look up root dir
-    int ret=traversepath(dirn,&rootdir,&basedir);
+    int ret= traversepath(dirn, &rootdir, &basedir);
     if (ret < 0)
         return ret;
 
     // get and zero new directory block
     newdir.ptr=fatnewchain();
-    pthread_mutex_lock(&diskmutex);
-    lseek(blockdevice, BLOCKSIZE * newdir.ptr, SEEK_SET);
-    write(blockdevice, &zeroblock, BLOCKSIZE);
-    pthread_mutex_unlock(&diskmutex);
-
+    writeblock(&zeroblock,newdir.ptr);
     newdir.type=DAV_DIR;
     strcpy(newdir.name,basename(buff));
     free(buff);
 
     davfslogstr("Dirname: ", newdir.name);
-
-    dirpair pair;
-
-    blockptr previousblock;
-    blockptr searchblock=basedir.ptr;
-    do {
-        davfslognum("Search block: ", searchblock);
-        //load the directory pair
-        readblock(&pair,searchblock);
-
-        for (int i = 0; i < 2; i++) {
-            if (pair.entries[i].type == DAV_INVALID) {
-                memcpy(pair.entries + i, &newdir, sizeof(dirent));
-                writeblock(&pair, searchblock);
-
-                return 0;
-            }
-        }
-
-        previousblock=searchblock;
-        searchblock= fatlookup(searchblock);
-    } while (searchblock!=DAV_EOF);
-
-    searchblock = fatextendblocks(previousblock);
-    dirpair newpair;
-    memcpy(newpair.entries, &newdir, sizeof(dirent));
-    writeblock(&newpair,searchblock);
-
-    return 0;
+    return addInDirectory(&basedir,&newdir);
 }
 
 static int davfs_access(const char *path, int mask) {
@@ -271,7 +161,7 @@ static int davfs_open(const char *path, struct fuse_file_info *fi) {
     davfslogstr("Opening ", path);
     dirent file;
 
-    int ret=traversepath(path,&rootdir,&file);
+    int ret= traversepath(path, &rootdir, &file);
     if (ret<0)
         return ret;
 
@@ -286,7 +176,7 @@ static int davfs_readdir(const char* path, void* buf, fuse_fill_dir_t filler, of
     davfslogstr("Reading directory: ", path);
     dirent dir;
 
-    int ret=traversepath(path,&rootdir,&dir);
+    int ret= traversepath(path, &rootdir, &dir);
     if (ret < 0)
         return ret;
 
@@ -341,10 +231,16 @@ static int davfs_create(const char *path, mode_t mode, struct fuse_file_info *fi
 
     dirent directory;
 
-    int ret=traversepath(dir,&rootdir,&directory);
+    int ret= traversepath(dir, &rootdir, &directory);
 
     if (ret==0) {
         // create file
+        dirent newfile;
+
+        newfile.size=0;
+        newfile.ptr=fatnewchain();
+        newfile.type=DAV_FILE;
+        strcpy(newfile.name,base);
     }
 
     free(pathbuff);
