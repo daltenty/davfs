@@ -15,3 +15,10 @@ void initsuperblock(superblock *super, uint64_t blockcount) {
     assert(sizeof(dirent)*2==BLOCKSIZE);
 }
 
+int64_t fatSize(const superblock *super) {// create file allocation table
+    int64_t fatsize=super->numblocks*sizeof(blockptr) / BLOCKSIZE;
+
+    if ((super->numblocks*sizeof(blockptr) % BLOCKSIZE) != 0) // round to the nearest whole block
+        fatsize++;
+    return fatsize;
+}

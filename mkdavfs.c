@@ -26,7 +26,9 @@ void usage(char *argv[]) {
     fprintf(stderr, "Usage: %s [device or filename]\n", argv[0]);
 }
 
-int main(int argc,char *argv[]) {
+
+
+int main(int argc, char *argv[]) {
     superblock *super=(superblock*)malloc(sizeof(superblock));
     char zeroblock[BLOCKSIZE];
 
@@ -58,12 +60,7 @@ int main(int argc,char *argv[]) {
     if (write(disk,super, sizeof(superblock)) != sizeof(superblock)) {
         perror("Error writing superblock");
     }
-
-    // create file allocation table
-    int64_t fatsize=diskstat.st_blocks*sizeof(blockptr) / BLOCKSIZE;
-
-    if ((diskstat.st_blocks*sizeof(blockptr) % BLOCKSIZE) != 0) // round to the nearest whole block
-        fatsize++;
+    int64_t fatsize = fatSize(super);
 
     printf("FAT requires: %ld blocks\n", fatsize);
     for (int i=0; i < fatsize; i++) {

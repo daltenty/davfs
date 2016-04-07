@@ -18,6 +18,11 @@ typedef uint32_t blockptr;
 #define DAV_DIR 0x01
 #define DAV_FILE 0x02
 
+#define OFFSET_SUPERBLOCK 0
+#define OFFSET_FAT 1
+
+
+
 typedef struct  {
     char magic[8]; // "DAVFS"
     uint64_t numblocks;
@@ -35,6 +40,7 @@ typedef struct {
 } dirpair;
 
 void initsuperblock(superblock *super, uint64_t blockcount);
+int64_t fatSize(const superblock *super);
 
 
 #endif //DAVFS_DISKSTRUCTURES_H
