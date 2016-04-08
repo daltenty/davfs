@@ -157,6 +157,71 @@ static int davfs_read(const char *path, char *buf, size_t size, off_t offset,
     return realsize;
 }
 
+static int davfs_write(const char *path, const char *buff, size_t size, off_t offset,
+              struct fuse_file_info *fi) {
+    davfslogstr("Writing ",path);
+    int blockcount=0;
+    size_t remaining=size;
+
+
+    //update the directory record with the new size
+    dirent file,containingdir;
+    char *strbuff=strdup(path);
+    char *base=basename(strbuff);
+    char *dir=dirname(strbuff);
+    traversepath(path,&rootdir,&file);
+
+    int newbytes=offset+size-file.size;
+
+    if (newbytes > 0) {
+        file.size+=newbytes;
+        traversepath(dir,&rootdir,&containingdir);
+        updateDirectory(base,&rootdir,&file);
+    }
+
+    //computer the offsets
+    int blockoffset=offset/BLOCKSIZE;
+    blockptr startingblock=getblock(filehandles[fi->fh],blockoffset);
+    int headoffset=offset%BLOCKSIZE; //offset into the first block
+    int tailoffset=(offset+size)/BLOCKSIZE;
+
+    // read the first partial block
+    char buffer[BLOCKSIZE];
+    readblock(buffer,startingblock);
+    if (size < BLOCKSIZE) {
+        memcpy(buffer + headoffset, buff, BLOCKSIZE-headoffset-tailoffset);
+        remaining-=BLOCKSIZE-headoffset-tailoffset;
+    } else {
+        memcpy(buffer + headoffset, buff, BLOCKSIZE-headoffset);
+        remaining-=BLOCKSIZE-headoffset;
+    }
+    writeblock(buffer,startingblock);
+
+    blockptr curblock=startingblock,previousblock;
+
+
+    while (remaining > 0) {
+        // extend the chain if required
+        previousblock=curblock;
+        curblock=fatlookup(previousblock);
+        if (curblock==DAV_EOF)
+            curblock=fatextendblocks(previousblock);
+
+        if (remaining < BLOCKSIZE) {
+            readblock(buffer,curblock);
+            memcpy(buffer,buff+size-remaining,remaining);
+            writeblock(buffer,curblock);
+            remaining=0;
+        } else {
+            writeblock(buff+size-remaining,BLOCKSIZE);
+            remaining-=BLOCKSIZE;
+        }
+    }
+
+    free(strbuff);
+    return size;
+}
+
 static int davfs_open(const char *path, struct fuse_file_info *fi) {
     davfslogstr("Opening ", path);
     dirent file;
@@ -223,6 +288,23 @@ static int davfs_statfs(const char *path, struct statvfs *stbuf) {
 
 }
 
+static int davfs_truncate(const char *path, off_t size) {
+    dirent entry,dir;
+    char *strbuf=strdup(path);
+    char *base=basename(strbuf);
+    char *dirstr=dirname(strbuf);
+
+    int ret=traversepath(path,&rootdir,&entry);
+
+    if (ret==0) {
+        traversepath(dirstr,&rootdir,&dir);
+        entry.size = size;
+        updateDirectory(base,&dir,&entry);
+    }
+    free(strbuf);
+    return ret;
+}
+
 static int davfs_create(const char *path, mode_t mode, struct fuse_file_info *fi) {
     char *pathbuff=strdup(path);
 
@@ -264,11 +346,11 @@ static struct fuse_operations davfsops = {
 //        .link		= xmp_link,
 //        .chmod		= davfs_chmod,
 //        .chown		= davfs_chown,
-//        .truncate	= xmp_truncate,
+        .truncate	= davfs_truncate,
 
         .open		= davfs_open,
         .read		= davfs_read,
-//        .write		= xmp_write,
+        .write		= davfs_write,
 //        .statfs		= davfs_statfs,
         .release	= davfs_release,
 //        .fsync		= xmp_fsync,

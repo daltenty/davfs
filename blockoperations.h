@@ -7,7 +7,7 @@
 
 #include "globals.h"
 
-void writeblock(void *data, blockptr location);
+void writeblock(const void *data, blockptr location);
 void readblock(void *data, blockptr block);
 
 #endif //DAVFS_BLOCKOPERATIONS_H

@@ -13,6 +13,39 @@
 #include "fatoperations.h"
 
 /*
+ * Given a directory and name, update the entry in the directory
+ *
+ * /param name the name to search for
+ * /param dir the directory to search
+ * /param entry the dirent to update
+ * /return zero if successful, -errno elsewise
+ */
+int updateDirectory(const char *name, const dirent *dir, const dirent *entry) {
+    assert(strcmp(name, "") != 0); // filenames cannot be blank
+    davfslogstr("Updating entry ", name);
+    dirpair pair;
+
+
+    blockptr searchblock=dir->ptr;
+    do {
+        //load the directory pair
+        readblock(&pair, searchblock);
+
+        for (int i = 0; i < 2; i++) {
+            if (pair.entries[i].type != DAV_INVALID && strcmp(pair.entries[i].name, name) == 0) {
+                memcpy(pair.entries + i, entry,sizeof(dirent));
+                writeblock(&pair,searchblock);
+                return 0;
+            }
+        }
+
+        searchblock= fatlookup(searchblock);
+    } while (searchblock!=DAV_EOF);
+
+    return -ENOENT;
+}
+
+/*
  * Given a directory and name, search for the entry in the directory
  *
  * /param name the name to search for

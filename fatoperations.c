@@ -2,6 +2,7 @@
 // Created by David Tenty on 2016-04-07.
 //
 
+#include <unistd.h>
 #include "logging.h"
 #include "fatoperations.h"
 #include "diskstructures.h"
@@ -23,6 +24,10 @@ blockptr fatextendblocks(const blockptr entry) {
             break;
         }
     }
+    pthread_mutex_lock(&diskmutex);
+    lseek(blockdevice,OFFSET_FAT,SEEK_SET);
+    write(blockdevice,fat,fatsize*BLOCKSIZE);
+    pthread_mutex_unlock(&diskmutex);
     pthread_mutex_unlock(&fatmutex);
     davfslognum("Extended chain to include block ", i);
     return i;
@@ -37,7 +42,19 @@ blockptr fatnewchain() {
             break;
         }
     }
+    pthread_mutex_lock(&diskmutex);
+    lseek(blockdevice,OFFSET_FAT,SEEK_SET);
+    write(blockdevice,fat,fatsize*BLOCKSIZE);
+    pthread_mutex_unlock(&diskmutex);
     pthread_mutex_unlock(&fatmutex);
     davfslognum("Creating chain on block ", i);
     return i;
+}
+
+blockptr getblock(blockptr start, int n) {
+    blockptr ret=start;
+    for (int i=0; i < n; i++) {
+        ret=fatlookup(ret);
+    }
+    return ret;
 }
