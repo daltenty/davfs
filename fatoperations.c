@@ -25,7 +25,7 @@ blockptr fatextendblocks(const blockptr entry) {
         }
     }
     pthread_mutex_lock(&diskmutex);
-    lseek(blockdevice,OFFSET_FAT,SEEK_SET);
+    lseek(blockdevice,OFFSET_FAT*BLOCKSIZE,SEEK_SET);
     write(blockdevice,fat,fatsize*BLOCKSIZE);
     pthread_mutex_unlock(&diskmutex);
     pthread_mutex_unlock(&fatmutex);
@@ -43,7 +43,7 @@ blockptr fatnewchain() {
         }
     }
     pthread_mutex_lock(&diskmutex);
-    lseek(blockdevice,OFFSET_FAT,SEEK_SET);
+    lseek(blockdevice,OFFSET_FAT*BLOCKSIZE,SEEK_SET);
     write(blockdevice,fat,fatsize*BLOCKSIZE);
     pthread_mutex_unlock(&diskmutex);
     pthread_mutex_unlock(&fatmutex);
