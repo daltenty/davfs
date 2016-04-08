@@ -37,10 +37,11 @@ char *devicepath;
 int blockdevice;
 superblock super;
 
-pthread_mutex_t handlesmutex = PTHREAD_MUTEX_INITIALIZER;
+//pthread_mutex_t handlesmutex = PTHREAD_MUTEX_INITIALIZER;
 
 int64_t fatsize;
 dirent rootdir;
+/*
 blockptr filehandles[MAXHANDLES];
 uint32_t nexthandle=0;
 
@@ -51,8 +52,8 @@ uint32_t gethandle() {
     nexthandle++;
     nexthandle=nexthandle%MAXHANDLES;
     pthread_mutex_unlock(&handlesmutex);
-    return handle;
-}
+   return handle;
+}*/
 
 static int davfs_getattr(const char *path, struct stat *stbuf) {
     davfslogstr("Checking attributes on ", path);
@@ -128,12 +129,13 @@ static int davfs_chmod(const char *path, mode_t mode){
 static int davfs_read(const char *path, char *buf, size_t size, off_t offset,
                     struct fuse_file_info *fi) {
     davfslogstr("Reading ", path);
-    blockptr blocktoread=filehandles[fi->fh];
+
     char buffer[BLOCKSIZE];
     int blockcount=0;
     dirent entry;
 
     traversepath(path,&rootdir,&entry);
+    blockptr blocktoread=entry.ptr;
     size_t realsize=(entry.size-offset) >= size ? size : entry.size-offset;
     size_t remaining=realsize;
 
@@ -181,9 +183,9 @@ static int davfs_write(const char *path, const char *buff, size_t size, off_t of
 
     //computer the offsets
     int blockoffset=offset/BLOCKSIZE;
-    blockptr startingblock=getblock(filehandles[fi->fh],blockoffset);
+    blockptr startingblock=getblock(file.ptr,blockoffset);
     int headoffset=offset%BLOCKSIZE; //offset into the first block
-    int tailoffset=(offset+size)/BLOCKSIZE;
+    int tailoffset=BLOCKSIZE-((offset+size)%BLOCKSIZE);
 
     // read the first partial block
     char buffer[BLOCKSIZE];
@@ -230,9 +232,9 @@ static int davfs_open(const char *path, struct fuse_file_info *fi) {
     if (ret<0)
         return ret;
 
-    fi->fh=gethandle();
+    //fi->fh=gethandle();
 
-    filehandles[fi->fh]=file.ptr;
+    //filehandles[fi->fh]=file.ptr;
     return 0;
 }
 
@@ -272,7 +274,7 @@ static int davfs_readdir(const char* path, void* buf, fuse_fill_dir_t filler, of
 }
 
 static int davfs_release(const char *flags, struct fuse_file_info *fi) {
-    filehandles[fi->fh]=0;
+    //filehandles[fi->fh]=0;
     return 0;
 }
 

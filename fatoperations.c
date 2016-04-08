@@ -53,6 +53,8 @@ blockptr fatnewchain() {
 
 blockptr getblock(blockptr start, int n) {
     blockptr ret=start;
+    if (n==0)
+        return ret;
     for (int i=0; i < n; i++) {
         ret=fatlookup(ret);
     }
