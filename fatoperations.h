@@ -11,5 +11,6 @@ blockptr fatlookup(const blockptr entry);
 blockptr fatextendblocks(const blockptr entry);
 blockptr fatnewchain();
 blockptr getblock(blockptr start, int n);
+void freechain(blockptr start);
 
 #endif //DAVFS_FATOPERATIONS_H

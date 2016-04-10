@@ -333,6 +333,48 @@ static int davfs_create(const char *path, mode_t mode, struct fuse_file_info *fi
     return ret;
 }
 
+static int davfs_unlink(const char *path) {
+    davfslogstr("Removing ",path);
+    dirent file,containingdir;
+    int ret=traversepath(path,&rootdir,&file);
+    if (ret < 0)
+        return ret;
+
+    // remove from directory
+    char *buff=strdup(path);
+    char *base=basename(buff);
+    char *dirn=dirname(buff);
+    traversepath(dirn,&rootdir,&containingdir);
+    removeFromDirectory(base,&containingdir);
+
+    // free blocks
+    freechain(file.ptr);
+
+    free(buff);
+    return 0;
+}
+
+static int davfs_rmdir(const char *path) {
+    davfslogstr("Removing ",path);
+    dirent dir,containingdir;
+    int ret=traversepath(path,&rootdir,&dir);
+    if (ret < 0)
+        return ret;
+
+    // remove from directory
+    char *buff=strdup(path);
+    char *base=basename(buff);
+    char *dirn=dirname(buff);
+    traversepath(dirn,&rootdir,&containingdir);
+    ret=removeFromDirectory(base,&containingdir);
+
+    // free blocks
+    freechain(dir.ptr);
+
+    free(buff);
+    return ret;
+}
+
 static struct fuse_operations davfsops = {
         .getattr	= davfs_getattr,
         .access		= davfs_access,
@@ -342,8 +384,8 @@ static struct fuse_operations davfsops = {
 //        .mknod		= davfs_mknod,
         .mkdir		= davfs_mkdir,
 //        .symlink	= davfs_symlink,
-//        .unlink		= xmp_unlink,
-//        .rmdir		= xmp_rmdir,
+        .unlink		= davfs_unlink,
+        .rmdir		= davfs_rmdir,
 //        .rename		= xmp_rename,
 //        .link		= xmp_link,
 //        .chmod		= davfs_chmod,
@@ -365,6 +407,7 @@ static int davfs_opt_proc(void *data, const char *arg, int key, struct fuse_args
     }
     return 1;
 }
+
 
 
 int main(int argc, char *argv[]) {

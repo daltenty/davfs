@@ -114,6 +114,21 @@ int addInDirectory(const dirent *directory, const dirent *entry) {
     return 0;
 }
 
+int removeFromDirectory(const char *name, const dirent *dir) {
+    dirent entry;
+    char *strbuff=(char*)malloc(strlen(name)+2);
+    strcpy(strbuff+1,name);
+    strbuff[0]='/';
+    int ret=traversepath(strbuff,dir,&entry);
+    free(strbuff);
+    if (ret < 0)
+        return ret;
+
+    entry.type=DAV_INVALID;
+    return updateDirectory(name,dir,&entry);
+
+}
+
 /*
  * Given a partial path search for the directory entry
  * relative to base
