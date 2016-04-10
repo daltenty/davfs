@@ -148,7 +148,7 @@ static int davfs_read(const char *path, char *buf, size_t size, off_t offset,
                 remaining -= BLOCKSIZE;
             } else {
                 memcpy(buf + (realsize - remaining), buffer + blockoff, remaining);
-                return 0;
+                return realsize;
             }
         }
         blocktoread= fatlookup(blocktoread);

@@ -3,6 +3,7 @@
 //
 
 #include <unistd.h>
+#include <assert.h>
 #include "logging.h"
 #include "fatoperations.h"
 #include "diskstructures.h"
@@ -58,5 +59,6 @@ blockptr getblock(blockptr start, int n) {
     for (int i=0; i < n; i++) {
         ret=fatlookup(ret);
     }
+    assert(ret>fatsize); // we shouldn't be returning a reserved block
     return ret;
 }
