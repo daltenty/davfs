@@ -54,7 +54,8 @@ int updateDirectory(const char *name, const dirent *dir, const dirent *entry) {
  * /return zero if successful, -errno elsewise
  */
 int findInDirectory(const char *name, const dirent *dir, dirent *result) {
-    assert(strcmp(name, "") != 0); // filenames cannot be blank
+    if(strcmp(name, "") == 0)
+        return -EBADF;
     davfslogstr("Searching for entry ", name);
     dirpair pair;
 
