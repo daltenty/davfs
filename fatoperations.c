@@ -78,16 +78,17 @@ int fatnewchain(blockptr *newchain) {
 
 int getblock(blockptr start, int n, blockptr *end, int extend) {
     int ret;
-    blockptr next=start;
+    blockptr next=start,previous;
     if (n==0) {
         *end=next;
         return 0;
     }
     for (int i=0; i < n; i++) {
+        previous=next;
         next=fatlookup(next);
         if (next==DAV_EOF) {
             if (extend) {
-                ret = fatextendblocks(next, &next);
+                ret = fatextendblocks(previous, &next);
                 if (ret < 0)
                     return ret;
             } else {

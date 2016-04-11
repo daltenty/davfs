@@ -409,7 +409,7 @@ int davfs_mount(int device) {
     fatsize = fatSize(&super);
 
     //load the FAT into memory
-    fat=(blockptr*)malloc(BLOCKSIZE*fatsize);
+    fat=(blockptr*)calloc(BLOCKSIZE,fatsize);
     read(blockdevice,fat,BLOCKSIZE*fatsize);
     fatinit();
 

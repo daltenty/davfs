@@ -40,7 +40,7 @@ int davfs_initialize(int disk, uint32_t numblocks) {
     int64_t fatsize = fatSize(super);
 
     //printf("FAT requires: %ld blocks\n", fatsize);
-    blockptr *fat=malloc(fatsize*BLOCKSIZE);
+    blockptr *fat=calloc(fatsize,BLOCKSIZE);
     for (int i=0; i < OFFSET_FAT+fatsize; i++) {
         fat[i]=DAV_SPECIAL;
         //printf("reserving block: %d\n",i);
