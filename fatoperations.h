@@ -8,9 +8,10 @@
 #include "globals.h"
 
 blockptr fatlookup(const blockptr entry);
-blockptr fatextendblocks(const blockptr entry);
-blockptr fatnewchain();
-blockptr getblock(blockptr start, int n);
+int fatextendblocks(blockptr entry, blockptr *newblock);
+int fatnewchain(blockptr *newchain);
+int getblock(blockptr start, int n, blockptr *end, int extend);
+void fatinit();
 void freechain(blockptr start);
 
 #endif //DAVFS_FATOPERATIONS_H

@@ -4,18 +4,32 @@
 
 #include <unistd.h>
 #include <assert.h>
+#include <errno.h>
 #include "logging.h"
 #include "fatoperations.h"
 #include "diskstructures.h"
 
 pthread_mutex_t fatmutex = PTHREAD_MUTEX_INITIALIZER;
 blockptr *fat;
+uint32_t freeblocks;
+
+void writefat();
+
+void fatinit() {
+    freeblocks=0;
+    for (int i=0; i < super.numblocks; i++) {
+        if (fat[i]==DAV_UNALLOCATED)
+            freeblocks++;
+    }
+}
 
 blockptr fatlookup(const blockptr entry) {
     return fat[entry];
 }
 
-blockptr fatextendblocks(const blockptr entry) {
+int fatextendblocks(blockptr entry, blockptr *newblock) {
+    if (freeblocks==0)
+        return -ENOSPC;
     blockptr i;
     pthread_mutex_lock(&fatmutex);
     for (i=0; i < super.numblocks; i ++) {
@@ -25,13 +39,12 @@ blockptr fatextendblocks(const blockptr entry) {
             break;
         }
     }
-    pthread_mutex_lock(&diskmutex);
-    lseek(blockdevice,OFFSET_FAT*BLOCKSIZE,SEEK_SET);
-    write(blockdevice,fat,fatsize*BLOCKSIZE);
-    pthread_mutex_unlock(&diskmutex);
+    writefat();
+    freeblocks--;
     pthread_mutex_unlock(&fatmutex);
     davfslognum("Extended chain to include block ", i);
-    return i;
+    *newblock=i;
+    return 0;
 }
 
 /*
@@ -44,7 +57,9 @@ void writefat() {
     pthread_mutex_unlock(&diskmutex);
 }
 
-blockptr fatnewchain() {
+int fatnewchain(blockptr *newchain) {
+    if (freeblocks==0)
+        return -ENOSPC;
     blockptr i;
     pthread_mutex_lock(&fatmutex);
     for (i=0; i < super.numblocks; i ++) {
@@ -54,20 +69,35 @@ blockptr fatnewchain() {
         }
     }
     writefat();
+    freeblocks--;
     pthread_mutex_unlock(&fatmutex);
     davfslognum("Creating chain on block ", i);
-    return i;
+    *newchain=i;
+    return 0;
 }
 
-blockptr getblock(blockptr start, int n) {
-    blockptr ret=start;
-    if (n==0)
-        return ret;
-    for (int i=0; i < n; i++) {
-        ret=fatlookup(ret);
+int getblock(blockptr start, int n, blockptr *end, int extend) {
+    int ret;
+    blockptr next=start;
+    if (n==0) {
+        *end=next;
+        return 0;
     }
-    assert(ret>fatsize); // we shouldn't be returning a reserved block
-    return ret;
+    for (int i=0; i < n; i++) {
+        next=fatlookup(next);
+        if (next==DAV_EOF) {
+            if (extend) {
+                ret = fatextendblocks(next, &next);
+                if (ret < 0)
+                    return ret;
+            } else {
+                return -EINVAL;
+            }
+        }
+    }
+    assert(next>fatsize); // we shouldn't be returning a reserved block
+    *end=next;
+    return 0;
 }
 
 void freechain(blockptr start) {
@@ -78,6 +108,7 @@ void freechain(blockptr start) {
         current=next;
         next=fatlookup(current);
         fat[current]=DAV_UNALLOCATED;
+        freeblocks++;
     } while (next != DAV_EOF);
     writefat();
     pthread_mutex_unlock(&fatmutex);

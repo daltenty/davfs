@@ -26,5 +26,6 @@ extern dirent rootdir;
 extern blockptr *fat;
 extern blockptr filehandles[];
 extern uint32_t nexthandle;
+extern uint32_t freeblocks;;
 
 #endif //DAVFS_GLOBALS_H

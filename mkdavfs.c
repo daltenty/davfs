@@ -18,6 +18,7 @@
 #include <sys/ioctl.h>
 #include <string.h>
 #include <sys/stat.h>
+#include <sys/disk.h>
 #include <stdlib.h>
 #include "diskstructures.h"
 
@@ -42,15 +43,34 @@ int main(int argc, char *argv[]) {
     // check the properties to determine if file or blockdevice
     struct stat diskstat;
     stat(argv[1],&diskstat);
-
-    printf("%s: creating filesystem on %s\n",argv[0], argv[1]);
-    printf("blocksize: %d bytes\n", BLOCKSIZE);
-    printf("count: %ld blocks\n", diskstat.st_blocks);
-
-    // create superblock
-    initsuperblock(super,diskstat.st_blocks);
+    uint32_t numblocks;
 
     int disk=open(argv[1],O_WRONLY,S_IRWXU);
+
+    printf("%s: creating filesystem on %s which is a ",argv[0], argv[1]);
+    if (diskstat.st_mode & S_IFREG) {
+        printf("file\n");
+        numblocks=diskstat.st_blocks; // FIXME: fix for variable blocksize
+    } else if (diskstat.st_mode & S_IFBLK) {
+        printf("blockdevice\n");
+        #ifdef __linux__
+            ioctl(disk, BLKGETSIZE, &numblocks);
+        #else
+            ioctl(disk,DKIOCGETBLOCKCOUNT, &numblocks);
+        #endif
+    } else {
+        fprintf(stderr,"Invalid device\n");
+        exit(1);
+    }
+
+    printf("blocksize: %d bytes\n", BLOCKSIZE);
+    printf("count: %d blocks\n", numblocks);
+
+    // create superblock
+    initsuperblock(super,numblocks);
+
+
+
 
     if (disk == -1) {
         perror("Error opening disk");
@@ -66,7 +86,7 @@ int main(int argc, char *argv[]) {
     blockptr *fat=malloc(fatsize*BLOCKSIZE);
     for (int i=0; i < OFFSET_FAT+fatsize; i++) {
         fat[i]=DAV_SPECIAL;
-        printf("reserving block: %d\n",i);
+        //printf("reserving block: %d\n",i);
     }
     fat[OFFSET_FAT+fatsize]=DAV_EOF; // allocate the root directory
     write(disk,fat,BLOCKSIZE*fatsize);

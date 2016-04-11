@@ -23,6 +23,7 @@
 #include <errno.h>
 #include <pthread.h>
 #include <libgen.h>
+#include <assert.h>
 
 #include "diskstructures.h"
 #include "logging.h"
@@ -88,11 +89,16 @@ static int davfs_mkdir(const char *path, mode_t mode) {
         return ret;
 
     // get and zero new directory block
-    newdir.ptr=fatnewchain();
-    writeblock(&zeroblock,newdir.ptr);
-    newdir.type=DAV_DIR;
-    strcpy(newdir.name,basename(buff));
-    free(buff);
+    ret= fatnewchain(&newdir.ptr);
+    if (ret==0) {
+        writeblock(&zeroblock, newdir.ptr);
+        newdir.type = DAV_DIR;
+        strcpy(newdir.name, basename(buff));
+        free(buff);
+    } else {
+        free(buff);
+        return ret;
+    }
 
     davfslogstr("Dirname: ", newdir.name);
     return addInDirectory(&basedir,&newdir);
@@ -183,7 +189,12 @@ static int davfs_write(const char *path, const char *buff, size_t size, off_t of
 
     //computer the offsets
     int blockoffset=offset/BLOCKSIZE;
-    blockptr startingblock=getblock(file.ptr,blockoffset);
+    blockptr startingblock;
+    int ret=getblock(file.ptr, blockoffset, &startingblock, TRUE);
+    if (ret < 0) {
+        free(strbuff);
+        return ret;
+    }
     int headoffset=offset%BLOCKSIZE; //offset into the first block
     int tailoffset=BLOCKSIZE-((offset+size)%BLOCKSIZE);
 
@@ -206,9 +217,11 @@ static int davfs_write(const char *path, const char *buff, size_t size, off_t of
         // extend the chain if required
         previousblock=curblock;
         curblock=fatlookup(previousblock);
-        if (curblock==DAV_EOF)
-            curblock=fatextendblocks(previousblock);
-
+        if (curblock==DAV_EOF) {
+            ret= fatextendblocks(previousblock, &curblock);
+            if (ret <0)
+                return ret;
+        }
         if (remaining < BLOCKSIZE) {
             readblock(buffer,curblock);
             memcpy(buffer,buff+size-remaining,remaining);
@@ -281,9 +294,9 @@ static int davfs_release(const char *flags, struct fuse_file_info *fi) {
 static int davfs_statfs(const char *path, struct statvfs *stbuf) {
     davfslog("Statfs called");
     stbuf->f_bsize=BLOCKSIZE*8;
-    stbuf->f_bavail=super.numblocks-2; //FIXME: evil
+    stbuf->f_bavail=freeblocks;
     stbuf->f_blocks=super.numblocks;
-    stbuf->f_files=10;
+    stbuf->f_files=10; // FIXME: lies
     stbuf->f_ffree=1000;
     stbuf->f_namemax=NAMELEN;
     return 0;
@@ -300,6 +313,7 @@ static int davfs_truncate(const char *path, off_t size) {
 
     if (ret==0) {
         traversepath(dirstr,&rootdir,&dir);
+        assert(size <= entry.size);
         entry.size = size;
         updateDirectory(base,&dir,&entry);
     }
@@ -322,11 +336,13 @@ static int davfs_create(const char *path, mode_t mode, struct fuse_file_info *fi
         dirent newfile;
 
         newfile.size=0;
-        newfile.ptr=fatnewchain();
-        newfile.type=DAV_FILE;
-        strcpy(newfile.name,base);
+        ret=fatnewchain(&newfile.ptr);
+        if (ret==0) {
+            newfile.type = DAV_FILE;
+            strcpy(newfile.name, base);
 
-        ret=addInDirectory(&directory,&newfile);
+            ret = addInDirectory(&directory, &newfile);
+        }
     }
 
     free(pathbuff);
@@ -386,18 +402,14 @@ static struct fuse_operations davfsops = {
 //        .symlink	= davfs_symlink,
         .unlink		= davfs_unlink,
         .rmdir		= davfs_rmdir,
-//        .rename		= xmp_rename,
-//        .link		= xmp_link,
 //        .chmod		= davfs_chmod,
 //        .chown		= davfs_chown,
         .truncate	= davfs_truncate,
-
         .open		= davfs_open,
         .read		= davfs_read,
         .write		= davfs_write,
-//        .statfs		= davfs_statfs,
+        .statfs		= davfs_statfs,
         .release	= davfs_release,
-//        .fsync		= xmp_fsync,
 };
 
 static int davfs_opt_proc(void *data, const char *arg, int key, struct fuse_args *outargs) {
@@ -447,6 +459,7 @@ int main(int argc, char *argv[]) {
     //load the FAT into memory
     fat=(blockptr*)malloc(BLOCKSIZE*fatsize);
     read(blockdevice,fat,BLOCKSIZE*fatsize);
+    fatinit();
 
     // build root directory
     strcpy(rootdir.name,"/");

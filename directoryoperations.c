@@ -106,7 +106,9 @@ int addInDirectory(const dirent *directory, const dirent *entry) {
     } while (searchblock!=DAV_EOF);
 
     // got to EOF, need to extend directory chain
-    searchblock=fatextendblocks(prevblock);
+    int ret=fatextendblocks(prevblock, &searchblock);
+    if (ret < 0)
+        return ret;
     memset(&pair,0, sizeof(dirpair));
     memcpy(pair.entries,entry, sizeof(dirent));
     writeblock(&pair,searchblock);
