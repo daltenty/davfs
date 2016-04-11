@@ -115,6 +115,8 @@ int davfs_read(const char *path, char *buf, size_t size, off_t offset,
 
     traversepath(path,&rootdir,&entry);
     blockptr blocktoread=entry.ptr;
+    char blockbuffer[500000];
+    printchain(entry.ptr,blockbuffer);
     size_t realsize=(entry.size-offset) >= size ? size : entry.size-offset;
     size_t remaining=realsize;
 
@@ -127,6 +129,7 @@ int davfs_read(const char *path, char *buf, size_t size, off_t offset,
                 remaining -= BLOCKSIZE;
             } else {
                 memcpy(buf + (realsize - remaining), buffer + blockoff, remaining);
+                printf("%s\t%s\t%s\t%s\n",path,"R",blockbuffer,"Success");
                 return realsize;
             }
         }
@@ -134,7 +137,7 @@ int davfs_read(const char *path, char *buf, size_t size, off_t offset,
         blockcount++;
     } while (blocktoread!=DAV_EOF);
 
-
+    printf("%s\t%s\t%s\t%s\n",path,"R",blockbuffer,"Success");
     return realsize;
 }
 
@@ -151,6 +154,7 @@ int davfs_write(const char *path, const char *buff, size_t size, off_t offset,
     char *base=basename(strbuff);
     char *dir=dirname(strbuff);
     int ret=traversepath(path,&rootdir,&file);
+    char blockbuffer[500000];
     if (ret < 0) {
         free(strbuff);
         return ret;
@@ -170,6 +174,8 @@ int davfs_write(const char *path, const char *buff, size_t size, off_t offset,
     ret=getblock(file.ptr, blockoffset, &startingblock, TRUE);
     if (ret < 0) {
         free(strbuff);
+        printchain(file.ptr,blockbuffer);
+        printf("%s\t%s\t%s\t%s\n",path,"W",blockbuffer,"DiskFull");
         return ret;
     }
     int headoffset=offset%BLOCKSIZE; //offset into the first block
@@ -196,8 +202,11 @@ int davfs_write(const char *path, const char *buff, size_t size, off_t offset,
         curblock=fatlookup(previousblock);
         if (curblock==DAV_EOF) {
             ret= fatextendblocks(previousblock, &curblock);
-            if (ret <0)
+            if (ret <0) {
+                printchain(file.ptr,blockbuffer);
+                printf("%s\t%s\t%s\t%s\n",path,"W",blockbuffer,"DiskFull");
                 return ret;
+            }
         }
         if (remaining < BLOCKSIZE) {
             readblock(buffer,curblock);
@@ -209,7 +218,8 @@ int davfs_write(const char *path, const char *buff, size_t size, off_t offset,
             remaining-=BLOCKSIZE;
         }
     }
-
+    printchain(file.ptr,blockbuffer);
+    printf("%s\t%s\t%s\t%s\n",path,"W",blockbuffer,"Success");
     free(strbuff);
     return size;
 }
@@ -299,6 +309,13 @@ int davfs_truncate(const char *path, off_t size) {
 }
 
 int davfs_create(const char *path, mode_t mode, struct fuse_file_info *fi) {
+    dirent file;
+    char blockbuffer[500000];
+    int ret=traversepath(path,&rootdir,&file);
+    if (ret==0) {
+        return -EEXIST;
+        printf("%s\t%s\t%s\t%s\n",path,"C","","FileExists");
+    }
     char *pathbuff=strdup(path);
 
     char *base=basename(pathbuff);
@@ -306,7 +323,7 @@ int davfs_create(const char *path, mode_t mode, struct fuse_file_info *fi) {
 
     dirent directory;
 
-    int ret= traversepath(dir, &rootdir, &directory);
+    ret= traversepath(dir, &rootdir, &directory);
 
     if (ret==0) {
         // create file
@@ -319,9 +336,10 @@ int davfs_create(const char *path, mode_t mode, struct fuse_file_info *fi) {
             strcpy(newfile.name, base);
 
             ret = addInDirectory(&directory, &newfile);
+            printchain(newfile.ptr,blockbuffer);
+            printf("%s\t%s\t%s\t%s\n",path,"C",blockbuffer,"Success");
         }
     }
-
     free(pathbuff);
     return ret;
 }
@@ -344,6 +362,7 @@ int davfs_unlink(const char *path) {
     freechain(file.ptr);
 
     free(buff);
+    printf("%s\t%s\t%s\t%s\n",path,"U","","Success");
     return 0;
 }
 

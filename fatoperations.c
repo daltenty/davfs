@@ -5,6 +5,7 @@
 #include <unistd.h>
 #include <assert.h>
 #include <errno.h>
+#include <string.h>
 #include "logging.h"
 #include "fatoperations.h"
 #include "diskstructures.h"
@@ -113,4 +114,16 @@ void freechain(blockptr start) {
     } while (next != DAV_EOF);
     writefat();
     pthread_mutex_unlock(&fatmutex);
+}
+
+void printchain(blockptr start, char *str) {
+    char buffer[500];
+    blockptr blk=start;
+    strcpy(str,"");
+
+    do {
+        sprintf(buffer,"%d,",blk);
+        strcat(str,buffer);
+        blk=fatlookup(blk);
+    } while (blk != DAV_EOF);
 }

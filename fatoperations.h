@@ -13,5 +13,6 @@ int fatnewchain(blockptr *newchain);
 int getblock(blockptr start, int n, blockptr *end, int extend);
 void fatinit();
 void freechain(blockptr start);
+void printchain(blockptr start, char *str);
 
 #endif //DAVFS_FATOPERATIONS_H
