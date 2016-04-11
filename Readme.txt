@@ -15,5 +15,17 @@ $ dd if=/dev/zero of=davfs.disk bs=512 count=800  # create the disk file
 $ ./mkdavfs ./davfs.disk  # format the disk, creating the internal datastructures
 $ ./davfs ./davfs.disk /Volumes/davfs -f # mount and run in the foreground so we can see output
 
+To run the random work load simulation:
+$ ./simio 5000 # run 5000 random read/writes
 
 
+Part 3:
+
+Sample simulation outputs are included as ascii.out.
+
+
+Disk Structures:
+
+All data structures are listed in diskstructures.h. A FAT implementing block chains as a linked list is present. As is
+a superblock containing metadata, and directory entries packed 2 per block. The root directory is found on disk
+immediately following the fat.

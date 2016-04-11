@@ -1,0 +1,3505 @@
+
+Output file name: out.ascii
+Input trace format: ascii
+I/O trace used: /Users/dtenty/Library/Caches/CLion2016.1/cmake/generated/davfs-5d7cebb5/5d7cebb5/Debug/trace.ascii
+Synthgen to be used?: 0
+
+Byte Order (Endian): Little (using detected value: Little)
+Init Seed: 42
+Real Seed: 42
+Statistic warm-up period: 0.000000 seconds
+Checkpoint to null every: 0.000000 seconds
+Stat (dist) definition file: statdefs
+Output file for I/O requests simulated: 0
+
+I/O Subsystem Input Parameters
+------------------------------
+
+PRINTED I/O SUBSYSTEM STATISTICS
+
+Print driver size stats? 1
+Print driver locality stats? 0
+Print driver blocking stats? 0
+Print driver interference stats? 0
+Print driver queue stats? 1
+Print driver crit stats? 1
+Print driver idle stats? 1
+Print driver intarr stats? 1
+Print driver streak stats? 1
+Print driver stamp stats? 1
+Print driver per-device stats? 1
+Print bus idle stats? 1
+Print bus arbwait stats? 1
+Print controller cache stats? 1
+Print controller size stats? 1
+Print controller locality stats? 1
+Print controller blocking stats? 1
+Print controller interference stats? 1
+Print controller queue stats? 1
+Print controller crit stats? 1
+Print controller idle stats? 1
+Print controller intarr stats? 1
+Print controller streak stats? 1
+Print controller stamp stats? 1
+Print controller per-device stats? 1
+Print device queue stats? 0
+Print device crit stats? 0
+Print device idle stats? 0
+Print device intarr stats? 0
+Print device size stats? 0
+Print device seek stats? 1
+Print device latency stats? 1
+Print device xfer stats? 1
+Print device acctime stats? 1
+Print device interfere stats? 0
+Print device buffer stats? 1
+
+GENERAL I/O SUBSYSTEM PARAMETERS
+
+I/O Trace Time Scale: 1.000000
+Number of I/O Mappings: 18
+Mapping: e 0 512 1 0
+Mapping: 12 1 512 1 0
+Mapping: a 2 512 1 0
+Mapping: b 3 512 1 0
+Mapping: 14 4 512 1 0
+Mapping: 0 5 512 1 0
+Mapping: 10 6 512 1 0
+Mapping: 1e 7 512 1 0
+Mapping: 11 8 512 1 0
+Mapping: 5 9 512 1 0
+Mapping: 7 a 512 1 0
+Mapping: 65 b 512 1 0
+Mapping: 6 c 512 1 0
+Mapping: 3 d 512 1 0
+Mapping: 4 e 512 1 0
+Mapping: 67 f 512 1 0
+Mapping: 1 10 512 1 0
+Mapping: 2 11 512 1 0
+
+COMPONENT SPECIFICATIONS
+
+Number of device drivers: 1
+
+Device Driver Spec #1
+# drivers with Spec: 1
+Device driver type: 1
+Constant access time: 0.000000
+Scheduling policy: 3
+Cylinder mapping strategy: 1
+Write initiation delay: 0.830000
+Read initiation delay: 0.560000
+Sequential stream scheme: 0
+Maximum concat size: 0
+Overlapping request scheme: 0
+Sequential stream diff maximum: 0
+Scheduling timeout scheme: 0
+Timeout time/weight: 6
+Timeout scheduling: 4
+Scheduling priority scheme: 0
+Priority scheduling: 4
+Use queueing in subsystem: 1
+
+Number of buses: 21
+
+Bus Spec #1
+# buses with Spec: 3
+Bus Type: 2
+Arbitration type: 1
+Arbitration time: 0.000000
+Read block transfer time: 0.000000
+Write block transfer time: 0.000000
+Print stats for bus: 0
+
+Bus Spec #2
+# buses with Spec: 18
+Bus Type: 1
+Arbitration type: 1
+Arbitration time: 0.000000
+Read block transfer time: 0.050000
+Write block transfer time: 0.050000
+Print stats for bus: 1
+
+Number of controllers: 20
+
+Controller Spec #1
+# controllers with Spec: 20
+Controller Type: 1
+Scale for delays: 0.000000
+Bulk sector transfer time: 0.000000
+Maximum queue length: 0
+Print stats for controller: 1
+
+Number of storage devices: 18
+
+Device Spec #1
+# devices with Spec: 18
+
+Device type for Spec: disk
+Access time (in msecs): -2.000000
+Seek time (in msecs): -4.000000
+Single cylinder seek time: 0.200000
+Average seek time: 1.10
+Full strobe seek time: 2.300000
+Add. write settling delay: 0.650000
+HPL seek equation values: 300.000000 3.810000 0.330000 7.750000 0.005900 -1.000000
+First 10 seek times:    2.890000 3.680000 3.810000 3.980000 4.270000 4.650000 4.520000 4.650000 4.820000 4.990000
+Head switch time: 0.890000
+Rotation speed (in rpms): 5400.000000
+Percent error in rpms: 0.000000
+Number of data surfaces: 17
+Number of cylinders: 2051
+Blocks per disk: 2687632
+Per-request overhead time: 0.000000
+Time scale for overheads: 1.000000
+Bulk sector transfer time: 0.000000
+Hold bus entire read xfer: 1
+Hold bus entire write xfer: 0
+Allow almost read hits: 0
+Allow sneaky full read hits: 0
+Allow sneaky partial read hits: 0
+Allow sneaky intermediate read hits: 0
+Allow read hits on write data: 1
+Allow write prebuffering: 0
+Preseeking level: 0
+Never disconnect: 0
+Print stats for disk: 1
+Avg sectors per cylinder: 1024
+Max queue length at disk: 1
+Scheduling policy: 1
+Cylinder mapping strategy: 0
+Write initiation delay: 0.000000
+Read initiation delay: 0.000000
+Sequential stream scheme: 0
+Maximum concat size: 0
+Overlapping request scheme: 0
+Sequential stream diff maximum: 0
+Scheduling timeout scheme: 0
+Timeout time/weight: 0
+Timeout scheduling: 0
+Scheduling priority scheme: 0
+Priority scheduling: 0
+Number of buffer segments: 2
+Maximum number of write segments: 1
+Segment size (in blks): 256
+Use separate write segment: 1
+Low (write) water mark: 0.750000
+High (read) water mark: 0.750000
+Set watermark by reqsize: 1
+Calc sector by sector: 1
+Enable caching in buffer: 1
+Buffer continuous read: 3
+Minimum read-ahead (blks): 0
+Maximum read-ahead (blks): 128
+Read-ahead over requested: 1
+Read-ahead on idle hit: 1
+Read any free blocks: 0
+Fast write level: 0
+Immediate buffer read: 0
+Immediate buffer write: 0
+Combine seq writes: 1
+Stop prefetch in sector: 1
+Disconnect write if seek: 0
+Write hit stop prefetch: 1
+Read directly to buffer: 1
+Immed transfer partial hit: 1
+Read hit over. after read: 0.953430
+Read hit over. after write: 0.953430
+Read miss over. after read: 0.558210
+Read miss over. after write: 0.558210
+Write hit over. after read: 0.823910
+Write hit over. after write: 0.823910
+Write miss over. after read: 0.823910
+Write miss over. after write: 0.823910
+Read completion overhead: 0.056650
+Write completion overhead: 0.050450
+Data preparation overhead: 0.025190
+First reselect overhead: 0.162490
+Other reselect overhead: 0.128830
+Read disconnect afterread: 0.022660
+Read disconnect afterwrite: 0.045510
+Write disconnect overhead: 0.165650
+Extra write disconnect: 1
+Extradisc command overhead: 0.642440
+Extradisc disconnect overhead: 0.045510
+Extradisc inter-disconnect delay: 0.428850
+Extradisc 2nd disconnect overhead: 0.134370
+Extradisc seek delta: 0.250000
+Minimum seek delay: 0.600000
+LBN-to-PBN mapping scheme: 0
+Sparing scheme used: 1
+Rangesize for sparing: 1
+Number of bands: 8
+Band #1
+First cylinder number: 0
+Last cylinder number: 558
+Blocks per track: 96
+Offset of first block: 0.000000
+Empty space at zone front: 1632
+Skew for track switch: 14.000000
+Skew for cylinder switch: 32.000000
+Number of spares: 425
+Number of slips: 0
+Number of defects: 0
+Band #2
+First cylinder number: 559
+Last cylinder number: 760
+Blocks per track: 92
+Offset of first block: 14.000000
+Empty space at zone front: 0
+Skew for track switch: 13.000000
+Skew for cylinder switch: 30.000000
+Number of spares: 170
+Number of slips: 0
+Number of defects: 0
+Band #3
+First cylinder number: 761
+Last cylinder number: 901
+Blocks per track: 88
+Offset of first block: 73.000000
+Empty space at zone front: 0
+Skew for track switch: 13.000000
+Skew for cylinder switch: 29.000000
+Number of spares: 85
+Number of slips: 0
+Number of defects: 0
+Band #4
+First cylinder number: 902
+Last cylinder number: 1051
+Blocks per track: 84
+Offset of first block: 80.000000
+Empty space at zone front: 0
+Skew for track switch: 12.000000
+Skew for cylinder switch: 28.000000
+Number of spares: 102
+Number of slips: 0
+Number of defects: 0
+Band #5
+First cylinder number: 1052
+Last cylinder number: 1193
+Blocks per track: 80
+Offset of first block: 52.000000
+Empty space at zone front: 0
+Skew for track switch: 12.000000
+Skew for cylinder switch: 27.000000
+Number of spares: 68
+Number of slips: 0
+Number of defects: 0
+Band #6
+First cylinder number: 1194
+Last cylinder number: 1519
+Blocks per track: 72
+Offset of first block: 0.000000
+Empty space at zone front: 0
+Skew for track switch: 11.000000
+Skew for cylinder switch: 24.000000
+Number of spares: 136
+Number of slips: 0
+Number of defects: 0
+Band #7
+First cylinder number: 1520
+Last cylinder number: 1793
+Blocks per track: 64
+Offset of first block: 32.000000
+Empty space at zone front: 0
+Skew for track switch: 10.000000
+Skew for cylinder switch: 22.000000
+Number of spares: 102
+Number of slips: 0
+Number of defects: 0
+Band #8
+First cylinder number: 1794
+Last cylinder number: 2050
+Blocks per track: 56
+Offset of first block: 30.000000
+Empty space at zone front: 0
+Skew for track switch: 9.000000
+Skew for cylinder switch: 19.000000
+Number of spares: 85
+Number of slips: 0
+Number of defects: 0
+
+PHYSICAL ORGANIZATION
+
+Driver #1
+# of connected buses: 1
+Connected buses:   1
+
+Controller #1-20
+# of connected buses: 1
+Connected buses:   #+1
+
+Bus #1
+# of utilized slots: 2
+Slots: Controllers 1-2
+
+Bus #2
+# of utilized slots: 10
+Slots: Controllers 1
+Slots: Controllers 3-11
+
+Bus #3
+# of utilized slots: 10
+Slots: Controllers 2
+Slots: Controllers 12-20
+
+Bus #4-21
+# of utilized slots: 2
+Slots: Controllers #-1
+Slots: Devices #-3
+
+SYNCHRONIZATION
+
+Number of synchronized sets: 0
+
+
+LOGICAL ORGANIZATION
+
+# of system-level organizations: 1
+Organization #1: Parts Asis Noredun Whole
+Number of devices: 18
+Devices: 1-18
+High-level device number: 1
+Stripe unit (in sectors): 64
+Synch writes for safety: 0
+Number of copies: 2
+Copy choice on read: 6
+RMW vs. reconstruct: 0.500000
+Parity stripe unit: 64
+Parity rotation type: 1
+Time stamp interval: 0.000000
+Time stamp start time: 60000.000000
+Time stamp stop time: 10000000000.000000
+Time stamp file name :        stamps
+
+# of controller-level organizations: 0
+Readparams complete
+Initialization complete
+Simulation complete
+
+SIMULATION STATISTICS
+---------------------
+
+Total time of run:       1460378624.000000
+
+Warm-up time:            0.000000
+
+
+STORAGE SUBSYSTEM STATISTICS
+----------------------------
+
+SYSTEM-LEVEL LOGORG STATISTICS
+------------------------------
+
+System Logical Organization #0
+System logorg #0 Number of requests:       1199
+System logorg #0 Number of read requests:  638  	0.532110
+System logorg #0 Number of accesses:       1199
+System logorg #0 Number of read accesses:  638  	0.532110
+System logorg #0 Average outstanding:      0.000000
+System logorg #0 Maximum outstanding:      1194
+System logorg #0 Avg nonzero outstanding:  3.982523
+System logorg #0 Completely idle time:     1460378613.333717
+System logorg #0 Response time average: 	8.495743
+System logorg #0 Response time std.dev.:	1.534803
+System logorg #0 Response time maximum:	10.666283
+System logorg #0 Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       4       1       0       0       0       0       0       0       0 
+System logorg #0 Time-critical reads:  0
+System logorg #0 Time-critical writes: 0
+System logorg #0 Inter-arrival time average: 	1217997.184320
+System logorg #0 Inter-arrival time std.dev.:	42157481.223684
+System logorg #0 Inter-arrival time maximum:	1460378496
+System logorg #0 Inter-arrival time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+   1197       0       0       0       0       0       0       1       0       1 
+System logorg #0 Read inter-arrival average: 	2288994.708464
+System logorg #0 Read inter-arrival std.dev.:	57771609.462883
+System logorg #0 Read inter-arrival maximum:	1460378496
+System logorg #0 Read inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+    636       0       0       0       0       0       0       0       0       2 
+System logorg #0 Write inter-arrival average: 	2603170.452763
+System logorg #0 Write inter-arrival std.dev.:	61602256.350212
+System logorg #0 Write inter-arrival maximum:	1460378624
+System logorg #0 Write inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+    560       0       0       0       0       0       0       0       0       1 
+System logorg #0 Number of streaks:		1
+System logorg #0 Streak length average: 	1199.000000
+System logorg #0 Streak length std.dev.:	0.000000
+System logorg #0 Streak length maximum:	1199
+System logorg #0 Streak length distribution
+   =  1    =  2    =  3    =  4    =  5    =  6    =  7    =  8    =  9     10+
+      0       0       0       0       0       0       0       0       0       1 
+System logorg #0 Timestamped # outstanding distribution (interval = 0.000000)
+     0       1       2       3       4       5       6       7       8      9+
+     0       0       0       0       0       0       0       0       0       0
+System logorg #0 Timestamped avg # outstanding difference distribution
+   <.5      <1    <1.5      <2    <2.5      <3      <4      <5      <6      6+
+     0       0       0       0       0       0       0       0       0       0
+System logorg #0 Timestamped max # outstanding difference distribution
+   <.5      <1    <1.5      <2    <2.5      <3      <4      <5      <6      6+
+     0       0       0       0       0       0       0       0       0       0
+System logorg #0 Request size average: 	1.000000
+System logorg #0 Request size std.dev.:	0.000000
+System logorg #0 Request size maximum:	1
+System logorg #0 Request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+   1199       0       0       0       0       0       0       0       0       0 
+System logorg #0 Read request size average: 	1.000000
+System logorg #0 Read request size std.dev.:	0.000000
+System logorg #0 Read request size maximum:	1
+System logorg #0 Read request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+    638       0       0       0       0       0       0       0       0       0 
+System logorg #0 Write request size average: 	1.000000
+System logorg #0 Write request size std.dev.:	0.000000
+System logorg #0 Write request size maximum:	1
+System logorg #0 Write request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+    561       0       0       0       0       0       0       0       0       0 
+System logorg #0 Number of idle periods:	2
+System logorg #0 Idle period length average: 	730189306.666858
+System logorg #0 Idle period length std.dev.:	730189189.333142
+System logorg #0 Idle period length maximum:	1460378496
+System logorg #0 Idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       2 
+System logorg #0 disk Seeks of zero distance:	0	0.000000
+System logorg #0 disk Seek distance average: 	1.000000
+System logorg #0 disk Seek distance std.dev.:	0.000000
+System logorg #0 disk Seek distance maximum:	1
+System logorg #0 disk Seek distance distribution
+   =  0    <  6    < 21    < 41    < 81    <161    <321    <641    <1281    1281+
+      0       1       0       0       0       0       0       0       0       0 
+System logorg #0 disk Seek time average: 	2.890000
+System logorg #0 disk Seek time std.dev.:	0.000000
+System logorg #0 disk Seek time maximum:	2.890000
+System logorg #0 disk Seek time distribution
+   =  0    <  6    <  8    < 10    < 13    < 16    < 20    < 24    < 28     28+
+      0       1       0       0       0       0       0       0       0       0 
+System logorg #0 disk Zero rotate latency:	0	0.000000
+System logorg #0 disk Rotational latency average: 	2.466923
+System logorg #0 disk Rotational latency std.dev.:	0.000000
+System logorg #0 disk Rotational latency maximum:	2.466923
+System logorg #0 disk Rotational latency distribution
+   <  1    <  3    <  5    <  7    <  8    <  9    < 11    < 13    < 15     15+
+      0       1       0       0       0       0       0       0       0       0 
+System logorg #0 disk Transfer time average: 	0.115741
+System logorg #0 disk Transfer time std.dev.:	0.000000
+System logorg #0 disk Transfer time maximum:	0.115741
+System logorg #0 disk Transfer time distribution
+  < 0.5   < 1.0   < 1.5   < 2.0   < 2.5   < 3.0   < 4.0   < 5.0   < 6.0     60+
+      1       0       0       0       0       0       0       0       0       0 
+System logorg #0 disk Positioning time average: 	5.356923
+System logorg #0 disk Positioning time std.dev.:	0.000000
+System logorg #0 disk Positioning time maximum:	5.356923
+System logorg #0 disk Positioning time distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       1       0       0       0       0       0       0       0       0 
+System logorg #0 disk Access time average: 	5.472664
+System logorg #0 disk Access time std.dev.:	0.000000
+System logorg #0 disk Access time maximum:	5.472664
+System logorg #0 disk Access time distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       1       0       0       0       0       0       0       0       0 
+System logorg #0 disk Number of buffer accesses:    6
+System logorg #0 disk Buffer hit ratio:             5 	0.833333
+System logorg #0 disk Buffer miss ratio:                 1 	0.166667
+System logorg #0 disk Buffer read hit ratio:             5 	0.833333 	0.833333
+System logorg #0 disk Buffer prepend hit ratio:            0 	0.000000
+System logorg #0 disk Buffer append hit ratio:            0 	0.000000
+System logorg #0 disk Write combinations:                0 	0.000000
+System logorg #0 disk Ongoing read-ahead hit ratio:      0 	0.000000 	0.000000
+System logorg #0 disk Average read-ahead hit size:  0.000000
+System logorg #0 disk Average remaining read-ahead: 0.000000
+System logorg #0 disk Partial read hit ratio:      0 	0.000000 	0.000000
+System logorg #0 disk Average partial hit size:     0.000000
+System logorg #0 disk Average remaining partial:    0.000000
+System logorg #0 disk Total disk bus wait time: 0.000000
+System logorg #0 disk Number of disk bus waits: 1
+
+IODRIVER STATISTICS
+-------------------
+
+IOdriver Total Requests handled:	5
+IOdriver Requests per second:   	0.000003
+IOdriver Completely idle time:  	1460378623.407429   	1.000000
+IOdriver Response time average: 	8.495743
+IOdriver Response time std.dev.:	1.534803
+IOdriver Response time maximum:	10.666283
+IOdriver Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       4       1       0       0       0       0       0       0       0 
+IOdriver Overlaps combined:     	0	0.000000
+IOdriver Read overlaps combined:	0	0.000000	0.000000
+IOdriver Critical Reads:      	     0  	0.000000
+IOdriver Critical Read Response time average: 	0.000000
+IOdriver Critical Read Response time std.dev.:	0.000000
+IOdriver Critical Read Response time maximum:	0
+IOdriver Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver Non-Critical Reads:  	     5  	0.004170
+IOdriver Non-Critical Read Response time average: 	8.495743
+IOdriver Non-Critical Read Response time std.dev.:	1.534803
+IOdriver Non-Critical Read Response time maximum:	10.666283
+IOdriver Non-Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       4       1       0       0       0       0       0       0       0 
+IOdriver Critical Writes:     	     0  	0.000000
+IOdriver Critical Write Response time average: 	0.000000
+IOdriver Critical Write Response time std.dev.:	0.000000
+IOdriver Critical Write Response time maximum:	0
+IOdriver Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver Non-Critical Writes: 	     0  	0.000000
+IOdriver Non-Critical Write Response time average: 	0.000000
+IOdriver Non-Critical Write Response time std.dev.:	0.000000
+IOdriver Non-Critical Write Response time maximum:	0
+IOdriver Non-Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver Number of reads:       638  	0.532110
+IOdriver Number of writes:      561  	0.467890
+IOdriver Sequential reads:        0  	0.000000  	0.000000
+IOdriver Sequential writes:       0  	0.000000  	0.000000
+IOdriver Base SPTF/SDF Different:      0 /      6 	0.000000
+IOdriver Timeout SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver Priority SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver runlistlen:              42.478716
+IOdriver runoutstanding:          10.666283
+IOdriver simtime:                 1460378624.000000
+IOdriver warmuptime:              0.000000
+IOdriver setsize:                 18
+IOdriver Average # requests:      0.000000
+IOdriver Maximum # requests:      1194
+IOdriver End # requests:          1194
+IOdriver Average queue length:    0.000000
+IOdriver Maximum queue length:    1193
+IOdriver End queued requests:     1193
+IOdriver Queue time average: 	5.302072
+IOdriver Queue time std.dev.:	3.877821
+IOdriver Queue time maximum:	9.581013
+IOdriver Queue time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      2       4       0       0       0       0       0       0       0       0 
+IOdriver Avg # read requests:     0.000000
+IOdriver Max # read requests:     633
+IOdriver Avg # write requests:    0.000000
+IOdriver Max # write requests:    561
+IOdriver Physical access time average: 	2.133257
+IOdriver Physical access time std.dev.:	2.095973
+IOdriver Physical access time maximum:	6.325203
+IOdriver Physical access time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      4       1       0       0       0       0       0       0       0       0 
+IOdriver Inter-arrival time average: 	1217997.184320
+IOdriver Inter-arrival time std.dev.:	42157481.223684
+IOdriver Inter-arrival time maximum:	1460378496
+IOdriver Inter-arrival time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+   1197       0       0       0       0       0       0       1       0       1 
+IOdriver Read inter-arrival average: 	2288994.708464
+IOdriver Read inter-arrival std.dev.:	57771609.462883
+IOdriver Read inter-arrival maximum:	1460378496
+IOdriver Read inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+    636       0       0       0       0       0       0       0       0       2 
+IOdriver Write inter-arrival average: 	2603170.452763
+IOdriver Write inter-arrival std.dev.:	61602256.350212
+IOdriver Write inter-arrival maximum:	1460378624
+IOdriver Write inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+    560       0       0       0       0       0       0       0       0       1 
+IOdriver Number of idle periods:  19
+IOdriver Idle period length average: 	1383516590.596511
+IOdriver Idle period length std.dev.:	326097960.042475
+IOdriver Idle period length maximum:	1460378624
+IOdriver Idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0      19 
+IOdriver Request size average: 	1.000000
+IOdriver Request size std.dev.:	0.000000
+IOdriver Request size maximum:	1
+IOdriver Request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+   1199       0       0       0       0       0       0       0       0       0 
+IOdriver Read request size average: 	1.000000
+IOdriver Read request size std.dev.:	0.000000
+IOdriver Read request size maximum:	1
+IOdriver Read request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+    638       0       0       0       0       0       0       0       0       0 
+IOdriver Write request size average: 	1.000000
+IOdriver Write request size std.dev.:	0.000000
+IOdriver Write request size maximum:	1
+IOdriver Write request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+    561       0       0       0       0       0       0       0       0       0 
+IOdriver Instantaneous queue length average: 	2.000000
+IOdriver Instantaneous queue length std.dev.:	1.154701
+IOdriver Instantaneous queue length maximum:	4
+IOdriver Instantaneous queue length distribution
+   =  1    =  2    =  3    <  6    < 10    < 20    < 40    < 80    <150    150+
+      3       1       1       1       0       0       0       0       0       0 
+IOdriver Sub-optimal mapping penalty average: 	0.000000
+IOdriver Sub-optimal mapping penalty std.dev.:	0.000000
+IOdriver Sub-optimal mapping penalty maximum:	0
+IOdriver Sub-optimal mapping penalty distribution
+   = -1    =  0    =  1    =  2    =  3    =  4    < 10    < 20    < 40     40+
+      0       0       0       0       0       0       0       0       0       0 
+
+I/O Driver #0 - Device #0
+IOdriver #0 device #0 Total Requests handled:	0
+IOdriver #0 device #0 Requests per second:   	0.000000
+IOdriver #0 device #0 Completely idle time:  	1460378624.000000   	1.000000
+IOdriver #0 device #0 Response time average: 	0.000000
+IOdriver #0 device #0 Response time std.dev.:	0.000000
+IOdriver #0 device #0 Response time maximum:	0
+IOdriver #0 device #0 Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #0 Overlaps combined:     	0	0.000000
+IOdriver #0 device #0 Read overlaps combined:	0	0.000000	0.000000
+IOdriver #0 device #0 Critical Reads:      	     0  	0.000000
+IOdriver #0 device #0 Critical Read Response time average: 	0.000000
+IOdriver #0 device #0 Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #0 Critical Read Response time maximum:	0
+IOdriver #0 device #0 Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #0 Non-Critical Reads:  	     0  	0.000000
+IOdriver #0 device #0 Non-Critical Read Response time average: 	0.000000
+IOdriver #0 device #0 Non-Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #0 Non-Critical Read Response time maximum:	0
+IOdriver #0 device #0 Non-Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #0 Critical Writes:     	     0  	0.000000
+IOdriver #0 device #0 Critical Write Response time average: 	0.000000
+IOdriver #0 device #0 Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #0 Critical Write Response time maximum:	0
+IOdriver #0 device #0 Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #0 Non-Critical Writes: 	     0  	0.000000
+IOdriver #0 device #0 Non-Critical Write Response time average: 	0.000000
+IOdriver #0 device #0 Non-Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #0 Non-Critical Write Response time maximum:	0
+IOdriver #0 device #0 Non-Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #0 Number of reads:         0  	0.000000
+IOdriver #0 device #0 Number of writes:        0  	0.000000
+IOdriver #0 device #0 Sequential reads:        0  	0.000000  	0.000000
+IOdriver #0 device #0 Sequential writes:       0  	0.000000  	0.000000
+IOdriver #0 device #0 Base SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #0 Timeout SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #0 Priority SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #0 runlistlen:              0.000000
+IOdriver #0 device #0 runoutstanding:          0.000000
+IOdriver #0 device #0 simtime:                 1460378624.000000
+IOdriver #0 device #0 warmuptime:              0.000000
+IOdriver #0 device #0 setsize:                 1
+IOdriver #0 device #0 Average # requests:      0.000000
+IOdriver #0 device #0 Maximum # requests:      0
+IOdriver #0 device #0 End # requests:          0
+IOdriver #0 device #0 Average queue length:    0.000000
+IOdriver #0 device #0 Maximum queue length:    0
+IOdriver #0 device #0 End queued requests:     0
+IOdriver #0 device #0 Queue time average: 	0.000000
+IOdriver #0 device #0 Queue time std.dev.:	0.000000
+IOdriver #0 device #0 Queue time maximum:	0
+IOdriver #0 device #0 Queue time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #0 Avg # read requests:     0.000000
+IOdriver #0 device #0 Max # read requests:     0
+IOdriver #0 device #0 Avg # write requests:    0.000000
+IOdriver #0 device #0 Max # write requests:    0
+IOdriver #0 device #0 Physical access time average: 	0.000000
+IOdriver #0 device #0 Physical access time std.dev.:	0.000000
+IOdriver #0 device #0 Physical access time maximum:	0
+IOdriver #0 device #0 Physical access time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #0 Inter-arrival time average: 	0.000000
+IOdriver #0 device #0 Inter-arrival time std.dev.:	0.000000
+IOdriver #0 device #0 Inter-arrival time maximum:	0
+IOdriver #0 device #0 Inter-arrival time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #0 Read inter-arrival average: 	0.000000
+IOdriver #0 device #0 Read inter-arrival std.dev.:	0.000000
+IOdriver #0 device #0 Read inter-arrival maximum:	0
+IOdriver #0 device #0 Read inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #0 Write inter-arrival average: 	0.000000
+IOdriver #0 device #0 Write inter-arrival std.dev.:	0.000000
+IOdriver #0 device #0 Write inter-arrival maximum:	0
+IOdriver #0 device #0 Write inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #0 Number of idle periods:  1
+IOdriver #0 device #0 Idle period length average: 	1460378624.000000
+IOdriver #0 device #0 Idle period length std.dev.:	0.000000
+IOdriver #0 device #0 Idle period length maximum:	1460378624
+IOdriver #0 device #0 Idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+IOdriver #0 device #0 Request size average: 	0.000000
+IOdriver #0 device #0 Request size std.dev.:	0.000000
+IOdriver #0 device #0 Request size maximum:	0
+IOdriver #0 device #0 Request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #0 Read request size average: 	0.000000
+IOdriver #0 device #0 Read request size std.dev.:	0.000000
+IOdriver #0 device #0 Read request size maximum:	0
+IOdriver #0 device #0 Read request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #0 Write request size average: 	0.000000
+IOdriver #0 device #0 Write request size std.dev.:	0.000000
+IOdriver #0 device #0 Write request size maximum:	0
+IOdriver #0 device #0 Write request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #0 Instantaneous queue length average: 	0.000000
+IOdriver #0 device #0 Instantaneous queue length std.dev.:	0.000000
+IOdriver #0 device #0 Instantaneous queue length maximum:	0
+IOdriver #0 device #0 Instantaneous queue length distribution
+   =  1    =  2    =  3    <  6    < 10    < 20    < 40    < 80    <150    150+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #0 Sub-optimal mapping penalty average: 	0.000000
+IOdriver #0 device #0 Sub-optimal mapping penalty std.dev.:	0.000000
+IOdriver #0 device #0 Sub-optimal mapping penalty maximum:	0
+IOdriver #0 device #0 Sub-optimal mapping penalty distribution
+   = -1    =  0    =  1    =  2    =  3    =  4    < 10    < 20    < 40     40+
+      0       0       0       0       0       0       0       0       0       0 
+
+I/O Driver #0 - Device #1
+IOdriver #0 device #1 Total Requests handled:	0
+IOdriver #0 device #1 Requests per second:   	0.000000
+IOdriver #0 device #1 Completely idle time:  	1460378624.000000   	1.000000
+IOdriver #0 device #1 Response time average: 	0.000000
+IOdriver #0 device #1 Response time std.dev.:	0.000000
+IOdriver #0 device #1 Response time maximum:	0
+IOdriver #0 device #1 Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #1 Overlaps combined:     	0	0.000000
+IOdriver #0 device #1 Read overlaps combined:	0	0.000000	0.000000
+IOdriver #0 device #1 Critical Reads:      	     0  	0.000000
+IOdriver #0 device #1 Critical Read Response time average: 	0.000000
+IOdriver #0 device #1 Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #1 Critical Read Response time maximum:	0
+IOdriver #0 device #1 Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #1 Non-Critical Reads:  	     0  	0.000000
+IOdriver #0 device #1 Non-Critical Read Response time average: 	0.000000
+IOdriver #0 device #1 Non-Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #1 Non-Critical Read Response time maximum:	0
+IOdriver #0 device #1 Non-Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #1 Critical Writes:     	     0  	0.000000
+IOdriver #0 device #1 Critical Write Response time average: 	0.000000
+IOdriver #0 device #1 Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #1 Critical Write Response time maximum:	0
+IOdriver #0 device #1 Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #1 Non-Critical Writes: 	     0  	0.000000
+IOdriver #0 device #1 Non-Critical Write Response time average: 	0.000000
+IOdriver #0 device #1 Non-Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #1 Non-Critical Write Response time maximum:	0
+IOdriver #0 device #1 Non-Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #1 Number of reads:         0  	0.000000
+IOdriver #0 device #1 Number of writes:        0  	0.000000
+IOdriver #0 device #1 Sequential reads:        0  	0.000000  	0.000000
+IOdriver #0 device #1 Sequential writes:       0  	0.000000  	0.000000
+IOdriver #0 device #1 Base SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #1 Timeout SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #1 Priority SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #1 runlistlen:              0.000000
+IOdriver #0 device #1 runoutstanding:          0.000000
+IOdriver #0 device #1 simtime:                 1460378624.000000
+IOdriver #0 device #1 warmuptime:              0.000000
+IOdriver #0 device #1 setsize:                 1
+IOdriver #0 device #1 Average # requests:      0.000000
+IOdriver #0 device #1 Maximum # requests:      0
+IOdriver #0 device #1 End # requests:          0
+IOdriver #0 device #1 Average queue length:    0.000000
+IOdriver #0 device #1 Maximum queue length:    0
+IOdriver #0 device #1 End queued requests:     0
+IOdriver #0 device #1 Queue time average: 	0.000000
+IOdriver #0 device #1 Queue time std.dev.:	0.000000
+IOdriver #0 device #1 Queue time maximum:	0
+IOdriver #0 device #1 Queue time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #1 Avg # read requests:     0.000000
+IOdriver #0 device #1 Max # read requests:     0
+IOdriver #0 device #1 Avg # write requests:    0.000000
+IOdriver #0 device #1 Max # write requests:    0
+IOdriver #0 device #1 Physical access time average: 	0.000000
+IOdriver #0 device #1 Physical access time std.dev.:	0.000000
+IOdriver #0 device #1 Physical access time maximum:	0
+IOdriver #0 device #1 Physical access time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #1 Inter-arrival time average: 	0.000000
+IOdriver #0 device #1 Inter-arrival time std.dev.:	0.000000
+IOdriver #0 device #1 Inter-arrival time maximum:	0
+IOdriver #0 device #1 Inter-arrival time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #1 Read inter-arrival average: 	0.000000
+IOdriver #0 device #1 Read inter-arrival std.dev.:	0.000000
+IOdriver #0 device #1 Read inter-arrival maximum:	0
+IOdriver #0 device #1 Read inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #1 Write inter-arrival average: 	0.000000
+IOdriver #0 device #1 Write inter-arrival std.dev.:	0.000000
+IOdriver #0 device #1 Write inter-arrival maximum:	0
+IOdriver #0 device #1 Write inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #1 Number of idle periods:  1
+IOdriver #0 device #1 Idle period length average: 	1460378624.000000
+IOdriver #0 device #1 Idle period length std.dev.:	0.000000
+IOdriver #0 device #1 Idle period length maximum:	1460378624
+IOdriver #0 device #1 Idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+IOdriver #0 device #1 Request size average: 	0.000000
+IOdriver #0 device #1 Request size std.dev.:	0.000000
+IOdriver #0 device #1 Request size maximum:	0
+IOdriver #0 device #1 Request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #1 Read request size average: 	0.000000
+IOdriver #0 device #1 Read request size std.dev.:	0.000000
+IOdriver #0 device #1 Read request size maximum:	0
+IOdriver #0 device #1 Read request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #1 Write request size average: 	0.000000
+IOdriver #0 device #1 Write request size std.dev.:	0.000000
+IOdriver #0 device #1 Write request size maximum:	0
+IOdriver #0 device #1 Write request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #1 Instantaneous queue length average: 	0.000000
+IOdriver #0 device #1 Instantaneous queue length std.dev.:	0.000000
+IOdriver #0 device #1 Instantaneous queue length maximum:	0
+IOdriver #0 device #1 Instantaneous queue length distribution
+   =  1    =  2    =  3    <  6    < 10    < 20    < 40    < 80    <150    150+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #1 Sub-optimal mapping penalty average: 	0.000000
+IOdriver #0 device #1 Sub-optimal mapping penalty std.dev.:	0.000000
+IOdriver #0 device #1 Sub-optimal mapping penalty maximum:	0
+IOdriver #0 device #1 Sub-optimal mapping penalty distribution
+   = -1    =  0    =  1    =  2    =  3    =  4    < 10    < 20    < 40     40+
+      0       0       0       0       0       0       0       0       0       0 
+
+I/O Driver #0 - Device #2
+IOdriver #0 device #2 Total Requests handled:	0
+IOdriver #0 device #2 Requests per second:   	0.000000
+IOdriver #0 device #2 Completely idle time:  	1460378624.000000   	1.000000
+IOdriver #0 device #2 Response time average: 	0.000000
+IOdriver #0 device #2 Response time std.dev.:	0.000000
+IOdriver #0 device #2 Response time maximum:	0
+IOdriver #0 device #2 Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #2 Overlaps combined:     	0	0.000000
+IOdriver #0 device #2 Read overlaps combined:	0	0.000000	0.000000
+IOdriver #0 device #2 Critical Reads:      	     0  	0.000000
+IOdriver #0 device #2 Critical Read Response time average: 	0.000000
+IOdriver #0 device #2 Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #2 Critical Read Response time maximum:	0
+IOdriver #0 device #2 Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #2 Non-Critical Reads:  	     0  	0.000000
+IOdriver #0 device #2 Non-Critical Read Response time average: 	0.000000
+IOdriver #0 device #2 Non-Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #2 Non-Critical Read Response time maximum:	0
+IOdriver #0 device #2 Non-Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #2 Critical Writes:     	     0  	0.000000
+IOdriver #0 device #2 Critical Write Response time average: 	0.000000
+IOdriver #0 device #2 Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #2 Critical Write Response time maximum:	0
+IOdriver #0 device #2 Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #2 Non-Critical Writes: 	     0  	0.000000
+IOdriver #0 device #2 Non-Critical Write Response time average: 	0.000000
+IOdriver #0 device #2 Non-Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #2 Non-Critical Write Response time maximum:	0
+IOdriver #0 device #2 Non-Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #2 Number of reads:         0  	0.000000
+IOdriver #0 device #2 Number of writes:        0  	0.000000
+IOdriver #0 device #2 Sequential reads:        0  	0.000000  	0.000000
+IOdriver #0 device #2 Sequential writes:       0  	0.000000  	0.000000
+IOdriver #0 device #2 Base SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #2 Timeout SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #2 Priority SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #2 runlistlen:              0.000000
+IOdriver #0 device #2 runoutstanding:          0.000000
+IOdriver #0 device #2 simtime:                 1460378624.000000
+IOdriver #0 device #2 warmuptime:              0.000000
+IOdriver #0 device #2 setsize:                 1
+IOdriver #0 device #2 Average # requests:      0.000000
+IOdriver #0 device #2 Maximum # requests:      0
+IOdriver #0 device #2 End # requests:          0
+IOdriver #0 device #2 Average queue length:    0.000000
+IOdriver #0 device #2 Maximum queue length:    0
+IOdriver #0 device #2 End queued requests:     0
+IOdriver #0 device #2 Queue time average: 	0.000000
+IOdriver #0 device #2 Queue time std.dev.:	0.000000
+IOdriver #0 device #2 Queue time maximum:	0
+IOdriver #0 device #2 Queue time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #2 Avg # read requests:     0.000000
+IOdriver #0 device #2 Max # read requests:     0
+IOdriver #0 device #2 Avg # write requests:    0.000000
+IOdriver #0 device #2 Max # write requests:    0
+IOdriver #0 device #2 Physical access time average: 	0.000000
+IOdriver #0 device #2 Physical access time std.dev.:	0.000000
+IOdriver #0 device #2 Physical access time maximum:	0
+IOdriver #0 device #2 Physical access time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #2 Inter-arrival time average: 	0.000000
+IOdriver #0 device #2 Inter-arrival time std.dev.:	0.000000
+IOdriver #0 device #2 Inter-arrival time maximum:	0
+IOdriver #0 device #2 Inter-arrival time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #2 Read inter-arrival average: 	0.000000
+IOdriver #0 device #2 Read inter-arrival std.dev.:	0.000000
+IOdriver #0 device #2 Read inter-arrival maximum:	0
+IOdriver #0 device #2 Read inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #2 Write inter-arrival average: 	0.000000
+IOdriver #0 device #2 Write inter-arrival std.dev.:	0.000000
+IOdriver #0 device #2 Write inter-arrival maximum:	0
+IOdriver #0 device #2 Write inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #2 Number of idle periods:  1
+IOdriver #0 device #2 Idle period length average: 	1460378624.000000
+IOdriver #0 device #2 Idle period length std.dev.:	0.000000
+IOdriver #0 device #2 Idle period length maximum:	1460378624
+IOdriver #0 device #2 Idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+IOdriver #0 device #2 Request size average: 	0.000000
+IOdriver #0 device #2 Request size std.dev.:	0.000000
+IOdriver #0 device #2 Request size maximum:	0
+IOdriver #0 device #2 Request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #2 Read request size average: 	0.000000
+IOdriver #0 device #2 Read request size std.dev.:	0.000000
+IOdriver #0 device #2 Read request size maximum:	0
+IOdriver #0 device #2 Read request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #2 Write request size average: 	0.000000
+IOdriver #0 device #2 Write request size std.dev.:	0.000000
+IOdriver #0 device #2 Write request size maximum:	0
+IOdriver #0 device #2 Write request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #2 Instantaneous queue length average: 	0.000000
+IOdriver #0 device #2 Instantaneous queue length std.dev.:	0.000000
+IOdriver #0 device #2 Instantaneous queue length maximum:	0
+IOdriver #0 device #2 Instantaneous queue length distribution
+   =  1    =  2    =  3    <  6    < 10    < 20    < 40    < 80    <150    150+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #2 Sub-optimal mapping penalty average: 	0.000000
+IOdriver #0 device #2 Sub-optimal mapping penalty std.dev.:	0.000000
+IOdriver #0 device #2 Sub-optimal mapping penalty maximum:	0
+IOdriver #0 device #2 Sub-optimal mapping penalty distribution
+   = -1    =  0    =  1    =  2    =  3    =  4    < 10    < 20    < 40     40+
+      0       0       0       0       0       0       0       0       0       0 
+
+I/O Driver #0 - Device #3
+IOdriver #0 device #3 Total Requests handled:	0
+IOdriver #0 device #3 Requests per second:   	0.000000
+IOdriver #0 device #3 Completely idle time:  	1460378624.000000   	1.000000
+IOdriver #0 device #3 Response time average: 	0.000000
+IOdriver #0 device #3 Response time std.dev.:	0.000000
+IOdriver #0 device #3 Response time maximum:	0
+IOdriver #0 device #3 Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #3 Overlaps combined:     	0	0.000000
+IOdriver #0 device #3 Read overlaps combined:	0	0.000000	0.000000
+IOdriver #0 device #3 Critical Reads:      	     0  	0.000000
+IOdriver #0 device #3 Critical Read Response time average: 	0.000000
+IOdriver #0 device #3 Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #3 Critical Read Response time maximum:	0
+IOdriver #0 device #3 Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #3 Non-Critical Reads:  	     0  	0.000000
+IOdriver #0 device #3 Non-Critical Read Response time average: 	0.000000
+IOdriver #0 device #3 Non-Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #3 Non-Critical Read Response time maximum:	0
+IOdriver #0 device #3 Non-Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #3 Critical Writes:     	     0  	0.000000
+IOdriver #0 device #3 Critical Write Response time average: 	0.000000
+IOdriver #0 device #3 Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #3 Critical Write Response time maximum:	0
+IOdriver #0 device #3 Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #3 Non-Critical Writes: 	     0  	0.000000
+IOdriver #0 device #3 Non-Critical Write Response time average: 	0.000000
+IOdriver #0 device #3 Non-Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #3 Non-Critical Write Response time maximum:	0
+IOdriver #0 device #3 Non-Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #3 Number of reads:         0  	0.000000
+IOdriver #0 device #3 Number of writes:        0  	0.000000
+IOdriver #0 device #3 Sequential reads:        0  	0.000000  	0.000000
+IOdriver #0 device #3 Sequential writes:       0  	0.000000  	0.000000
+IOdriver #0 device #3 Base SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #3 Timeout SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #3 Priority SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #3 runlistlen:              0.000000
+IOdriver #0 device #3 runoutstanding:          0.000000
+IOdriver #0 device #3 simtime:                 1460378624.000000
+IOdriver #0 device #3 warmuptime:              0.000000
+IOdriver #0 device #3 setsize:                 1
+IOdriver #0 device #3 Average # requests:      0.000000
+IOdriver #0 device #3 Maximum # requests:      0
+IOdriver #0 device #3 End # requests:          0
+IOdriver #0 device #3 Average queue length:    0.000000
+IOdriver #0 device #3 Maximum queue length:    0
+IOdriver #0 device #3 End queued requests:     0
+IOdriver #0 device #3 Queue time average: 	0.000000
+IOdriver #0 device #3 Queue time std.dev.:	0.000000
+IOdriver #0 device #3 Queue time maximum:	0
+IOdriver #0 device #3 Queue time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #3 Avg # read requests:     0.000000
+IOdriver #0 device #3 Max # read requests:     0
+IOdriver #0 device #3 Avg # write requests:    0.000000
+IOdriver #0 device #3 Max # write requests:    0
+IOdriver #0 device #3 Physical access time average: 	0.000000
+IOdriver #0 device #3 Physical access time std.dev.:	0.000000
+IOdriver #0 device #3 Physical access time maximum:	0
+IOdriver #0 device #3 Physical access time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #3 Inter-arrival time average: 	0.000000
+IOdriver #0 device #3 Inter-arrival time std.dev.:	0.000000
+IOdriver #0 device #3 Inter-arrival time maximum:	0
+IOdriver #0 device #3 Inter-arrival time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #3 Read inter-arrival average: 	0.000000
+IOdriver #0 device #3 Read inter-arrival std.dev.:	0.000000
+IOdriver #0 device #3 Read inter-arrival maximum:	0
+IOdriver #0 device #3 Read inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #3 Write inter-arrival average: 	0.000000
+IOdriver #0 device #3 Write inter-arrival std.dev.:	0.000000
+IOdriver #0 device #3 Write inter-arrival maximum:	0
+IOdriver #0 device #3 Write inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #3 Number of idle periods:  1
+IOdriver #0 device #3 Idle period length average: 	1460378624.000000
+IOdriver #0 device #3 Idle period length std.dev.:	0.000000
+IOdriver #0 device #3 Idle period length maximum:	1460378624
+IOdriver #0 device #3 Idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+IOdriver #0 device #3 Request size average: 	0.000000
+IOdriver #0 device #3 Request size std.dev.:	0.000000
+IOdriver #0 device #3 Request size maximum:	0
+IOdriver #0 device #3 Request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #3 Read request size average: 	0.000000
+IOdriver #0 device #3 Read request size std.dev.:	0.000000
+IOdriver #0 device #3 Read request size maximum:	0
+IOdriver #0 device #3 Read request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #3 Write request size average: 	0.000000
+IOdriver #0 device #3 Write request size std.dev.:	0.000000
+IOdriver #0 device #3 Write request size maximum:	0
+IOdriver #0 device #3 Write request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #3 Instantaneous queue length average: 	0.000000
+IOdriver #0 device #3 Instantaneous queue length std.dev.:	0.000000
+IOdriver #0 device #3 Instantaneous queue length maximum:	0
+IOdriver #0 device #3 Instantaneous queue length distribution
+   =  1    =  2    =  3    <  6    < 10    < 20    < 40    < 80    <150    150+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #3 Sub-optimal mapping penalty average: 	0.000000
+IOdriver #0 device #3 Sub-optimal mapping penalty std.dev.:	0.000000
+IOdriver #0 device #3 Sub-optimal mapping penalty maximum:	0
+IOdriver #0 device #3 Sub-optimal mapping penalty distribution
+   = -1    =  0    =  1    =  2    =  3    =  4    < 10    < 20    < 40     40+
+      0       0       0       0       0       0       0       0       0       0 
+
+I/O Driver #0 - Device #4
+IOdriver #0 device #4 Total Requests handled:	0
+IOdriver #0 device #4 Requests per second:   	0.000000
+IOdriver #0 device #4 Completely idle time:  	1460378624.000000   	1.000000
+IOdriver #0 device #4 Response time average: 	0.000000
+IOdriver #0 device #4 Response time std.dev.:	0.000000
+IOdriver #0 device #4 Response time maximum:	0
+IOdriver #0 device #4 Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #4 Overlaps combined:     	0	0.000000
+IOdriver #0 device #4 Read overlaps combined:	0	0.000000	0.000000
+IOdriver #0 device #4 Critical Reads:      	     0  	0.000000
+IOdriver #0 device #4 Critical Read Response time average: 	0.000000
+IOdriver #0 device #4 Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #4 Critical Read Response time maximum:	0
+IOdriver #0 device #4 Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #4 Non-Critical Reads:  	     0  	0.000000
+IOdriver #0 device #4 Non-Critical Read Response time average: 	0.000000
+IOdriver #0 device #4 Non-Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #4 Non-Critical Read Response time maximum:	0
+IOdriver #0 device #4 Non-Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #4 Critical Writes:     	     0  	0.000000
+IOdriver #0 device #4 Critical Write Response time average: 	0.000000
+IOdriver #0 device #4 Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #4 Critical Write Response time maximum:	0
+IOdriver #0 device #4 Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #4 Non-Critical Writes: 	     0  	0.000000
+IOdriver #0 device #4 Non-Critical Write Response time average: 	0.000000
+IOdriver #0 device #4 Non-Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #4 Non-Critical Write Response time maximum:	0
+IOdriver #0 device #4 Non-Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #4 Number of reads:         0  	0.000000
+IOdriver #0 device #4 Number of writes:        0  	0.000000
+IOdriver #0 device #4 Sequential reads:        0  	0.000000  	0.000000
+IOdriver #0 device #4 Sequential writes:       0  	0.000000  	0.000000
+IOdriver #0 device #4 Base SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #4 Timeout SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #4 Priority SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #4 runlistlen:              0.000000
+IOdriver #0 device #4 runoutstanding:          0.000000
+IOdriver #0 device #4 simtime:                 1460378624.000000
+IOdriver #0 device #4 warmuptime:              0.000000
+IOdriver #0 device #4 setsize:                 1
+IOdriver #0 device #4 Average # requests:      0.000000
+IOdriver #0 device #4 Maximum # requests:      0
+IOdriver #0 device #4 End # requests:          0
+IOdriver #0 device #4 Average queue length:    0.000000
+IOdriver #0 device #4 Maximum queue length:    0
+IOdriver #0 device #4 End queued requests:     0
+IOdriver #0 device #4 Queue time average: 	0.000000
+IOdriver #0 device #4 Queue time std.dev.:	0.000000
+IOdriver #0 device #4 Queue time maximum:	0
+IOdriver #0 device #4 Queue time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #4 Avg # read requests:     0.000000
+IOdriver #0 device #4 Max # read requests:     0
+IOdriver #0 device #4 Avg # write requests:    0.000000
+IOdriver #0 device #4 Max # write requests:    0
+IOdriver #0 device #4 Physical access time average: 	0.000000
+IOdriver #0 device #4 Physical access time std.dev.:	0.000000
+IOdriver #0 device #4 Physical access time maximum:	0
+IOdriver #0 device #4 Physical access time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #4 Inter-arrival time average: 	0.000000
+IOdriver #0 device #4 Inter-arrival time std.dev.:	0.000000
+IOdriver #0 device #4 Inter-arrival time maximum:	0
+IOdriver #0 device #4 Inter-arrival time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #4 Read inter-arrival average: 	0.000000
+IOdriver #0 device #4 Read inter-arrival std.dev.:	0.000000
+IOdriver #0 device #4 Read inter-arrival maximum:	0
+IOdriver #0 device #4 Read inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #4 Write inter-arrival average: 	0.000000
+IOdriver #0 device #4 Write inter-arrival std.dev.:	0.000000
+IOdriver #0 device #4 Write inter-arrival maximum:	0
+IOdriver #0 device #4 Write inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #4 Number of idle periods:  1
+IOdriver #0 device #4 Idle period length average: 	1460378624.000000
+IOdriver #0 device #4 Idle period length std.dev.:	0.000000
+IOdriver #0 device #4 Idle period length maximum:	1460378624
+IOdriver #0 device #4 Idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+IOdriver #0 device #4 Request size average: 	0.000000
+IOdriver #0 device #4 Request size std.dev.:	0.000000
+IOdriver #0 device #4 Request size maximum:	0
+IOdriver #0 device #4 Request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #4 Read request size average: 	0.000000
+IOdriver #0 device #4 Read request size std.dev.:	0.000000
+IOdriver #0 device #4 Read request size maximum:	0
+IOdriver #0 device #4 Read request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #4 Write request size average: 	0.000000
+IOdriver #0 device #4 Write request size std.dev.:	0.000000
+IOdriver #0 device #4 Write request size maximum:	0
+IOdriver #0 device #4 Write request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #4 Instantaneous queue length average: 	0.000000
+IOdriver #0 device #4 Instantaneous queue length std.dev.:	0.000000
+IOdriver #0 device #4 Instantaneous queue length maximum:	0
+IOdriver #0 device #4 Instantaneous queue length distribution
+   =  1    =  2    =  3    <  6    < 10    < 20    < 40    < 80    <150    150+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #4 Sub-optimal mapping penalty average: 	0.000000
+IOdriver #0 device #4 Sub-optimal mapping penalty std.dev.:	0.000000
+IOdriver #0 device #4 Sub-optimal mapping penalty maximum:	0
+IOdriver #0 device #4 Sub-optimal mapping penalty distribution
+   = -1    =  0    =  1    =  2    =  3    =  4    < 10    < 20    < 40     40+
+      0       0       0       0       0       0       0       0       0       0 
+
+I/O Driver #0 - Device #5
+IOdriver #0 device #5 Total Requests handled:	5
+IOdriver #0 device #5 Requests per second:   	0.000003
+IOdriver #0 device #5 Completely idle time:  	1460378613.333717   	1.000000
+IOdriver #0 device #5 Response time average: 	8.495743
+IOdriver #0 device #5 Response time std.dev.:	1.534803
+IOdriver #0 device #5 Response time maximum:	10.666283
+IOdriver #0 device #5 Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       4       1       0       0       0       0       0       0       0 
+IOdriver #0 device #5 Overlaps combined:     	0	0.000000
+IOdriver #0 device #5 Read overlaps combined:	0	0.000000	0.000000
+IOdriver #0 device #5 Critical Reads:      	     0  	0.000000
+IOdriver #0 device #5 Critical Read Response time average: 	0.000000
+IOdriver #0 device #5 Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #5 Critical Read Response time maximum:	0
+IOdriver #0 device #5 Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #5 Non-Critical Reads:  	     5  	0.004170
+IOdriver #0 device #5 Non-Critical Read Response time average: 	8.495743
+IOdriver #0 device #5 Non-Critical Read Response time std.dev.:	1.534803
+IOdriver #0 device #5 Non-Critical Read Response time maximum:	10.666283
+IOdriver #0 device #5 Non-Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       4       1       0       0       0       0       0       0       0 
+IOdriver #0 device #5 Critical Writes:     	     0  	0.000000
+IOdriver #0 device #5 Critical Write Response time average: 	0.000000
+IOdriver #0 device #5 Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #5 Critical Write Response time maximum:	0
+IOdriver #0 device #5 Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #5 Non-Critical Writes: 	     0  	0.000000
+IOdriver #0 device #5 Non-Critical Write Response time average: 	0.000000
+IOdriver #0 device #5 Non-Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #5 Non-Critical Write Response time maximum:	0
+IOdriver #0 device #5 Non-Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #5 Number of reads:       638  	0.532110
+IOdriver #0 device #5 Number of writes:      561  	0.467890
+IOdriver #0 device #5 Sequential reads:        0  	0.000000  	0.000000
+IOdriver #0 device #5 Sequential writes:       0  	0.000000  	0.000000
+IOdriver #0 device #5 Base SPTF/SDF Different:      0 /      6 	0.000000
+IOdriver #0 device #5 Timeout SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #5 Priority SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #5 runlistlen:              42.478716
+IOdriver #0 device #5 runoutstanding:          10.666283
+IOdriver #0 device #5 simtime:                 1460378624.000000
+IOdriver #0 device #5 warmuptime:              0.000000
+IOdriver #0 device #5 setsize:                 1
+IOdriver #0 device #5 Average # requests:      0.000000
+IOdriver #0 device #5 Maximum # requests:      1194
+IOdriver #0 device #5 End # requests:          1194
+IOdriver #0 device #5 Average queue length:    0.000000
+IOdriver #0 device #5 Maximum queue length:    1193
+IOdriver #0 device #5 End queued requests:     1193
+IOdriver #0 device #5 Queue time average: 	5.302072
+IOdriver #0 device #5 Queue time std.dev.:	3.877821
+IOdriver #0 device #5 Queue time maximum:	9.581013
+IOdriver #0 device #5 Queue time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      2       4       0       0       0       0       0       0       0       0 
+IOdriver #0 device #5 Avg # read requests:     0.000000
+IOdriver #0 device #5 Max # read requests:     633
+IOdriver #0 device #5 Avg # write requests:    0.000000
+IOdriver #0 device #5 Max # write requests:    561
+IOdriver #0 device #5 Physical access time average: 	2.133257
+IOdriver #0 device #5 Physical access time std.dev.:	2.095973
+IOdriver #0 device #5 Physical access time maximum:	6.325203
+IOdriver #0 device #5 Physical access time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      4       1       0       0       0       0       0       0       0       0 
+IOdriver #0 device #5 Inter-arrival time average: 	1217997.184320
+IOdriver #0 device #5 Inter-arrival time std.dev.:	42157481.223684
+IOdriver #0 device #5 Inter-arrival time maximum:	1460378496
+IOdriver #0 device #5 Inter-arrival time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+   1197       0       0       0       0       0       0       1       0       1 
+IOdriver #0 device #5 Read inter-arrival average: 	2288994.708464
+IOdriver #0 device #5 Read inter-arrival std.dev.:	57771609.462883
+IOdriver #0 device #5 Read inter-arrival maximum:	1460378496
+IOdriver #0 device #5 Read inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+    636       0       0       0       0       0       0       0       0       2 
+IOdriver #0 device #5 Write inter-arrival average: 	2603170.452763
+IOdriver #0 device #5 Write inter-arrival std.dev.:	61602256.350212
+IOdriver #0 device #5 Write inter-arrival maximum:	1460378624
+IOdriver #0 device #5 Write inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+    560       0       0       0       0       0       0       0       0       1 
+IOdriver #0 device #5 Number of idle periods:  2
+IOdriver #0 device #5 Idle period length average: 	730189306.666858
+IOdriver #0 device #5 Idle period length std.dev.:	730189189.333142
+IOdriver #0 device #5 Idle period length maximum:	1460378496
+IOdriver #0 device #5 Idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       2 
+IOdriver #0 device #5 Request size average: 	1.000000
+IOdriver #0 device #5 Request size std.dev.:	0.000000
+IOdriver #0 device #5 Request size maximum:	1
+IOdriver #0 device #5 Request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+   1199       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #5 Read request size average: 	1.000000
+IOdriver #0 device #5 Read request size std.dev.:	0.000000
+IOdriver #0 device #5 Read request size maximum:	1
+IOdriver #0 device #5 Read request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+    638       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #5 Write request size average: 	1.000000
+IOdriver #0 device #5 Write request size std.dev.:	0.000000
+IOdriver #0 device #5 Write request size maximum:	1
+IOdriver #0 device #5 Write request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+    561       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #5 Instantaneous queue length average: 	2.000000
+IOdriver #0 device #5 Instantaneous queue length std.dev.:	1.154701
+IOdriver #0 device #5 Instantaneous queue length maximum:	4
+IOdriver #0 device #5 Instantaneous queue length distribution
+   =  1    =  2    =  3    <  6    < 10    < 20    < 40    < 80    <150    150+
+      3       1       1       1       0       0       0       0       0       0 
+IOdriver #0 device #5 Sub-optimal mapping penalty average: 	0.000000
+IOdriver #0 device #5 Sub-optimal mapping penalty std.dev.:	0.000000
+IOdriver #0 device #5 Sub-optimal mapping penalty maximum:	0
+IOdriver #0 device #5 Sub-optimal mapping penalty distribution
+   = -1    =  0    =  1    =  2    =  3    =  4    < 10    < 20    < 40     40+
+      0       0       0       0       0       0       0       0       0       0 
+
+I/O Driver #0 - Device #6
+IOdriver #0 device #6 Total Requests handled:	0
+IOdriver #0 device #6 Requests per second:   	0.000000
+IOdriver #0 device #6 Completely idle time:  	1460378624.000000   	1.000000
+IOdriver #0 device #6 Response time average: 	0.000000
+IOdriver #0 device #6 Response time std.dev.:	0.000000
+IOdriver #0 device #6 Response time maximum:	0
+IOdriver #0 device #6 Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #6 Overlaps combined:     	0	0.000000
+IOdriver #0 device #6 Read overlaps combined:	0	0.000000	0.000000
+IOdriver #0 device #6 Critical Reads:      	     0  	0.000000
+IOdriver #0 device #6 Critical Read Response time average: 	0.000000
+IOdriver #0 device #6 Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #6 Critical Read Response time maximum:	0
+IOdriver #0 device #6 Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #6 Non-Critical Reads:  	     0  	0.000000
+IOdriver #0 device #6 Non-Critical Read Response time average: 	0.000000
+IOdriver #0 device #6 Non-Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #6 Non-Critical Read Response time maximum:	0
+IOdriver #0 device #6 Non-Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #6 Critical Writes:     	     0  	0.000000
+IOdriver #0 device #6 Critical Write Response time average: 	0.000000
+IOdriver #0 device #6 Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #6 Critical Write Response time maximum:	0
+IOdriver #0 device #6 Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #6 Non-Critical Writes: 	     0  	0.000000
+IOdriver #0 device #6 Non-Critical Write Response time average: 	0.000000
+IOdriver #0 device #6 Non-Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #6 Non-Critical Write Response time maximum:	0
+IOdriver #0 device #6 Non-Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #6 Number of reads:         0  	0.000000
+IOdriver #0 device #6 Number of writes:        0  	0.000000
+IOdriver #0 device #6 Sequential reads:        0  	0.000000  	0.000000
+IOdriver #0 device #6 Sequential writes:       0  	0.000000  	0.000000
+IOdriver #0 device #6 Base SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #6 Timeout SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #6 Priority SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #6 runlistlen:              0.000000
+IOdriver #0 device #6 runoutstanding:          0.000000
+IOdriver #0 device #6 simtime:                 1460378624.000000
+IOdriver #0 device #6 warmuptime:              0.000000
+IOdriver #0 device #6 setsize:                 1
+IOdriver #0 device #6 Average # requests:      0.000000
+IOdriver #0 device #6 Maximum # requests:      0
+IOdriver #0 device #6 End # requests:          0
+IOdriver #0 device #6 Average queue length:    0.000000
+IOdriver #0 device #6 Maximum queue length:    0
+IOdriver #0 device #6 End queued requests:     0
+IOdriver #0 device #6 Queue time average: 	0.000000
+IOdriver #0 device #6 Queue time std.dev.:	0.000000
+IOdriver #0 device #6 Queue time maximum:	0
+IOdriver #0 device #6 Queue time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #6 Avg # read requests:     0.000000
+IOdriver #0 device #6 Max # read requests:     0
+IOdriver #0 device #6 Avg # write requests:    0.000000
+IOdriver #0 device #6 Max # write requests:    0
+IOdriver #0 device #6 Physical access time average: 	0.000000
+IOdriver #0 device #6 Physical access time std.dev.:	0.000000
+IOdriver #0 device #6 Physical access time maximum:	0
+IOdriver #0 device #6 Physical access time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #6 Inter-arrival time average: 	0.000000
+IOdriver #0 device #6 Inter-arrival time std.dev.:	0.000000
+IOdriver #0 device #6 Inter-arrival time maximum:	0
+IOdriver #0 device #6 Inter-arrival time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #6 Read inter-arrival average: 	0.000000
+IOdriver #0 device #6 Read inter-arrival std.dev.:	0.000000
+IOdriver #0 device #6 Read inter-arrival maximum:	0
+IOdriver #0 device #6 Read inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #6 Write inter-arrival average: 	0.000000
+IOdriver #0 device #6 Write inter-arrival std.dev.:	0.000000
+IOdriver #0 device #6 Write inter-arrival maximum:	0
+IOdriver #0 device #6 Write inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #6 Number of idle periods:  1
+IOdriver #0 device #6 Idle period length average: 	1460378624.000000
+IOdriver #0 device #6 Idle period length std.dev.:	0.000000
+IOdriver #0 device #6 Idle period length maximum:	1460378624
+IOdriver #0 device #6 Idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+IOdriver #0 device #6 Request size average: 	0.000000
+IOdriver #0 device #6 Request size std.dev.:	0.000000
+IOdriver #0 device #6 Request size maximum:	0
+IOdriver #0 device #6 Request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #6 Read request size average: 	0.000000
+IOdriver #0 device #6 Read request size std.dev.:	0.000000
+IOdriver #0 device #6 Read request size maximum:	0
+IOdriver #0 device #6 Read request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #6 Write request size average: 	0.000000
+IOdriver #0 device #6 Write request size std.dev.:	0.000000
+IOdriver #0 device #6 Write request size maximum:	0
+IOdriver #0 device #6 Write request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #6 Instantaneous queue length average: 	0.000000
+IOdriver #0 device #6 Instantaneous queue length std.dev.:	0.000000
+IOdriver #0 device #6 Instantaneous queue length maximum:	0
+IOdriver #0 device #6 Instantaneous queue length distribution
+   =  1    =  2    =  3    <  6    < 10    < 20    < 40    < 80    <150    150+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #6 Sub-optimal mapping penalty average: 	0.000000
+IOdriver #0 device #6 Sub-optimal mapping penalty std.dev.:	0.000000
+IOdriver #0 device #6 Sub-optimal mapping penalty maximum:	0
+IOdriver #0 device #6 Sub-optimal mapping penalty distribution
+   = -1    =  0    =  1    =  2    =  3    =  4    < 10    < 20    < 40     40+
+      0       0       0       0       0       0       0       0       0       0 
+
+I/O Driver #0 - Device #7
+IOdriver #0 device #7 Total Requests handled:	0
+IOdriver #0 device #7 Requests per second:   	0.000000
+IOdriver #0 device #7 Completely idle time:  	1460378624.000000   	1.000000
+IOdriver #0 device #7 Response time average: 	0.000000
+IOdriver #0 device #7 Response time std.dev.:	0.000000
+IOdriver #0 device #7 Response time maximum:	0
+IOdriver #0 device #7 Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #7 Overlaps combined:     	0	0.000000
+IOdriver #0 device #7 Read overlaps combined:	0	0.000000	0.000000
+IOdriver #0 device #7 Critical Reads:      	     0  	0.000000
+IOdriver #0 device #7 Critical Read Response time average: 	0.000000
+IOdriver #0 device #7 Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #7 Critical Read Response time maximum:	0
+IOdriver #0 device #7 Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #7 Non-Critical Reads:  	     0  	0.000000
+IOdriver #0 device #7 Non-Critical Read Response time average: 	0.000000
+IOdriver #0 device #7 Non-Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #7 Non-Critical Read Response time maximum:	0
+IOdriver #0 device #7 Non-Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #7 Critical Writes:     	     0  	0.000000
+IOdriver #0 device #7 Critical Write Response time average: 	0.000000
+IOdriver #0 device #7 Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #7 Critical Write Response time maximum:	0
+IOdriver #0 device #7 Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #7 Non-Critical Writes: 	     0  	0.000000
+IOdriver #0 device #7 Non-Critical Write Response time average: 	0.000000
+IOdriver #0 device #7 Non-Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #7 Non-Critical Write Response time maximum:	0
+IOdriver #0 device #7 Non-Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #7 Number of reads:         0  	0.000000
+IOdriver #0 device #7 Number of writes:        0  	0.000000
+IOdriver #0 device #7 Sequential reads:        0  	0.000000  	0.000000
+IOdriver #0 device #7 Sequential writes:       0  	0.000000  	0.000000
+IOdriver #0 device #7 Base SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #7 Timeout SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #7 Priority SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #7 runlistlen:              0.000000
+IOdriver #0 device #7 runoutstanding:          0.000000
+IOdriver #0 device #7 simtime:                 1460378624.000000
+IOdriver #0 device #7 warmuptime:              0.000000
+IOdriver #0 device #7 setsize:                 1
+IOdriver #0 device #7 Average # requests:      0.000000
+IOdriver #0 device #7 Maximum # requests:      0
+IOdriver #0 device #7 End # requests:          0
+IOdriver #0 device #7 Average queue length:    0.000000
+IOdriver #0 device #7 Maximum queue length:    0
+IOdriver #0 device #7 End queued requests:     0
+IOdriver #0 device #7 Queue time average: 	0.000000
+IOdriver #0 device #7 Queue time std.dev.:	0.000000
+IOdriver #0 device #7 Queue time maximum:	0
+IOdriver #0 device #7 Queue time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #7 Avg # read requests:     0.000000
+IOdriver #0 device #7 Max # read requests:     0
+IOdriver #0 device #7 Avg # write requests:    0.000000
+IOdriver #0 device #7 Max # write requests:    0
+IOdriver #0 device #7 Physical access time average: 	0.000000
+IOdriver #0 device #7 Physical access time std.dev.:	0.000000
+IOdriver #0 device #7 Physical access time maximum:	0
+IOdriver #0 device #7 Physical access time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #7 Inter-arrival time average: 	0.000000
+IOdriver #0 device #7 Inter-arrival time std.dev.:	0.000000
+IOdriver #0 device #7 Inter-arrival time maximum:	0
+IOdriver #0 device #7 Inter-arrival time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #7 Read inter-arrival average: 	0.000000
+IOdriver #0 device #7 Read inter-arrival std.dev.:	0.000000
+IOdriver #0 device #7 Read inter-arrival maximum:	0
+IOdriver #0 device #7 Read inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #7 Write inter-arrival average: 	0.000000
+IOdriver #0 device #7 Write inter-arrival std.dev.:	0.000000
+IOdriver #0 device #7 Write inter-arrival maximum:	0
+IOdriver #0 device #7 Write inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #7 Number of idle periods:  1
+IOdriver #0 device #7 Idle period length average: 	1460378624.000000
+IOdriver #0 device #7 Idle period length std.dev.:	0.000000
+IOdriver #0 device #7 Idle period length maximum:	1460378624
+IOdriver #0 device #7 Idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+IOdriver #0 device #7 Request size average: 	0.000000
+IOdriver #0 device #7 Request size std.dev.:	0.000000
+IOdriver #0 device #7 Request size maximum:	0
+IOdriver #0 device #7 Request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #7 Read request size average: 	0.000000
+IOdriver #0 device #7 Read request size std.dev.:	0.000000
+IOdriver #0 device #7 Read request size maximum:	0
+IOdriver #0 device #7 Read request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #7 Write request size average: 	0.000000
+IOdriver #0 device #7 Write request size std.dev.:	0.000000
+IOdriver #0 device #7 Write request size maximum:	0
+IOdriver #0 device #7 Write request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #7 Instantaneous queue length average: 	0.000000
+IOdriver #0 device #7 Instantaneous queue length std.dev.:	0.000000
+IOdriver #0 device #7 Instantaneous queue length maximum:	0
+IOdriver #0 device #7 Instantaneous queue length distribution
+   =  1    =  2    =  3    <  6    < 10    < 20    < 40    < 80    <150    150+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #7 Sub-optimal mapping penalty average: 	0.000000
+IOdriver #0 device #7 Sub-optimal mapping penalty std.dev.:	0.000000
+IOdriver #0 device #7 Sub-optimal mapping penalty maximum:	0
+IOdriver #0 device #7 Sub-optimal mapping penalty distribution
+   = -1    =  0    =  1    =  2    =  3    =  4    < 10    < 20    < 40     40+
+      0       0       0       0       0       0       0       0       0       0 
+
+I/O Driver #0 - Device #8
+IOdriver #0 device #8 Total Requests handled:	0
+IOdriver #0 device #8 Requests per second:   	0.000000
+IOdriver #0 device #8 Completely idle time:  	1460378624.000000   	1.000000
+IOdriver #0 device #8 Response time average: 	0.000000
+IOdriver #0 device #8 Response time std.dev.:	0.000000
+IOdriver #0 device #8 Response time maximum:	0
+IOdriver #0 device #8 Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #8 Overlaps combined:     	0	0.000000
+IOdriver #0 device #8 Read overlaps combined:	0	0.000000	0.000000
+IOdriver #0 device #8 Critical Reads:      	     0  	0.000000
+IOdriver #0 device #8 Critical Read Response time average: 	0.000000
+IOdriver #0 device #8 Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #8 Critical Read Response time maximum:	0
+IOdriver #0 device #8 Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #8 Non-Critical Reads:  	     0  	0.000000
+IOdriver #0 device #8 Non-Critical Read Response time average: 	0.000000
+IOdriver #0 device #8 Non-Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #8 Non-Critical Read Response time maximum:	0
+IOdriver #0 device #8 Non-Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #8 Critical Writes:     	     0  	0.000000
+IOdriver #0 device #8 Critical Write Response time average: 	0.000000
+IOdriver #0 device #8 Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #8 Critical Write Response time maximum:	0
+IOdriver #0 device #8 Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #8 Non-Critical Writes: 	     0  	0.000000
+IOdriver #0 device #8 Non-Critical Write Response time average: 	0.000000
+IOdriver #0 device #8 Non-Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #8 Non-Critical Write Response time maximum:	0
+IOdriver #0 device #8 Non-Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #8 Number of reads:         0  	0.000000
+IOdriver #0 device #8 Number of writes:        0  	0.000000
+IOdriver #0 device #8 Sequential reads:        0  	0.000000  	0.000000
+IOdriver #0 device #8 Sequential writes:       0  	0.000000  	0.000000
+IOdriver #0 device #8 Base SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #8 Timeout SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #8 Priority SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #8 runlistlen:              0.000000
+IOdriver #0 device #8 runoutstanding:          0.000000
+IOdriver #0 device #8 simtime:                 1460378624.000000
+IOdriver #0 device #8 warmuptime:              0.000000
+IOdriver #0 device #8 setsize:                 1
+IOdriver #0 device #8 Average # requests:      0.000000
+IOdriver #0 device #8 Maximum # requests:      0
+IOdriver #0 device #8 End # requests:          0
+IOdriver #0 device #8 Average queue length:    0.000000
+IOdriver #0 device #8 Maximum queue length:    0
+IOdriver #0 device #8 End queued requests:     0
+IOdriver #0 device #8 Queue time average: 	0.000000
+IOdriver #0 device #8 Queue time std.dev.:	0.000000
+IOdriver #0 device #8 Queue time maximum:	0
+IOdriver #0 device #8 Queue time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #8 Avg # read requests:     0.000000
+IOdriver #0 device #8 Max # read requests:     0
+IOdriver #0 device #8 Avg # write requests:    0.000000
+IOdriver #0 device #8 Max # write requests:    0
+IOdriver #0 device #8 Physical access time average: 	0.000000
+IOdriver #0 device #8 Physical access time std.dev.:	0.000000
+IOdriver #0 device #8 Physical access time maximum:	0
+IOdriver #0 device #8 Physical access time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #8 Inter-arrival time average: 	0.000000
+IOdriver #0 device #8 Inter-arrival time std.dev.:	0.000000
+IOdriver #0 device #8 Inter-arrival time maximum:	0
+IOdriver #0 device #8 Inter-arrival time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #8 Read inter-arrival average: 	0.000000
+IOdriver #0 device #8 Read inter-arrival std.dev.:	0.000000
+IOdriver #0 device #8 Read inter-arrival maximum:	0
+IOdriver #0 device #8 Read inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #8 Write inter-arrival average: 	0.000000
+IOdriver #0 device #8 Write inter-arrival std.dev.:	0.000000
+IOdriver #0 device #8 Write inter-arrival maximum:	0
+IOdriver #0 device #8 Write inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #8 Number of idle periods:  1
+IOdriver #0 device #8 Idle period length average: 	1460378624.000000
+IOdriver #0 device #8 Idle period length std.dev.:	0.000000
+IOdriver #0 device #8 Idle period length maximum:	1460378624
+IOdriver #0 device #8 Idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+IOdriver #0 device #8 Request size average: 	0.000000
+IOdriver #0 device #8 Request size std.dev.:	0.000000
+IOdriver #0 device #8 Request size maximum:	0
+IOdriver #0 device #8 Request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #8 Read request size average: 	0.000000
+IOdriver #0 device #8 Read request size std.dev.:	0.000000
+IOdriver #0 device #8 Read request size maximum:	0
+IOdriver #0 device #8 Read request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #8 Write request size average: 	0.000000
+IOdriver #0 device #8 Write request size std.dev.:	0.000000
+IOdriver #0 device #8 Write request size maximum:	0
+IOdriver #0 device #8 Write request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #8 Instantaneous queue length average: 	0.000000
+IOdriver #0 device #8 Instantaneous queue length std.dev.:	0.000000
+IOdriver #0 device #8 Instantaneous queue length maximum:	0
+IOdriver #0 device #8 Instantaneous queue length distribution
+   =  1    =  2    =  3    <  6    < 10    < 20    < 40    < 80    <150    150+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #8 Sub-optimal mapping penalty average: 	0.000000
+IOdriver #0 device #8 Sub-optimal mapping penalty std.dev.:	0.000000
+IOdriver #0 device #8 Sub-optimal mapping penalty maximum:	0
+IOdriver #0 device #8 Sub-optimal mapping penalty distribution
+   = -1    =  0    =  1    =  2    =  3    =  4    < 10    < 20    < 40     40+
+      0       0       0       0       0       0       0       0       0       0 
+
+I/O Driver #0 - Device #9
+IOdriver #0 device #9 Total Requests handled:	0
+IOdriver #0 device #9 Requests per second:   	0.000000
+IOdriver #0 device #9 Completely idle time:  	1460378624.000000   	1.000000
+IOdriver #0 device #9 Response time average: 	0.000000
+IOdriver #0 device #9 Response time std.dev.:	0.000000
+IOdriver #0 device #9 Response time maximum:	0
+IOdriver #0 device #9 Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #9 Overlaps combined:     	0	0.000000
+IOdriver #0 device #9 Read overlaps combined:	0	0.000000	0.000000
+IOdriver #0 device #9 Critical Reads:      	     0  	0.000000
+IOdriver #0 device #9 Critical Read Response time average: 	0.000000
+IOdriver #0 device #9 Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #9 Critical Read Response time maximum:	0
+IOdriver #0 device #9 Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #9 Non-Critical Reads:  	     0  	0.000000
+IOdriver #0 device #9 Non-Critical Read Response time average: 	0.000000
+IOdriver #0 device #9 Non-Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #9 Non-Critical Read Response time maximum:	0
+IOdriver #0 device #9 Non-Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #9 Critical Writes:     	     0  	0.000000
+IOdriver #0 device #9 Critical Write Response time average: 	0.000000
+IOdriver #0 device #9 Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #9 Critical Write Response time maximum:	0
+IOdriver #0 device #9 Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #9 Non-Critical Writes: 	     0  	0.000000
+IOdriver #0 device #9 Non-Critical Write Response time average: 	0.000000
+IOdriver #0 device #9 Non-Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #9 Non-Critical Write Response time maximum:	0
+IOdriver #0 device #9 Non-Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #9 Number of reads:         0  	0.000000
+IOdriver #0 device #9 Number of writes:        0  	0.000000
+IOdriver #0 device #9 Sequential reads:        0  	0.000000  	0.000000
+IOdriver #0 device #9 Sequential writes:       0  	0.000000  	0.000000
+IOdriver #0 device #9 Base SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #9 Timeout SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #9 Priority SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #9 runlistlen:              0.000000
+IOdriver #0 device #9 runoutstanding:          0.000000
+IOdriver #0 device #9 simtime:                 1460378624.000000
+IOdriver #0 device #9 warmuptime:              0.000000
+IOdriver #0 device #9 setsize:                 1
+IOdriver #0 device #9 Average # requests:      0.000000
+IOdriver #0 device #9 Maximum # requests:      0
+IOdriver #0 device #9 End # requests:          0
+IOdriver #0 device #9 Average queue length:    0.000000
+IOdriver #0 device #9 Maximum queue length:    0
+IOdriver #0 device #9 End queued requests:     0
+IOdriver #0 device #9 Queue time average: 	0.000000
+IOdriver #0 device #9 Queue time std.dev.:	0.000000
+IOdriver #0 device #9 Queue time maximum:	0
+IOdriver #0 device #9 Queue time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #9 Avg # read requests:     0.000000
+IOdriver #0 device #9 Max # read requests:     0
+IOdriver #0 device #9 Avg # write requests:    0.000000
+IOdriver #0 device #9 Max # write requests:    0
+IOdriver #0 device #9 Physical access time average: 	0.000000
+IOdriver #0 device #9 Physical access time std.dev.:	0.000000
+IOdriver #0 device #9 Physical access time maximum:	0
+IOdriver #0 device #9 Physical access time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #9 Inter-arrival time average: 	0.000000
+IOdriver #0 device #9 Inter-arrival time std.dev.:	0.000000
+IOdriver #0 device #9 Inter-arrival time maximum:	0
+IOdriver #0 device #9 Inter-arrival time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #9 Read inter-arrival average: 	0.000000
+IOdriver #0 device #9 Read inter-arrival std.dev.:	0.000000
+IOdriver #0 device #9 Read inter-arrival maximum:	0
+IOdriver #0 device #9 Read inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #9 Write inter-arrival average: 	0.000000
+IOdriver #0 device #9 Write inter-arrival std.dev.:	0.000000
+IOdriver #0 device #9 Write inter-arrival maximum:	0
+IOdriver #0 device #9 Write inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #9 Number of idle periods:  1
+IOdriver #0 device #9 Idle period length average: 	1460378624.000000
+IOdriver #0 device #9 Idle period length std.dev.:	0.000000
+IOdriver #0 device #9 Idle period length maximum:	1460378624
+IOdriver #0 device #9 Idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+IOdriver #0 device #9 Request size average: 	0.000000
+IOdriver #0 device #9 Request size std.dev.:	0.000000
+IOdriver #0 device #9 Request size maximum:	0
+IOdriver #0 device #9 Request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #9 Read request size average: 	0.000000
+IOdriver #0 device #9 Read request size std.dev.:	0.000000
+IOdriver #0 device #9 Read request size maximum:	0
+IOdriver #0 device #9 Read request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #9 Write request size average: 	0.000000
+IOdriver #0 device #9 Write request size std.dev.:	0.000000
+IOdriver #0 device #9 Write request size maximum:	0
+IOdriver #0 device #9 Write request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #9 Instantaneous queue length average: 	0.000000
+IOdriver #0 device #9 Instantaneous queue length std.dev.:	0.000000
+IOdriver #0 device #9 Instantaneous queue length maximum:	0
+IOdriver #0 device #9 Instantaneous queue length distribution
+   =  1    =  2    =  3    <  6    < 10    < 20    < 40    < 80    <150    150+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #9 Sub-optimal mapping penalty average: 	0.000000
+IOdriver #0 device #9 Sub-optimal mapping penalty std.dev.:	0.000000
+IOdriver #0 device #9 Sub-optimal mapping penalty maximum:	0
+IOdriver #0 device #9 Sub-optimal mapping penalty distribution
+   = -1    =  0    =  1    =  2    =  3    =  4    < 10    < 20    < 40     40+
+      0       0       0       0       0       0       0       0       0       0 
+
+I/O Driver #0 - Device #10
+IOdriver #0 device #10 Total Requests handled:	0
+IOdriver #0 device #10 Requests per second:   	0.000000
+IOdriver #0 device #10 Completely idle time:  	1460378624.000000   	1.000000
+IOdriver #0 device #10 Response time average: 	0.000000
+IOdriver #0 device #10 Response time std.dev.:	0.000000
+IOdriver #0 device #10 Response time maximum:	0
+IOdriver #0 device #10 Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #10 Overlaps combined:     	0	0.000000
+IOdriver #0 device #10 Read overlaps combined:	0	0.000000	0.000000
+IOdriver #0 device #10 Critical Reads:      	     0  	0.000000
+IOdriver #0 device #10 Critical Read Response time average: 	0.000000
+IOdriver #0 device #10 Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #10 Critical Read Response time maximum:	0
+IOdriver #0 device #10 Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #10 Non-Critical Reads:  	     0  	0.000000
+IOdriver #0 device #10 Non-Critical Read Response time average: 	0.000000
+IOdriver #0 device #10 Non-Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #10 Non-Critical Read Response time maximum:	0
+IOdriver #0 device #10 Non-Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #10 Critical Writes:     	     0  	0.000000
+IOdriver #0 device #10 Critical Write Response time average: 	0.000000
+IOdriver #0 device #10 Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #10 Critical Write Response time maximum:	0
+IOdriver #0 device #10 Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #10 Non-Critical Writes: 	     0  	0.000000
+IOdriver #0 device #10 Non-Critical Write Response time average: 	0.000000
+IOdriver #0 device #10 Non-Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #10 Non-Critical Write Response time maximum:	0
+IOdriver #0 device #10 Non-Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #10 Number of reads:         0  	0.000000
+IOdriver #0 device #10 Number of writes:        0  	0.000000
+IOdriver #0 device #10 Sequential reads:        0  	0.000000  	0.000000
+IOdriver #0 device #10 Sequential writes:       0  	0.000000  	0.000000
+IOdriver #0 device #10 Base SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #10 Timeout SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #10 Priority SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #10 runlistlen:              0.000000
+IOdriver #0 device #10 runoutstanding:          0.000000
+IOdriver #0 device #10 simtime:                 1460378624.000000
+IOdriver #0 device #10 warmuptime:              0.000000
+IOdriver #0 device #10 setsize:                 1
+IOdriver #0 device #10 Average # requests:      0.000000
+IOdriver #0 device #10 Maximum # requests:      0
+IOdriver #0 device #10 End # requests:          0
+IOdriver #0 device #10 Average queue length:    0.000000
+IOdriver #0 device #10 Maximum queue length:    0
+IOdriver #0 device #10 End queued requests:     0
+IOdriver #0 device #10 Queue time average: 	0.000000
+IOdriver #0 device #10 Queue time std.dev.:	0.000000
+IOdriver #0 device #10 Queue time maximum:	0
+IOdriver #0 device #10 Queue time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #10 Avg # read requests:     0.000000
+IOdriver #0 device #10 Max # read requests:     0
+IOdriver #0 device #10 Avg # write requests:    0.000000
+IOdriver #0 device #10 Max # write requests:    0
+IOdriver #0 device #10 Physical access time average: 	0.000000
+IOdriver #0 device #10 Physical access time std.dev.:	0.000000
+IOdriver #0 device #10 Physical access time maximum:	0
+IOdriver #0 device #10 Physical access time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #10 Inter-arrival time average: 	0.000000
+IOdriver #0 device #10 Inter-arrival time std.dev.:	0.000000
+IOdriver #0 device #10 Inter-arrival time maximum:	0
+IOdriver #0 device #10 Inter-arrival time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #10 Read inter-arrival average: 	0.000000
+IOdriver #0 device #10 Read inter-arrival std.dev.:	0.000000
+IOdriver #0 device #10 Read inter-arrival maximum:	0
+IOdriver #0 device #10 Read inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #10 Write inter-arrival average: 	0.000000
+IOdriver #0 device #10 Write inter-arrival std.dev.:	0.000000
+IOdriver #0 device #10 Write inter-arrival maximum:	0
+IOdriver #0 device #10 Write inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #10 Number of idle periods:  1
+IOdriver #0 device #10 Idle period length average: 	1460378624.000000
+IOdriver #0 device #10 Idle period length std.dev.:	0.000000
+IOdriver #0 device #10 Idle period length maximum:	1460378624
+IOdriver #0 device #10 Idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+IOdriver #0 device #10 Request size average: 	0.000000
+IOdriver #0 device #10 Request size std.dev.:	0.000000
+IOdriver #0 device #10 Request size maximum:	0
+IOdriver #0 device #10 Request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #10 Read request size average: 	0.000000
+IOdriver #0 device #10 Read request size std.dev.:	0.000000
+IOdriver #0 device #10 Read request size maximum:	0
+IOdriver #0 device #10 Read request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #10 Write request size average: 	0.000000
+IOdriver #0 device #10 Write request size std.dev.:	0.000000
+IOdriver #0 device #10 Write request size maximum:	0
+IOdriver #0 device #10 Write request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #10 Instantaneous queue length average: 	0.000000
+IOdriver #0 device #10 Instantaneous queue length std.dev.:	0.000000
+IOdriver #0 device #10 Instantaneous queue length maximum:	0
+IOdriver #0 device #10 Instantaneous queue length distribution
+   =  1    =  2    =  3    <  6    < 10    < 20    < 40    < 80    <150    150+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #10 Sub-optimal mapping penalty average: 	0.000000
+IOdriver #0 device #10 Sub-optimal mapping penalty std.dev.:	0.000000
+IOdriver #0 device #10 Sub-optimal mapping penalty maximum:	0
+IOdriver #0 device #10 Sub-optimal mapping penalty distribution
+   = -1    =  0    =  1    =  2    =  3    =  4    < 10    < 20    < 40     40+
+      0       0       0       0       0       0       0       0       0       0 
+
+I/O Driver #0 - Device #11
+IOdriver #0 device #11 Total Requests handled:	0
+IOdriver #0 device #11 Requests per second:   	0.000000
+IOdriver #0 device #11 Completely idle time:  	1460378624.000000   	1.000000
+IOdriver #0 device #11 Response time average: 	0.000000
+IOdriver #0 device #11 Response time std.dev.:	0.000000
+IOdriver #0 device #11 Response time maximum:	0
+IOdriver #0 device #11 Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #11 Overlaps combined:     	0	0.000000
+IOdriver #0 device #11 Read overlaps combined:	0	0.000000	0.000000
+IOdriver #0 device #11 Critical Reads:      	     0  	0.000000
+IOdriver #0 device #11 Critical Read Response time average: 	0.000000
+IOdriver #0 device #11 Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #11 Critical Read Response time maximum:	0
+IOdriver #0 device #11 Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #11 Non-Critical Reads:  	     0  	0.000000
+IOdriver #0 device #11 Non-Critical Read Response time average: 	0.000000
+IOdriver #0 device #11 Non-Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #11 Non-Critical Read Response time maximum:	0
+IOdriver #0 device #11 Non-Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #11 Critical Writes:     	     0  	0.000000
+IOdriver #0 device #11 Critical Write Response time average: 	0.000000
+IOdriver #0 device #11 Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #11 Critical Write Response time maximum:	0
+IOdriver #0 device #11 Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #11 Non-Critical Writes: 	     0  	0.000000
+IOdriver #0 device #11 Non-Critical Write Response time average: 	0.000000
+IOdriver #0 device #11 Non-Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #11 Non-Critical Write Response time maximum:	0
+IOdriver #0 device #11 Non-Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #11 Number of reads:         0  	0.000000
+IOdriver #0 device #11 Number of writes:        0  	0.000000
+IOdriver #0 device #11 Sequential reads:        0  	0.000000  	0.000000
+IOdriver #0 device #11 Sequential writes:       0  	0.000000  	0.000000
+IOdriver #0 device #11 Base SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #11 Timeout SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #11 Priority SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #11 runlistlen:              0.000000
+IOdriver #0 device #11 runoutstanding:          0.000000
+IOdriver #0 device #11 simtime:                 1460378624.000000
+IOdriver #0 device #11 warmuptime:              0.000000
+IOdriver #0 device #11 setsize:                 1
+IOdriver #0 device #11 Average # requests:      0.000000
+IOdriver #0 device #11 Maximum # requests:      0
+IOdriver #0 device #11 End # requests:          0
+IOdriver #0 device #11 Average queue length:    0.000000
+IOdriver #0 device #11 Maximum queue length:    0
+IOdriver #0 device #11 End queued requests:     0
+IOdriver #0 device #11 Queue time average: 	0.000000
+IOdriver #0 device #11 Queue time std.dev.:	0.000000
+IOdriver #0 device #11 Queue time maximum:	0
+IOdriver #0 device #11 Queue time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #11 Avg # read requests:     0.000000
+IOdriver #0 device #11 Max # read requests:     0
+IOdriver #0 device #11 Avg # write requests:    0.000000
+IOdriver #0 device #11 Max # write requests:    0
+IOdriver #0 device #11 Physical access time average: 	0.000000
+IOdriver #0 device #11 Physical access time std.dev.:	0.000000
+IOdriver #0 device #11 Physical access time maximum:	0
+IOdriver #0 device #11 Physical access time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #11 Inter-arrival time average: 	0.000000
+IOdriver #0 device #11 Inter-arrival time std.dev.:	0.000000
+IOdriver #0 device #11 Inter-arrival time maximum:	0
+IOdriver #0 device #11 Inter-arrival time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #11 Read inter-arrival average: 	0.000000
+IOdriver #0 device #11 Read inter-arrival std.dev.:	0.000000
+IOdriver #0 device #11 Read inter-arrival maximum:	0
+IOdriver #0 device #11 Read inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #11 Write inter-arrival average: 	0.000000
+IOdriver #0 device #11 Write inter-arrival std.dev.:	0.000000
+IOdriver #0 device #11 Write inter-arrival maximum:	0
+IOdriver #0 device #11 Write inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #11 Number of idle periods:  1
+IOdriver #0 device #11 Idle period length average: 	1460378624.000000
+IOdriver #0 device #11 Idle period length std.dev.:	0.000000
+IOdriver #0 device #11 Idle period length maximum:	1460378624
+IOdriver #0 device #11 Idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+IOdriver #0 device #11 Request size average: 	0.000000
+IOdriver #0 device #11 Request size std.dev.:	0.000000
+IOdriver #0 device #11 Request size maximum:	0
+IOdriver #0 device #11 Request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #11 Read request size average: 	0.000000
+IOdriver #0 device #11 Read request size std.dev.:	0.000000
+IOdriver #0 device #11 Read request size maximum:	0
+IOdriver #0 device #11 Read request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #11 Write request size average: 	0.000000
+IOdriver #0 device #11 Write request size std.dev.:	0.000000
+IOdriver #0 device #11 Write request size maximum:	0
+IOdriver #0 device #11 Write request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #11 Instantaneous queue length average: 	0.000000
+IOdriver #0 device #11 Instantaneous queue length std.dev.:	0.000000
+IOdriver #0 device #11 Instantaneous queue length maximum:	0
+IOdriver #0 device #11 Instantaneous queue length distribution
+   =  1    =  2    =  3    <  6    < 10    < 20    < 40    < 80    <150    150+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #11 Sub-optimal mapping penalty average: 	0.000000
+IOdriver #0 device #11 Sub-optimal mapping penalty std.dev.:	0.000000
+IOdriver #0 device #11 Sub-optimal mapping penalty maximum:	0
+IOdriver #0 device #11 Sub-optimal mapping penalty distribution
+   = -1    =  0    =  1    =  2    =  3    =  4    < 10    < 20    < 40     40+
+      0       0       0       0       0       0       0       0       0       0 
+
+I/O Driver #0 - Device #12
+IOdriver #0 device #12 Total Requests handled:	0
+IOdriver #0 device #12 Requests per second:   	0.000000
+IOdriver #0 device #12 Completely idle time:  	1460378624.000000   	1.000000
+IOdriver #0 device #12 Response time average: 	0.000000
+IOdriver #0 device #12 Response time std.dev.:	0.000000
+IOdriver #0 device #12 Response time maximum:	0
+IOdriver #0 device #12 Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #12 Overlaps combined:     	0	0.000000
+IOdriver #0 device #12 Read overlaps combined:	0	0.000000	0.000000
+IOdriver #0 device #12 Critical Reads:      	     0  	0.000000
+IOdriver #0 device #12 Critical Read Response time average: 	0.000000
+IOdriver #0 device #12 Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #12 Critical Read Response time maximum:	0
+IOdriver #0 device #12 Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #12 Non-Critical Reads:  	     0  	0.000000
+IOdriver #0 device #12 Non-Critical Read Response time average: 	0.000000
+IOdriver #0 device #12 Non-Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #12 Non-Critical Read Response time maximum:	0
+IOdriver #0 device #12 Non-Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #12 Critical Writes:     	     0  	0.000000
+IOdriver #0 device #12 Critical Write Response time average: 	0.000000
+IOdriver #0 device #12 Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #12 Critical Write Response time maximum:	0
+IOdriver #0 device #12 Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #12 Non-Critical Writes: 	     0  	0.000000
+IOdriver #0 device #12 Non-Critical Write Response time average: 	0.000000
+IOdriver #0 device #12 Non-Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #12 Non-Critical Write Response time maximum:	0
+IOdriver #0 device #12 Non-Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #12 Number of reads:         0  	0.000000
+IOdriver #0 device #12 Number of writes:        0  	0.000000
+IOdriver #0 device #12 Sequential reads:        0  	0.000000  	0.000000
+IOdriver #0 device #12 Sequential writes:       0  	0.000000  	0.000000
+IOdriver #0 device #12 Base SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #12 Timeout SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #12 Priority SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #12 runlistlen:              0.000000
+IOdriver #0 device #12 runoutstanding:          0.000000
+IOdriver #0 device #12 simtime:                 1460378624.000000
+IOdriver #0 device #12 warmuptime:              0.000000
+IOdriver #0 device #12 setsize:                 1
+IOdriver #0 device #12 Average # requests:      0.000000
+IOdriver #0 device #12 Maximum # requests:      0
+IOdriver #0 device #12 End # requests:          0
+IOdriver #0 device #12 Average queue length:    0.000000
+IOdriver #0 device #12 Maximum queue length:    0
+IOdriver #0 device #12 End queued requests:     0
+IOdriver #0 device #12 Queue time average: 	0.000000
+IOdriver #0 device #12 Queue time std.dev.:	0.000000
+IOdriver #0 device #12 Queue time maximum:	0
+IOdriver #0 device #12 Queue time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #12 Avg # read requests:     0.000000
+IOdriver #0 device #12 Max # read requests:     0
+IOdriver #0 device #12 Avg # write requests:    0.000000
+IOdriver #0 device #12 Max # write requests:    0
+IOdriver #0 device #12 Physical access time average: 	0.000000
+IOdriver #0 device #12 Physical access time std.dev.:	0.000000
+IOdriver #0 device #12 Physical access time maximum:	0
+IOdriver #0 device #12 Physical access time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #12 Inter-arrival time average: 	0.000000
+IOdriver #0 device #12 Inter-arrival time std.dev.:	0.000000
+IOdriver #0 device #12 Inter-arrival time maximum:	0
+IOdriver #0 device #12 Inter-arrival time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #12 Read inter-arrival average: 	0.000000
+IOdriver #0 device #12 Read inter-arrival std.dev.:	0.000000
+IOdriver #0 device #12 Read inter-arrival maximum:	0
+IOdriver #0 device #12 Read inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #12 Write inter-arrival average: 	0.000000
+IOdriver #0 device #12 Write inter-arrival std.dev.:	0.000000
+IOdriver #0 device #12 Write inter-arrival maximum:	0
+IOdriver #0 device #12 Write inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #12 Number of idle periods:  1
+IOdriver #0 device #12 Idle period length average: 	1460378624.000000
+IOdriver #0 device #12 Idle period length std.dev.:	0.000000
+IOdriver #0 device #12 Idle period length maximum:	1460378624
+IOdriver #0 device #12 Idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+IOdriver #0 device #12 Request size average: 	0.000000
+IOdriver #0 device #12 Request size std.dev.:	0.000000
+IOdriver #0 device #12 Request size maximum:	0
+IOdriver #0 device #12 Request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #12 Read request size average: 	0.000000
+IOdriver #0 device #12 Read request size std.dev.:	0.000000
+IOdriver #0 device #12 Read request size maximum:	0
+IOdriver #0 device #12 Read request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #12 Write request size average: 	0.000000
+IOdriver #0 device #12 Write request size std.dev.:	0.000000
+IOdriver #0 device #12 Write request size maximum:	0
+IOdriver #0 device #12 Write request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #12 Instantaneous queue length average: 	0.000000
+IOdriver #0 device #12 Instantaneous queue length std.dev.:	0.000000
+IOdriver #0 device #12 Instantaneous queue length maximum:	0
+IOdriver #0 device #12 Instantaneous queue length distribution
+   =  1    =  2    =  3    <  6    < 10    < 20    < 40    < 80    <150    150+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #12 Sub-optimal mapping penalty average: 	0.000000
+IOdriver #0 device #12 Sub-optimal mapping penalty std.dev.:	0.000000
+IOdriver #0 device #12 Sub-optimal mapping penalty maximum:	0
+IOdriver #0 device #12 Sub-optimal mapping penalty distribution
+   = -1    =  0    =  1    =  2    =  3    =  4    < 10    < 20    < 40     40+
+      0       0       0       0       0       0       0       0       0       0 
+
+I/O Driver #0 - Device #13
+IOdriver #0 device #13 Total Requests handled:	0
+IOdriver #0 device #13 Requests per second:   	0.000000
+IOdriver #0 device #13 Completely idle time:  	1460378624.000000   	1.000000
+IOdriver #0 device #13 Response time average: 	0.000000
+IOdriver #0 device #13 Response time std.dev.:	0.000000
+IOdriver #0 device #13 Response time maximum:	0
+IOdriver #0 device #13 Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #13 Overlaps combined:     	0	0.000000
+IOdriver #0 device #13 Read overlaps combined:	0	0.000000	0.000000
+IOdriver #0 device #13 Critical Reads:      	     0  	0.000000
+IOdriver #0 device #13 Critical Read Response time average: 	0.000000
+IOdriver #0 device #13 Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #13 Critical Read Response time maximum:	0
+IOdriver #0 device #13 Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #13 Non-Critical Reads:  	     0  	0.000000
+IOdriver #0 device #13 Non-Critical Read Response time average: 	0.000000
+IOdriver #0 device #13 Non-Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #13 Non-Critical Read Response time maximum:	0
+IOdriver #0 device #13 Non-Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #13 Critical Writes:     	     0  	0.000000
+IOdriver #0 device #13 Critical Write Response time average: 	0.000000
+IOdriver #0 device #13 Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #13 Critical Write Response time maximum:	0
+IOdriver #0 device #13 Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #13 Non-Critical Writes: 	     0  	0.000000
+IOdriver #0 device #13 Non-Critical Write Response time average: 	0.000000
+IOdriver #0 device #13 Non-Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #13 Non-Critical Write Response time maximum:	0
+IOdriver #0 device #13 Non-Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #13 Number of reads:         0  	0.000000
+IOdriver #0 device #13 Number of writes:        0  	0.000000
+IOdriver #0 device #13 Sequential reads:        0  	0.000000  	0.000000
+IOdriver #0 device #13 Sequential writes:       0  	0.000000  	0.000000
+IOdriver #0 device #13 Base SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #13 Timeout SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #13 Priority SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #13 runlistlen:              0.000000
+IOdriver #0 device #13 runoutstanding:          0.000000
+IOdriver #0 device #13 simtime:                 1460378624.000000
+IOdriver #0 device #13 warmuptime:              0.000000
+IOdriver #0 device #13 setsize:                 1
+IOdriver #0 device #13 Average # requests:      0.000000
+IOdriver #0 device #13 Maximum # requests:      0
+IOdriver #0 device #13 End # requests:          0
+IOdriver #0 device #13 Average queue length:    0.000000
+IOdriver #0 device #13 Maximum queue length:    0
+IOdriver #0 device #13 End queued requests:     0
+IOdriver #0 device #13 Queue time average: 	0.000000
+IOdriver #0 device #13 Queue time std.dev.:	0.000000
+IOdriver #0 device #13 Queue time maximum:	0
+IOdriver #0 device #13 Queue time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #13 Avg # read requests:     0.000000
+IOdriver #0 device #13 Max # read requests:     0
+IOdriver #0 device #13 Avg # write requests:    0.000000
+IOdriver #0 device #13 Max # write requests:    0
+IOdriver #0 device #13 Physical access time average: 	0.000000
+IOdriver #0 device #13 Physical access time std.dev.:	0.000000
+IOdriver #0 device #13 Physical access time maximum:	0
+IOdriver #0 device #13 Physical access time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #13 Inter-arrival time average: 	0.000000
+IOdriver #0 device #13 Inter-arrival time std.dev.:	0.000000
+IOdriver #0 device #13 Inter-arrival time maximum:	0
+IOdriver #0 device #13 Inter-arrival time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #13 Read inter-arrival average: 	0.000000
+IOdriver #0 device #13 Read inter-arrival std.dev.:	0.000000
+IOdriver #0 device #13 Read inter-arrival maximum:	0
+IOdriver #0 device #13 Read inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #13 Write inter-arrival average: 	0.000000
+IOdriver #0 device #13 Write inter-arrival std.dev.:	0.000000
+IOdriver #0 device #13 Write inter-arrival maximum:	0
+IOdriver #0 device #13 Write inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #13 Number of idle periods:  1
+IOdriver #0 device #13 Idle period length average: 	1460378624.000000
+IOdriver #0 device #13 Idle period length std.dev.:	0.000000
+IOdriver #0 device #13 Idle period length maximum:	1460378624
+IOdriver #0 device #13 Idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+IOdriver #0 device #13 Request size average: 	0.000000
+IOdriver #0 device #13 Request size std.dev.:	0.000000
+IOdriver #0 device #13 Request size maximum:	0
+IOdriver #0 device #13 Request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #13 Read request size average: 	0.000000
+IOdriver #0 device #13 Read request size std.dev.:	0.000000
+IOdriver #0 device #13 Read request size maximum:	0
+IOdriver #0 device #13 Read request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #13 Write request size average: 	0.000000
+IOdriver #0 device #13 Write request size std.dev.:	0.000000
+IOdriver #0 device #13 Write request size maximum:	0
+IOdriver #0 device #13 Write request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #13 Instantaneous queue length average: 	0.000000
+IOdriver #0 device #13 Instantaneous queue length std.dev.:	0.000000
+IOdriver #0 device #13 Instantaneous queue length maximum:	0
+IOdriver #0 device #13 Instantaneous queue length distribution
+   =  1    =  2    =  3    <  6    < 10    < 20    < 40    < 80    <150    150+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #13 Sub-optimal mapping penalty average: 	0.000000
+IOdriver #0 device #13 Sub-optimal mapping penalty std.dev.:	0.000000
+IOdriver #0 device #13 Sub-optimal mapping penalty maximum:	0
+IOdriver #0 device #13 Sub-optimal mapping penalty distribution
+   = -1    =  0    =  1    =  2    =  3    =  4    < 10    < 20    < 40     40+
+      0       0       0       0       0       0       0       0       0       0 
+
+I/O Driver #0 - Device #14
+IOdriver #0 device #14 Total Requests handled:	0
+IOdriver #0 device #14 Requests per second:   	0.000000
+IOdriver #0 device #14 Completely idle time:  	1460378624.000000   	1.000000
+IOdriver #0 device #14 Response time average: 	0.000000
+IOdriver #0 device #14 Response time std.dev.:	0.000000
+IOdriver #0 device #14 Response time maximum:	0
+IOdriver #0 device #14 Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #14 Overlaps combined:     	0	0.000000
+IOdriver #0 device #14 Read overlaps combined:	0	0.000000	0.000000
+IOdriver #0 device #14 Critical Reads:      	     0  	0.000000
+IOdriver #0 device #14 Critical Read Response time average: 	0.000000
+IOdriver #0 device #14 Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #14 Critical Read Response time maximum:	0
+IOdriver #0 device #14 Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #14 Non-Critical Reads:  	     0  	0.000000
+IOdriver #0 device #14 Non-Critical Read Response time average: 	0.000000
+IOdriver #0 device #14 Non-Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #14 Non-Critical Read Response time maximum:	0
+IOdriver #0 device #14 Non-Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #14 Critical Writes:     	     0  	0.000000
+IOdriver #0 device #14 Critical Write Response time average: 	0.000000
+IOdriver #0 device #14 Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #14 Critical Write Response time maximum:	0
+IOdriver #0 device #14 Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #14 Non-Critical Writes: 	     0  	0.000000
+IOdriver #0 device #14 Non-Critical Write Response time average: 	0.000000
+IOdriver #0 device #14 Non-Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #14 Non-Critical Write Response time maximum:	0
+IOdriver #0 device #14 Non-Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #14 Number of reads:         0  	0.000000
+IOdriver #0 device #14 Number of writes:        0  	0.000000
+IOdriver #0 device #14 Sequential reads:        0  	0.000000  	0.000000
+IOdriver #0 device #14 Sequential writes:       0  	0.000000  	0.000000
+IOdriver #0 device #14 Base SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #14 Timeout SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #14 Priority SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #14 runlistlen:              0.000000
+IOdriver #0 device #14 runoutstanding:          0.000000
+IOdriver #0 device #14 simtime:                 1460378624.000000
+IOdriver #0 device #14 warmuptime:              0.000000
+IOdriver #0 device #14 setsize:                 1
+IOdriver #0 device #14 Average # requests:      0.000000
+IOdriver #0 device #14 Maximum # requests:      0
+IOdriver #0 device #14 End # requests:          0
+IOdriver #0 device #14 Average queue length:    0.000000
+IOdriver #0 device #14 Maximum queue length:    0
+IOdriver #0 device #14 End queued requests:     0
+IOdriver #0 device #14 Queue time average: 	0.000000
+IOdriver #0 device #14 Queue time std.dev.:	0.000000
+IOdriver #0 device #14 Queue time maximum:	0
+IOdriver #0 device #14 Queue time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #14 Avg # read requests:     0.000000
+IOdriver #0 device #14 Max # read requests:     0
+IOdriver #0 device #14 Avg # write requests:    0.000000
+IOdriver #0 device #14 Max # write requests:    0
+IOdriver #0 device #14 Physical access time average: 	0.000000
+IOdriver #0 device #14 Physical access time std.dev.:	0.000000
+IOdriver #0 device #14 Physical access time maximum:	0
+IOdriver #0 device #14 Physical access time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #14 Inter-arrival time average: 	0.000000
+IOdriver #0 device #14 Inter-arrival time std.dev.:	0.000000
+IOdriver #0 device #14 Inter-arrival time maximum:	0
+IOdriver #0 device #14 Inter-arrival time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #14 Read inter-arrival average: 	0.000000
+IOdriver #0 device #14 Read inter-arrival std.dev.:	0.000000
+IOdriver #0 device #14 Read inter-arrival maximum:	0
+IOdriver #0 device #14 Read inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #14 Write inter-arrival average: 	0.000000
+IOdriver #0 device #14 Write inter-arrival std.dev.:	0.000000
+IOdriver #0 device #14 Write inter-arrival maximum:	0
+IOdriver #0 device #14 Write inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #14 Number of idle periods:  1
+IOdriver #0 device #14 Idle period length average: 	1460378624.000000
+IOdriver #0 device #14 Idle period length std.dev.:	0.000000
+IOdriver #0 device #14 Idle period length maximum:	1460378624
+IOdriver #0 device #14 Idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+IOdriver #0 device #14 Request size average: 	0.000000
+IOdriver #0 device #14 Request size std.dev.:	0.000000
+IOdriver #0 device #14 Request size maximum:	0
+IOdriver #0 device #14 Request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #14 Read request size average: 	0.000000
+IOdriver #0 device #14 Read request size std.dev.:	0.000000
+IOdriver #0 device #14 Read request size maximum:	0
+IOdriver #0 device #14 Read request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #14 Write request size average: 	0.000000
+IOdriver #0 device #14 Write request size std.dev.:	0.000000
+IOdriver #0 device #14 Write request size maximum:	0
+IOdriver #0 device #14 Write request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #14 Instantaneous queue length average: 	0.000000
+IOdriver #0 device #14 Instantaneous queue length std.dev.:	0.000000
+IOdriver #0 device #14 Instantaneous queue length maximum:	0
+IOdriver #0 device #14 Instantaneous queue length distribution
+   =  1    =  2    =  3    <  6    < 10    < 20    < 40    < 80    <150    150+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #14 Sub-optimal mapping penalty average: 	0.000000
+IOdriver #0 device #14 Sub-optimal mapping penalty std.dev.:	0.000000
+IOdriver #0 device #14 Sub-optimal mapping penalty maximum:	0
+IOdriver #0 device #14 Sub-optimal mapping penalty distribution
+   = -1    =  0    =  1    =  2    =  3    =  4    < 10    < 20    < 40     40+
+      0       0       0       0       0       0       0       0       0       0 
+
+I/O Driver #0 - Device #15
+IOdriver #0 device #15 Total Requests handled:	0
+IOdriver #0 device #15 Requests per second:   	0.000000
+IOdriver #0 device #15 Completely idle time:  	1460378624.000000   	1.000000
+IOdriver #0 device #15 Response time average: 	0.000000
+IOdriver #0 device #15 Response time std.dev.:	0.000000
+IOdriver #0 device #15 Response time maximum:	0
+IOdriver #0 device #15 Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #15 Overlaps combined:     	0	0.000000
+IOdriver #0 device #15 Read overlaps combined:	0	0.000000	0.000000
+IOdriver #0 device #15 Critical Reads:      	     0  	0.000000
+IOdriver #0 device #15 Critical Read Response time average: 	0.000000
+IOdriver #0 device #15 Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #15 Critical Read Response time maximum:	0
+IOdriver #0 device #15 Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #15 Non-Critical Reads:  	     0  	0.000000
+IOdriver #0 device #15 Non-Critical Read Response time average: 	0.000000
+IOdriver #0 device #15 Non-Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #15 Non-Critical Read Response time maximum:	0
+IOdriver #0 device #15 Non-Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #15 Critical Writes:     	     0  	0.000000
+IOdriver #0 device #15 Critical Write Response time average: 	0.000000
+IOdriver #0 device #15 Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #15 Critical Write Response time maximum:	0
+IOdriver #0 device #15 Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #15 Non-Critical Writes: 	     0  	0.000000
+IOdriver #0 device #15 Non-Critical Write Response time average: 	0.000000
+IOdriver #0 device #15 Non-Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #15 Non-Critical Write Response time maximum:	0
+IOdriver #0 device #15 Non-Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #15 Number of reads:         0  	0.000000
+IOdriver #0 device #15 Number of writes:        0  	0.000000
+IOdriver #0 device #15 Sequential reads:        0  	0.000000  	0.000000
+IOdriver #0 device #15 Sequential writes:       0  	0.000000  	0.000000
+IOdriver #0 device #15 Base SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #15 Timeout SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #15 Priority SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #15 runlistlen:              0.000000
+IOdriver #0 device #15 runoutstanding:          0.000000
+IOdriver #0 device #15 simtime:                 1460378624.000000
+IOdriver #0 device #15 warmuptime:              0.000000
+IOdriver #0 device #15 setsize:                 1
+IOdriver #0 device #15 Average # requests:      0.000000
+IOdriver #0 device #15 Maximum # requests:      0
+IOdriver #0 device #15 End # requests:          0
+IOdriver #0 device #15 Average queue length:    0.000000
+IOdriver #0 device #15 Maximum queue length:    0
+IOdriver #0 device #15 End queued requests:     0
+IOdriver #0 device #15 Queue time average: 	0.000000
+IOdriver #0 device #15 Queue time std.dev.:	0.000000
+IOdriver #0 device #15 Queue time maximum:	0
+IOdriver #0 device #15 Queue time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #15 Avg # read requests:     0.000000
+IOdriver #0 device #15 Max # read requests:     0
+IOdriver #0 device #15 Avg # write requests:    0.000000
+IOdriver #0 device #15 Max # write requests:    0
+IOdriver #0 device #15 Physical access time average: 	0.000000
+IOdriver #0 device #15 Physical access time std.dev.:	0.000000
+IOdriver #0 device #15 Physical access time maximum:	0
+IOdriver #0 device #15 Physical access time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #15 Inter-arrival time average: 	0.000000
+IOdriver #0 device #15 Inter-arrival time std.dev.:	0.000000
+IOdriver #0 device #15 Inter-arrival time maximum:	0
+IOdriver #0 device #15 Inter-arrival time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #15 Read inter-arrival average: 	0.000000
+IOdriver #0 device #15 Read inter-arrival std.dev.:	0.000000
+IOdriver #0 device #15 Read inter-arrival maximum:	0
+IOdriver #0 device #15 Read inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #15 Write inter-arrival average: 	0.000000
+IOdriver #0 device #15 Write inter-arrival std.dev.:	0.000000
+IOdriver #0 device #15 Write inter-arrival maximum:	0
+IOdriver #0 device #15 Write inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #15 Number of idle periods:  1
+IOdriver #0 device #15 Idle period length average: 	1460378624.000000
+IOdriver #0 device #15 Idle period length std.dev.:	0.000000
+IOdriver #0 device #15 Idle period length maximum:	1460378624
+IOdriver #0 device #15 Idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+IOdriver #0 device #15 Request size average: 	0.000000
+IOdriver #0 device #15 Request size std.dev.:	0.000000
+IOdriver #0 device #15 Request size maximum:	0
+IOdriver #0 device #15 Request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #15 Read request size average: 	0.000000
+IOdriver #0 device #15 Read request size std.dev.:	0.000000
+IOdriver #0 device #15 Read request size maximum:	0
+IOdriver #0 device #15 Read request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #15 Write request size average: 	0.000000
+IOdriver #0 device #15 Write request size std.dev.:	0.000000
+IOdriver #0 device #15 Write request size maximum:	0
+IOdriver #0 device #15 Write request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #15 Instantaneous queue length average: 	0.000000
+IOdriver #0 device #15 Instantaneous queue length std.dev.:	0.000000
+IOdriver #0 device #15 Instantaneous queue length maximum:	0
+IOdriver #0 device #15 Instantaneous queue length distribution
+   =  1    =  2    =  3    <  6    < 10    < 20    < 40    < 80    <150    150+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #15 Sub-optimal mapping penalty average: 	0.000000
+IOdriver #0 device #15 Sub-optimal mapping penalty std.dev.:	0.000000
+IOdriver #0 device #15 Sub-optimal mapping penalty maximum:	0
+IOdriver #0 device #15 Sub-optimal mapping penalty distribution
+   = -1    =  0    =  1    =  2    =  3    =  4    < 10    < 20    < 40     40+
+      0       0       0       0       0       0       0       0       0       0 
+
+I/O Driver #0 - Device #16
+IOdriver #0 device #16 Total Requests handled:	0
+IOdriver #0 device #16 Requests per second:   	0.000000
+IOdriver #0 device #16 Completely idle time:  	1460378624.000000   	1.000000
+IOdriver #0 device #16 Response time average: 	0.000000
+IOdriver #0 device #16 Response time std.dev.:	0.000000
+IOdriver #0 device #16 Response time maximum:	0
+IOdriver #0 device #16 Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #16 Overlaps combined:     	0	0.000000
+IOdriver #0 device #16 Read overlaps combined:	0	0.000000	0.000000
+IOdriver #0 device #16 Critical Reads:      	     0  	0.000000
+IOdriver #0 device #16 Critical Read Response time average: 	0.000000
+IOdriver #0 device #16 Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #16 Critical Read Response time maximum:	0
+IOdriver #0 device #16 Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #16 Non-Critical Reads:  	     0  	0.000000
+IOdriver #0 device #16 Non-Critical Read Response time average: 	0.000000
+IOdriver #0 device #16 Non-Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #16 Non-Critical Read Response time maximum:	0
+IOdriver #0 device #16 Non-Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #16 Critical Writes:     	     0  	0.000000
+IOdriver #0 device #16 Critical Write Response time average: 	0.000000
+IOdriver #0 device #16 Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #16 Critical Write Response time maximum:	0
+IOdriver #0 device #16 Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #16 Non-Critical Writes: 	     0  	0.000000
+IOdriver #0 device #16 Non-Critical Write Response time average: 	0.000000
+IOdriver #0 device #16 Non-Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #16 Non-Critical Write Response time maximum:	0
+IOdriver #0 device #16 Non-Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #16 Number of reads:         0  	0.000000
+IOdriver #0 device #16 Number of writes:        0  	0.000000
+IOdriver #0 device #16 Sequential reads:        0  	0.000000  	0.000000
+IOdriver #0 device #16 Sequential writes:       0  	0.000000  	0.000000
+IOdriver #0 device #16 Base SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #16 Timeout SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #16 Priority SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #16 runlistlen:              0.000000
+IOdriver #0 device #16 runoutstanding:          0.000000
+IOdriver #0 device #16 simtime:                 1460378624.000000
+IOdriver #0 device #16 warmuptime:              0.000000
+IOdriver #0 device #16 setsize:                 1
+IOdriver #0 device #16 Average # requests:      0.000000
+IOdriver #0 device #16 Maximum # requests:      0
+IOdriver #0 device #16 End # requests:          0
+IOdriver #0 device #16 Average queue length:    0.000000
+IOdriver #0 device #16 Maximum queue length:    0
+IOdriver #0 device #16 End queued requests:     0
+IOdriver #0 device #16 Queue time average: 	0.000000
+IOdriver #0 device #16 Queue time std.dev.:	0.000000
+IOdriver #0 device #16 Queue time maximum:	0
+IOdriver #0 device #16 Queue time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #16 Avg # read requests:     0.000000
+IOdriver #0 device #16 Max # read requests:     0
+IOdriver #0 device #16 Avg # write requests:    0.000000
+IOdriver #0 device #16 Max # write requests:    0
+IOdriver #0 device #16 Physical access time average: 	0.000000
+IOdriver #0 device #16 Physical access time std.dev.:	0.000000
+IOdriver #0 device #16 Physical access time maximum:	0
+IOdriver #0 device #16 Physical access time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #16 Inter-arrival time average: 	0.000000
+IOdriver #0 device #16 Inter-arrival time std.dev.:	0.000000
+IOdriver #0 device #16 Inter-arrival time maximum:	0
+IOdriver #0 device #16 Inter-arrival time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #16 Read inter-arrival average: 	0.000000
+IOdriver #0 device #16 Read inter-arrival std.dev.:	0.000000
+IOdriver #0 device #16 Read inter-arrival maximum:	0
+IOdriver #0 device #16 Read inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #16 Write inter-arrival average: 	0.000000
+IOdriver #0 device #16 Write inter-arrival std.dev.:	0.000000
+IOdriver #0 device #16 Write inter-arrival maximum:	0
+IOdriver #0 device #16 Write inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #16 Number of idle periods:  1
+IOdriver #0 device #16 Idle period length average: 	1460378624.000000
+IOdriver #0 device #16 Idle period length std.dev.:	0.000000
+IOdriver #0 device #16 Idle period length maximum:	1460378624
+IOdriver #0 device #16 Idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+IOdriver #0 device #16 Request size average: 	0.000000
+IOdriver #0 device #16 Request size std.dev.:	0.000000
+IOdriver #0 device #16 Request size maximum:	0
+IOdriver #0 device #16 Request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #16 Read request size average: 	0.000000
+IOdriver #0 device #16 Read request size std.dev.:	0.000000
+IOdriver #0 device #16 Read request size maximum:	0
+IOdriver #0 device #16 Read request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #16 Write request size average: 	0.000000
+IOdriver #0 device #16 Write request size std.dev.:	0.000000
+IOdriver #0 device #16 Write request size maximum:	0
+IOdriver #0 device #16 Write request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #16 Instantaneous queue length average: 	0.000000
+IOdriver #0 device #16 Instantaneous queue length std.dev.:	0.000000
+IOdriver #0 device #16 Instantaneous queue length maximum:	0
+IOdriver #0 device #16 Instantaneous queue length distribution
+   =  1    =  2    =  3    <  6    < 10    < 20    < 40    < 80    <150    150+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #16 Sub-optimal mapping penalty average: 	0.000000
+IOdriver #0 device #16 Sub-optimal mapping penalty std.dev.:	0.000000
+IOdriver #0 device #16 Sub-optimal mapping penalty maximum:	0
+IOdriver #0 device #16 Sub-optimal mapping penalty distribution
+   = -1    =  0    =  1    =  2    =  3    =  4    < 10    < 20    < 40     40+
+      0       0       0       0       0       0       0       0       0       0 
+
+I/O Driver #0 - Device #17
+IOdriver #0 device #17 Total Requests handled:	0
+IOdriver #0 device #17 Requests per second:   	0.000000
+IOdriver #0 device #17 Completely idle time:  	1460378624.000000   	1.000000
+IOdriver #0 device #17 Response time average: 	0.000000
+IOdriver #0 device #17 Response time std.dev.:	0.000000
+IOdriver #0 device #17 Response time maximum:	0
+IOdriver #0 device #17 Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #17 Overlaps combined:     	0	0.000000
+IOdriver #0 device #17 Read overlaps combined:	0	0.000000	0.000000
+IOdriver #0 device #17 Critical Reads:      	     0  	0.000000
+IOdriver #0 device #17 Critical Read Response time average: 	0.000000
+IOdriver #0 device #17 Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #17 Critical Read Response time maximum:	0
+IOdriver #0 device #17 Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #17 Non-Critical Reads:  	     0  	0.000000
+IOdriver #0 device #17 Non-Critical Read Response time average: 	0.000000
+IOdriver #0 device #17 Non-Critical Read Response time std.dev.:	0.000000
+IOdriver #0 device #17 Non-Critical Read Response time maximum:	0
+IOdriver #0 device #17 Non-Critical Read Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #17 Critical Writes:     	     0  	0.000000
+IOdriver #0 device #17 Critical Write Response time average: 	0.000000
+IOdriver #0 device #17 Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #17 Critical Write Response time maximum:	0
+IOdriver #0 device #17 Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #17 Non-Critical Writes: 	     0  	0.000000
+IOdriver #0 device #17 Non-Critical Write Response time average: 	0.000000
+IOdriver #0 device #17 Non-Critical Write Response time std.dev.:	0.000000
+IOdriver #0 device #17 Non-Critical Write Response time maximum:	0
+IOdriver #0 device #17 Non-Critical Write Response time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #17 Number of reads:         0  	0.000000
+IOdriver #0 device #17 Number of writes:        0  	0.000000
+IOdriver #0 device #17 Sequential reads:        0  	0.000000  	0.000000
+IOdriver #0 device #17 Sequential writes:       0  	0.000000  	0.000000
+IOdriver #0 device #17 Base SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #17 Timeout SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #17 Priority SPTF/SDF Different:      0 /      0 	0.000000
+IOdriver #0 device #17 runlistlen:              0.000000
+IOdriver #0 device #17 runoutstanding:          0.000000
+IOdriver #0 device #17 simtime:                 1460378624.000000
+IOdriver #0 device #17 warmuptime:              0.000000
+IOdriver #0 device #17 setsize:                 1
+IOdriver #0 device #17 Average # requests:      0.000000
+IOdriver #0 device #17 Maximum # requests:      0
+IOdriver #0 device #17 End # requests:          0
+IOdriver #0 device #17 Average queue length:    0.000000
+IOdriver #0 device #17 Maximum queue length:    0
+IOdriver #0 device #17 End queued requests:     0
+IOdriver #0 device #17 Queue time average: 	0.000000
+IOdriver #0 device #17 Queue time std.dev.:	0.000000
+IOdriver #0 device #17 Queue time maximum:	0
+IOdriver #0 device #17 Queue time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #17 Avg # read requests:     0.000000
+IOdriver #0 device #17 Max # read requests:     0
+IOdriver #0 device #17 Avg # write requests:    0.000000
+IOdriver #0 device #17 Max # write requests:    0
+IOdriver #0 device #17 Physical access time average: 	0.000000
+IOdriver #0 device #17 Physical access time std.dev.:	0.000000
+IOdriver #0 device #17 Physical access time maximum:	0
+IOdriver #0 device #17 Physical access time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #17 Inter-arrival time average: 	0.000000
+IOdriver #0 device #17 Inter-arrival time std.dev.:	0.000000
+IOdriver #0 device #17 Inter-arrival time maximum:	0
+IOdriver #0 device #17 Inter-arrival time distribution
+   <  5    < 10    < 20    < 40    < 60    < 90    <120    <150    <200    200+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #17 Read inter-arrival average: 	0.000000
+IOdriver #0 device #17 Read inter-arrival std.dev.:	0.000000
+IOdriver #0 device #17 Read inter-arrival maximum:	0
+IOdriver #0 device #17 Read inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #17 Write inter-arrival average: 	0.000000
+IOdriver #0 device #17 Write inter-arrival std.dev.:	0.000000
+IOdriver #0 device #17 Write inter-arrival maximum:	0
+IOdriver #0 device #17 Write inter-arrival distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #17 Number of idle periods:  1
+IOdriver #0 device #17 Idle period length average: 	1460378624.000000
+IOdriver #0 device #17 Idle period length std.dev.:	0.000000
+IOdriver #0 device #17 Idle period length maximum:	1460378624
+IOdriver #0 device #17 Idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+IOdriver #0 device #17 Request size average: 	0.000000
+IOdriver #0 device #17 Request size std.dev.:	0.000000
+IOdriver #0 device #17 Request size maximum:	0
+IOdriver #0 device #17 Request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #17 Read request size average: 	0.000000
+IOdriver #0 device #17 Read request size std.dev.:	0.000000
+IOdriver #0 device #17 Read request size maximum:	0
+IOdriver #0 device #17 Read request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #17 Write request size average: 	0.000000
+IOdriver #0 device #17 Write request size std.dev.:	0.000000
+IOdriver #0 device #17 Write request size maximum:	0
+IOdriver #0 device #17 Write request size distribution
+   =  1    =  2    =  3    =  4    <  7    <  9    < 13    < 17    < 21     21+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #17 Instantaneous queue length average: 	0.000000
+IOdriver #0 device #17 Instantaneous queue length std.dev.:	0.000000
+IOdriver #0 device #17 Instantaneous queue length maximum:	0
+IOdriver #0 device #17 Instantaneous queue length distribution
+   =  1    =  2    =  3    <  6    < 10    < 20    < 40    < 80    <150    150+
+      0       0       0       0       0       0       0       0       0       0 
+IOdriver #0 device #17 Sub-optimal mapping penalty average: 	0.000000
+IOdriver #0 device #17 Sub-optimal mapping penalty std.dev.:	0.000000
+IOdriver #0 device #17 Sub-optimal mapping penalty maximum:	0
+IOdriver #0 device #17 Sub-optimal mapping penalty distribution
+   = -1    =  0    =  1    =  2    =  3    =  4    < 10    < 20    < 40     40+
+      0       0       0       0       0       0       0       0       0       0 
+
+DISK STATISTICS
+---------------
+
+Disk Seeks of zero distance:	0	0.000000
+Disk Seek distance average: 	1.000000
+Disk Seek distance std.dev.:	0.000000
+Disk Seek distance maximum:	1
+Disk Seek distance distribution
+   =  0    <  6    < 21    < 41    < 81    <161    <321    <641    <1281    1281+
+      0       1       0       0       0       0       0       0       0       0 
+Disk Seek time average: 	2.890000
+Disk Seek time std.dev.:	0.000000
+Disk Seek time maximum:	2.890000
+Disk Seek time distribution
+   =  0    <  6    <  8    < 10    < 13    < 16    < 20    < 24    < 28     28+
+      0       1       0       0       0       0       0       0       0       0 
+Disk Zero rotate latency:	0	0.000000
+Disk Rotational latency average: 	2.466923
+Disk Rotational latency std.dev.:	0.000000
+Disk Rotational latency maximum:	2.466923
+Disk Rotational latency distribution
+   <  1    <  3    <  5    <  7    <  8    <  9    < 11    < 13    < 15     15+
+      0       1       0       0       0       0       0       0       0       0 
+Disk Transfer time average: 	0.115741
+Disk Transfer time std.dev.:	0.000000
+Disk Transfer time maximum:	0.115741
+Disk Transfer time distribution
+  < 0.5   < 1.0   < 1.5   < 2.0   < 2.5   < 3.0   < 4.0   < 5.0   < 6.0     60+
+      1       0       0       0       0       0       0       0       0       0 
+Disk Positioning time average: 	5.356923
+Disk Positioning time std.dev.:	0.000000
+Disk Positioning time maximum:	5.356923
+Disk Positioning time distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       1       0       0       0       0       0       0       0       0 
+Disk Access time average: 	5.472664
+Disk Access time std.dev.:	0.000000
+Disk Access time maximum:	5.472664
+Disk Access time distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       1       0       0       0       0       0       0       0       0 
+Disk Number of buffer accesses:    6
+Disk Buffer hit ratio:             5 	0.833333
+Disk Buffer miss ratio:                 1 	0.166667
+Disk Buffer read hit ratio:             5 	0.833333 	0.833333
+Disk Buffer prepend hit ratio:            0 	0.000000
+Disk Buffer append hit ratio:            0 	0.000000
+Disk Write combinations:                0 	0.000000
+Disk Ongoing read-ahead hit ratio:      0 	0.000000 	0.000000
+Disk Average read-ahead hit size:  0.000000
+Disk Average remaining read-ahead: 0.000000
+Disk Partial read hit ratio:      0 	0.000000 	0.000000
+Disk Average partial hit size:     0.000000
+Disk Average remaining partial:    0.000000
+Disk Total disk bus wait time: 0.000000
+Disk Number of disk bus waits: 1
+
+
+No requests for disk #0
+
+
+No requests for disk #1
+
+
+No requests for disk #2
+
+
+No requests for disk #3
+
+
+No requests for disk #4
+
+
+Disk #5:
+
+Disk #5 highest block number requested: 8
+Disk #5 Seeks of zero distance:	0	0.000000
+Disk #5 Seek distance average: 	1.000000
+Disk #5 Seek distance std.dev.:	0.000000
+Disk #5 Seek distance maximum:	1
+Disk #5 Seek distance distribution
+   =  0    <  6    < 21    < 41    < 81    <161    <321    <641    <1281    1281+
+      0       1       0       0       0       0       0       0       0       0 
+Disk #5 Seek time average: 	2.890000
+Disk #5 Seek time std.dev.:	0.000000
+Disk #5 Seek time maximum:	2.890000
+Disk #5 Seek time distribution
+   =  0    <  6    <  8    < 10    < 13    < 16    < 20    < 24    < 28     28+
+      0       1       0       0       0       0       0       0       0       0 
+Disk #5 Full rotation time:      11.111111
+Disk #5 Zero rotate latency:	0	0.000000
+Disk #5 Rotational latency average: 	2.466923
+Disk #5 Rotational latency std.dev.:	0.000000
+Disk #5 Rotational latency maximum:	2.466923
+Disk #5 Rotational latency distribution
+   <  1    <  3    <  5    <  7    <  8    <  9    < 11    < 13    < 15     15+
+      0       1       0       0       0       0       0       0       0       0 
+Disk #5 Transfer time average: 	0.115741
+Disk #5 Transfer time std.dev.:	0.000000
+Disk #5 Transfer time maximum:	0.115741
+Disk #5 Transfer time distribution
+  < 0.5   < 1.0   < 1.5   < 2.0   < 2.5   < 3.0   < 4.0   < 5.0   < 6.0     60+
+      1       0       0       0       0       0       0       0       0       0 
+Disk #5 Positioning time average: 	5.356923
+Disk #5 Positioning time std.dev.:	0.000000
+Disk #5 Positioning time maximum:	5.356923
+Disk #5 Positioning time distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       1       0       0       0       0       0       0       0       0 
+Disk #5 Access time average: 	5.472664
+Disk #5 Access time std.dev.:	0.000000
+Disk #5 Access time maximum:	5.472664
+Disk #5 Access time distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       1       0       0       0       0       0       0       0       0 
+Disk #5 Number of buffer accesses:    6
+Disk #5 Buffer hit ratio:             5 	0.833333
+Disk #5 Buffer miss ratio:                 1 	0.166667
+Disk #5 Buffer read hit ratio:             5 	0.833333 	0.833333
+Disk #5 Buffer prepend hit ratio:            0 	0.000000
+Disk #5 Buffer append hit ratio:            0 	0.000000
+Disk #5 Write combinations:                0 	0.000000
+Disk #5 Ongoing read-ahead hit ratio:      0 	0.000000 	0.000000
+Disk #5 Average read-ahead hit size:  0.000000
+Disk #5 Average remaining read-ahead: 0.000000
+Disk #5 Partial read hit ratio:      0 	0.000000 	0.000000
+Disk #5 Average partial hit size:     0.000000
+Disk #5 Average remaining partial:    0.000000
+Disk #5 Total disk bus wait time: 0.000000
+Disk #5 Number of disk bus waits: 1
+
+
+No requests for disk #6
+
+
+No requests for disk #7
+
+
+No requests for disk #8
+
+
+No requests for disk #9
+
+
+No requests for disk #10
+
+
+No requests for disk #11
+
+
+No requests for disk #12
+
+
+No requests for disk #13
+
+
+No requests for disk #14
+
+
+No requests for disk #15
+
+
+No requests for disk #16
+
+
+No requests for disk #17
+
+
+
+SIMPLEDISK STATISTICS
+---------------------
+
+No simpledisk requests encountered
+
+CONTROLLER STATISTICS
+---------------------
+
+Controller #0 
+
+Controller #1 
+
+Controller #2 
+
+Controller #3 
+
+Controller #4 
+
+Controller #5 
+
+Controller #6 
+
+Controller #7 
+
+Controller #8 
+
+Controller #9 
+
+Controller #10 
+
+Controller #11 
+
+Controller #12 
+
+Controller #13 
+
+Controller #14 
+
+Controller #15 
+
+Controller #16 
+
+Controller #17 
+
+Controller #18 
+
+Controller #19 
+
+Total controller bus wait time: 0.000000
+
+BUS STATISTICS
+--------------
+
+Bus #3
+Bus #3 Total utilization time: 	0.00   	0.00000
+Bus #3 Bus idle period length average: 	1460378624.000000
+Bus #3 Bus idle period length std.dev.:	0.000000
+Bus #3 Bus idle period length maximum:	1460378624
+Bus #3 Bus idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+Bus #3 Number of arbitrations: 	0
+Bus #3 Arbitration wait time average: 	0.000000
+Bus #3 Arbitration wait time std.dev.:	0.000000
+Bus #3 Arbitration wait time maximum:	0
+Bus #3 Arbitration wait time distribution
+   =  0    <  1    <  2    <  5    < 10    < 15    < 25    < 40    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+
+Bus #4
+Bus #4 Total utilization time: 	0.00   	0.00000
+Bus #4 Bus idle period length average: 	1460378624.000000
+Bus #4 Bus idle period length std.dev.:	0.000000
+Bus #4 Bus idle period length maximum:	1460378624
+Bus #4 Bus idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+Bus #4 Number of arbitrations: 	0
+Bus #4 Arbitration wait time average: 	0.000000
+Bus #4 Arbitration wait time std.dev.:	0.000000
+Bus #4 Arbitration wait time maximum:	0
+Bus #4 Arbitration wait time distribution
+   =  0    <  1    <  2    <  5    < 10    < 15    < 25    < 40    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+
+Bus #5
+Bus #5 Total utilization time: 	0.00   	0.00000
+Bus #5 Bus idle period length average: 	1460378624.000000
+Bus #5 Bus idle period length std.dev.:	0.000000
+Bus #5 Bus idle period length maximum:	1460378624
+Bus #5 Bus idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+Bus #5 Number of arbitrations: 	0
+Bus #5 Arbitration wait time average: 	0.000000
+Bus #5 Arbitration wait time std.dev.:	0.000000
+Bus #5 Arbitration wait time maximum:	0
+Bus #5 Arbitration wait time distribution
+   =  0    <  1    <  2    <  5    < 10    < 15    < 25    < 40    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+
+Bus #6
+Bus #6 Total utilization time: 	0.00   	0.00000
+Bus #6 Bus idle period length average: 	1460378624.000000
+Bus #6 Bus idle period length std.dev.:	0.000000
+Bus #6 Bus idle period length maximum:	1460378624
+Bus #6 Bus idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+Bus #6 Number of arbitrations: 	0
+Bus #6 Arbitration wait time average: 	0.000000
+Bus #6 Arbitration wait time std.dev.:	0.000000
+Bus #6 Arbitration wait time maximum:	0
+Bus #6 Arbitration wait time distribution
+   =  0    <  1    <  2    <  5    < 10    < 15    < 25    < 40    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+
+Bus #7
+Bus #7 Total utilization time: 	0.00   	0.00000
+Bus #7 Bus idle period length average: 	1460378624.000000
+Bus #7 Bus idle period length std.dev.:	0.000000
+Bus #7 Bus idle period length maximum:	1460378624
+Bus #7 Bus idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+Bus #7 Number of arbitrations: 	0
+Bus #7 Arbitration wait time average: 	0.000000
+Bus #7 Arbitration wait time std.dev.:	0.000000
+Bus #7 Arbitration wait time maximum:	0
+Bus #7 Arbitration wait time distribution
+   =  0    <  1    <  2    <  5    < 10    < 15    < 25    < 40    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+
+Bus #8
+Bus #8 Total utilization time: 	5.22   	0.00000
+Bus #8 Bus idle period length average: 	486792872.927907
+Bus #8 Bus idle period length std.dev.:	688428996.140009
+Bus #8 Bus idle period length maximum:	1460378496
+Bus #8 Bus idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       1       0       0       0       0       0       0       0       2 
+Bus #8 Number of arbitrations: 	7
+Bus #8 Arbitration wait time average: 	0.000000
+Bus #8 Arbitration wait time std.dev.:	0.000000
+Bus #8 Arbitration wait time maximum:	0
+Bus #8 Arbitration wait time distribution
+   =  0    <  1    <  2    <  5    < 10    < 15    < 25    < 40    < 60     60+
+      7       0       0       0       0       0       0       0       0       0 
+
+Bus #9
+Bus #9 Total utilization time: 	0.00   	0.00000
+Bus #9 Bus idle period length average: 	1460378624.000000
+Bus #9 Bus idle period length std.dev.:	0.000000
+Bus #9 Bus idle period length maximum:	1460378624
+Bus #9 Bus idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+Bus #9 Number of arbitrations: 	0
+Bus #9 Arbitration wait time average: 	0.000000
+Bus #9 Arbitration wait time std.dev.:	0.000000
+Bus #9 Arbitration wait time maximum:	0
+Bus #9 Arbitration wait time distribution
+   =  0    <  1    <  2    <  5    < 10    < 15    < 25    < 40    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+
+Bus #10
+Bus #10 Total utilization time: 	0.00   	0.00000
+Bus #10 Bus idle period length average: 	1460378624.000000
+Bus #10 Bus idle period length std.dev.:	0.000000
+Bus #10 Bus idle period length maximum:	1460378624
+Bus #10 Bus idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+Bus #10 Number of arbitrations: 	0
+Bus #10 Arbitration wait time average: 	0.000000
+Bus #10 Arbitration wait time std.dev.:	0.000000
+Bus #10 Arbitration wait time maximum:	0
+Bus #10 Arbitration wait time distribution
+   =  0    <  1    <  2    <  5    < 10    < 15    < 25    < 40    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+
+Bus #11
+Bus #11 Total utilization time: 	0.00   	0.00000
+Bus #11 Bus idle period length average: 	1460378624.000000
+Bus #11 Bus idle period length std.dev.:	0.000000
+Bus #11 Bus idle period length maximum:	1460378624
+Bus #11 Bus idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+Bus #11 Number of arbitrations: 	0
+Bus #11 Arbitration wait time average: 	0.000000
+Bus #11 Arbitration wait time std.dev.:	0.000000
+Bus #11 Arbitration wait time maximum:	0
+Bus #11 Arbitration wait time distribution
+   =  0    <  1    <  2    <  5    < 10    < 15    < 25    < 40    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+
+Bus #12
+Bus #12 Total utilization time: 	0.00   	0.00000
+Bus #12 Bus idle period length average: 	1460378624.000000
+Bus #12 Bus idle period length std.dev.:	0.000000
+Bus #12 Bus idle period length maximum:	1460378624
+Bus #12 Bus idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+Bus #12 Number of arbitrations: 	0
+Bus #12 Arbitration wait time average: 	0.000000
+Bus #12 Arbitration wait time std.dev.:	0.000000
+Bus #12 Arbitration wait time maximum:	0
+Bus #12 Arbitration wait time distribution
+   =  0    <  1    <  2    <  5    < 10    < 15    < 25    < 40    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+
+Bus #13
+Bus #13 Total utilization time: 	0.00   	0.00000
+Bus #13 Bus idle period length average: 	1460378624.000000
+Bus #13 Bus idle period length std.dev.:	0.000000
+Bus #13 Bus idle period length maximum:	1460378624
+Bus #13 Bus idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+Bus #13 Number of arbitrations: 	0
+Bus #13 Arbitration wait time average: 	0.000000
+Bus #13 Arbitration wait time std.dev.:	0.000000
+Bus #13 Arbitration wait time maximum:	0
+Bus #13 Arbitration wait time distribution
+   =  0    <  1    <  2    <  5    < 10    < 15    < 25    < 40    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+
+Bus #14
+Bus #14 Total utilization time: 	0.00   	0.00000
+Bus #14 Bus idle period length average: 	1460378624.000000
+Bus #14 Bus idle period length std.dev.:	0.000000
+Bus #14 Bus idle period length maximum:	1460378624
+Bus #14 Bus idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+Bus #14 Number of arbitrations: 	0
+Bus #14 Arbitration wait time average: 	0.000000
+Bus #14 Arbitration wait time std.dev.:	0.000000
+Bus #14 Arbitration wait time maximum:	0
+Bus #14 Arbitration wait time distribution
+   =  0    <  1    <  2    <  5    < 10    < 15    < 25    < 40    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+
+Bus #15
+Bus #15 Total utilization time: 	0.00   	0.00000
+Bus #15 Bus idle period length average: 	1460378624.000000
+Bus #15 Bus idle period length std.dev.:	0.000000
+Bus #15 Bus idle period length maximum:	1460378624
+Bus #15 Bus idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+Bus #15 Number of arbitrations: 	0
+Bus #15 Arbitration wait time average: 	0.000000
+Bus #15 Arbitration wait time std.dev.:	0.000000
+Bus #15 Arbitration wait time maximum:	0
+Bus #15 Arbitration wait time distribution
+   =  0    <  1    <  2    <  5    < 10    < 15    < 25    < 40    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+
+Bus #16
+Bus #16 Total utilization time: 	0.00   	0.00000
+Bus #16 Bus idle period length average: 	1460378624.000000
+Bus #16 Bus idle period length std.dev.:	0.000000
+Bus #16 Bus idle period length maximum:	1460378624
+Bus #16 Bus idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+Bus #16 Number of arbitrations: 	0
+Bus #16 Arbitration wait time average: 	0.000000
+Bus #16 Arbitration wait time std.dev.:	0.000000
+Bus #16 Arbitration wait time maximum:	0
+Bus #16 Arbitration wait time distribution
+   =  0    <  1    <  2    <  5    < 10    < 15    < 25    < 40    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+
+Bus #17
+Bus #17 Total utilization time: 	0.00   	0.00000
+Bus #17 Bus idle period length average: 	1460378624.000000
+Bus #17 Bus idle period length std.dev.:	0.000000
+Bus #17 Bus idle period length maximum:	1460378624
+Bus #17 Bus idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+Bus #17 Number of arbitrations: 	0
+Bus #17 Arbitration wait time average: 	0.000000
+Bus #17 Arbitration wait time std.dev.:	0.000000
+Bus #17 Arbitration wait time maximum:	0
+Bus #17 Arbitration wait time distribution
+   =  0    <  1    <  2    <  5    < 10    < 15    < 25    < 40    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+
+Bus #18
+Bus #18 Total utilization time: 	0.00   	0.00000
+Bus #18 Bus idle period length average: 	1460378624.000000
+Bus #18 Bus idle period length std.dev.:	0.000000
+Bus #18 Bus idle period length maximum:	1460378624
+Bus #18 Bus idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+Bus #18 Number of arbitrations: 	0
+Bus #18 Arbitration wait time average: 	0.000000
+Bus #18 Arbitration wait time std.dev.:	0.000000
+Bus #18 Arbitration wait time maximum:	0
+Bus #18 Arbitration wait time distribution
+   =  0    <  1    <  2    <  5    < 10    < 15    < 25    < 40    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+
+Bus #19
+Bus #19 Total utilization time: 	0.00   	0.00000
+Bus #19 Bus idle period length average: 	1460378624.000000
+Bus #19 Bus idle period length std.dev.:	0.000000
+Bus #19 Bus idle period length maximum:	1460378624
+Bus #19 Bus idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+Bus #19 Number of arbitrations: 	0
+Bus #19 Arbitration wait time average: 	0.000000
+Bus #19 Arbitration wait time std.dev.:	0.000000
+Bus #19 Arbitration wait time maximum:	0
+Bus #19 Arbitration wait time distribution
+   =  0    <  1    <  2    <  5    < 10    < 15    < 25    < 40    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+
+Bus #20
+Bus #20 Total utilization time: 	0.00   	0.00000
+Bus #20 Bus idle period length average: 	1460378624.000000
+Bus #20 Bus idle period length std.dev.:	0.000000
+Bus #20 Bus idle period length maximum:	1460378624
+Bus #20 Bus idle period length distribution
+   <  5    < 10    < 15    < 20    < 25    < 30    < 40    < 50    < 60     60+
+      0       0       0       0       0       0       0       0       0       1 
+Bus #20 Number of arbitrations: 	0
+Bus #20 Arbitration wait time average: 	0.000000
+Bus #20 Arbitration wait time std.dev.:	0.000000
+Bus #20 Arbitration wait time maximum:	0
+Bus #20 Arbitration wait time distribution
+   =  0    <  1    <  2    <  5    < 10    < 15    < 25    < 40    < 60     60+
+      0       0       0       0       0       0       0       0       0       0 
+

@@ -27,5 +27,6 @@ extern blockptr *fat;
 extern blockptr filehandles[];
 extern uint32_t nexthandle;
 extern uint32_t freeblocks;;
+extern FILE *tracefile;
 
 #endif //DAVFS_GLOBALS_H

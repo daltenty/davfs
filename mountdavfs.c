@@ -7,6 +7,7 @@
 #define LOGFILE "/tmp/davfs"
 #define PERM_MODE 0777
 
+FILE *tracefile;
 
 //pthread_mutex_t handlesmutex = PTHREAD_MUTEX_INITIALIZER;
 
@@ -55,11 +56,14 @@ int main(int argc, char *argv[]) {
     }
     davfs_mount(open(devicepath,O_RDWR));
 
+    tracefile=fopen("trace.ascii","w");
+
     umask(0);
     fuse_main(args.argc, args.argv, &davfsops, NULL);
     davfslog("DAVFS Stopping");
     close(blockdevice);
     fclose(logfile);
+    fclose(tracefile);
     davfs_unmount();
     return 0;
 }
